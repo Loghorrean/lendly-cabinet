@@ -1,0 +1,30 @@
+@use "src/shared/styles/mixins" as m;
+
+.switch {
+    width: 2.5rem;
+    height: 1.375rem;
+    padding: 0.125rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    transition: background-color 0.25s ease-in-out;
+    background-color: #e8eaed;
+    &__button {
+        display: block;
+        @include m.box(1.125rem);
+        border-radius: 50%;
+        background-color: var(--white-color);
+        transform: translateX(0);
+        transition: transform 0.25s ease-in-out, background-color 0.25s ease-in-out;
+    }
+    &:not([aria-checked="true"]):hover {
+        & > .switch__button {
+            background-color: #5e6475;
+        }
+    }
+    &[aria-checked="true"] {
+        background-color: var(--primary-purple-color);
+        & > .switch__button {
+            transform: translateX(100%);
+        }
+    }
+}

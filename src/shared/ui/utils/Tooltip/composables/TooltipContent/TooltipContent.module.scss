@@ -1,0 +1,17 @@
+@use "src/shared/styles/mixins" as m;
+
+.tooltip_content {
+    cursor: initial;
+    padding: 0.375rem 0.5rem;
+    background-color: var(--primary-dark-color);
+    color: var(--white-color);
+    position: relative;
+    border-radius: 0.375rem;
+    max-width: 14.5rem;
+    width: max-content;
+    &__arrow {
+        position: absolute;
+        @include m.centerLineWithPositioning;
+        top: 100%;
+    }
+}

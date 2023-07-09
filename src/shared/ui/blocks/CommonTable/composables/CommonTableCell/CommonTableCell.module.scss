@@ -1,0 +1,9 @@
+@use "src/shared/styles/typography" as typo;
+
+.common_table_cell {
+    padding: 1rem;
+    @include typo.baseNormal;
+    & > a {
+        color: var(--primary-purple-color);
+    }
+}

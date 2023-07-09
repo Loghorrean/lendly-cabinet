@@ -1,0 +1,28 @@
+@use "src/shared/styles/variables" as v;
+
+:root {
+    --white-color: #{v.$white-color};
+    --white-color-transparent: #{v.$white-color-transparent};
+    --black-color: #{v.$black-color};
+    --primary-purple-color: #{v.$primary-purple-color};
+    --primary-purple-color-lighter: #{v.$primary-purple-color-lighter};
+    --primary-purple-color-darker: #{v.$primary-purple-color-darker};
+    --primary-purple-background-color: #{v.$primary-purple-background-color};
+    --primary-purple-border-color: #{v.$primary-purple-border-color};
+    --dark-color: #{v.$dark-color};
+    --primary-dark-color: #{v.$primary-dark-color};
+    --primary-dark-color-lighter: #{v.$primary-dark-color-lighter};
+    --primary-dark-color-lightest: #{v.$primary-dark-color-lightest};
+    --color-error-border: #{v.$color-error-border};
+    --color-error-background: #{v.$color-error-background};
+    --color-error-base: #{v.$color-error-base};
+    --primary-gray-color: #{v.$primary-gray-color};
+    --primary-gray-color-text: #{v.$primary-gray-color-text};
+    --primary-gray-color-border: #{v.$primary-gray-border-color};
+    --primary-gray-color-border-lighter: #{v.$primary-gray-border-color-lighter};
+    --bg-mask-color: #{v.$bg-mask-color};
+    --bg-active-color: #{v.$bg-active-color};
+    --success-color: #{v.$success-color};
+    --warning-base-color: #{v.$color-warning-base};
+    --volcano-text-color: #{v.$volcano-text-color};
+}

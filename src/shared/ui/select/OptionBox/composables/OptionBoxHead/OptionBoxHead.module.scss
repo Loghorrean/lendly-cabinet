@@ -1,0 +1,26 @@
+@use "src/shared/styles/typography" as typo;
+
+.option_box__head {
+    @include typo.baseNormal;
+    cursor: pointer;
+    background-color: var(--white-color);
+    padding-inline: 1rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    &:active,
+    &:focus-within,
+    &[aria-expanded="true"] {
+        outline: 2px solid var(--primary-purple-color);
+    }
+}
+
+.option_box__selected {
+    flex-grow: 1;
+    font-weight: 400;
+}
+
+.option_box__placeholder {
+    color: var(--primary-gray-color-text);
+}

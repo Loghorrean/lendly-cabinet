@@ -1,0 +1,38 @@
+@use "src/shared/styles/variables" as v;
+@use "src/shared/styles/mixins" as m;
+
+.error_element {
+    background-color: var(--color-error-background);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-error-border);
+    width: fit-content;
+    &__inner {
+        padding: 0.5rem 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    &__button {
+        cursor: pointer;
+    }
+    &___enter,
+    &___exit_done {
+        opacity: 0;
+        transform: translateY(-10rem);
+    }
+    &___enter_active {
+        opacity: 1;
+        transform: translateY(-50%);
+        transition: all 0.5s;
+    }
+    &___exit_active {
+        opacity: 0;
+        transform: translateY(-10rem);
+        transition: all 0.5s;
+    }
+    &___enter_done,
+    &__exit {
+        opacity: 1;
+        transform: translateY(-50%);
+    }
+}
