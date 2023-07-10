@@ -13,7 +13,7 @@ import {
 import { CommonText } from "@/src/shared/ui/typography";
 import { Button } from "@/src/shared/ui/buttons";
 import AsLink from "@/src/shared/ui/buttons/decorators/AsLink";
-import CloseIcon from "@/src/shared/ui/svg/common/CloseIcon";
+import CloseIcon from "@/src/shared/ui/svg/actions/CloseIcon";
 
 interface Props {
     message: ActionMessage;
