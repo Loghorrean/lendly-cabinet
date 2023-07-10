@@ -1,78 +1,66 @@
 @use "mixins" as m;
 @use "variables" as v;
 
-@mixin lgNormalText {
-    @include m.font-size(1rem);
-    font-weight: 400;
-    letter-spacing: v.$letter-spacing-higher;
-}
-
-@mixin lgStrong {
-    @include lgNormalText;
-    font-weight: 600;
-}
-
-@mixin baseNormal {
+@mixin primaryText {
     font-size: 0.875rem;
-    line-height: 1.375rem;
     font-weight: 400;
-    letter-spacing: v.$letter-spacing;
+    line-height: 1.125rem;
+    letter-spacing: v.$letter-spacing-1;
 }
 
-@mixin baseStrong {
-    @include baseNormal;
-    font-weight: 600;
+@mixin primaryTextAccent {
+    @include primaryText;
+    font-weight: 500;
 }
 
-@mixin smNormal {
-    font-size: 0.75rem;
+@mixin secondaryText {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: calc(1rem - 1px);
+    letter-spacing: v.$letter-spacing-1;
+}
+
+@mixin secondaryTextAccent {
+    @include secondaryText;
+    font-weight: 500;
+}
+
+@mixin regularBasisText {
+    font-size: 0.875rem;
+    font-weight: 400;
     line-height: 1.25rem;
-    letter-spacing: v.$letter-spacing-lesser;
+    letter-spacing: v.$letter-spacing-1;
+}
+
+@mixin regularBasisTextAccent {
+    @include regularBasisText;
+    font-weight: 500;
+}
+
+@mixin tertiaryText {
     font-weight: 400;
-}
-
-@mixin smStrong {
-    @include smNormal;
-    font-weight: 600;
-}
-
-@mixin xlNormal {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    letter-spacing: v.$letter-spacing-higher;
-}
-
-@mixin xlStrong {
-    @include xlNormal;
-    font-weight: 600;
-}
-
-//Sort of h1, but not primary, thanks to designers being idiots
-@mixin mainHeading {
-    font-size: 2.5rem;
-    line-height: 3rem;
-    letter-spacing: -2px;
-    font-weight: 600;
+    font-size: calc(0.75rem + 1px);
+    line-height: 120%;
+    letter-spacing: v.$letter-spacing-1;
 }
 
 @mixin primaryHeading {
-    color: var(--primary-dark-color);
-    font-size: 2rem;
-    line-height: 2.5rem;
-    font-weight: 600;
-    letter-spacing: -1.5px;
+    font-size: 2.25rem;
+    font-weight: 500;
+    line-height: 2.25rem;
+    letter-spacing: v.$letter-spacing-3;
 }
 
 @mixin secondaryHeading {
-    font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 500;
     line-height: 1.75rem;
-    letter-spacing: var(--letter-spacing-higher);
+    letter-spacing: v.$letter-spacing-4;
 }
 
-@mixin heading5 {
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    letter-spacing: v.$letter-spacing-higher;
+@mixin tertiaryHeading {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    letter-spacing: v.$letter-spacing-5;
 }

@@ -1,0 +1,44 @@
+@use "src/shared/styles/typography" as typo;
+@use "src/shared/styles/mixins" as m;
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--white-color);
+    box-shadow: 0 2px 4px -2px #0000000a;
+    &__container {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        padding: 0.75rem 2rem;
+    }
+    &__navigation {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    &__list {
+        display: flex;
+        align-items: stretch;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            height: 1rem;
+            width: 1px;
+            background-color: var(--stroke-on-white-color);
+            @include m.centerColumnWithPositioning;
+            left: -0.5rem;
+        }
+    }
+    &__element {
+    }
+    &__link {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: var(--font-dark-color);
+        @include typo.primaryTextAccent;
+    }
+}

@@ -21,14 +21,14 @@ interface Props extends AllHTMLAttributes<HTMLSpanElement> {
 
 const Money: FC<Props> = ({
     money,
-    separator = ".",
+    separator = ",",
     withPennies = false,
     withCurrency = true,
     moneyMode,
     ...props
 }) => {
     const [main, pennies] = useMemo(() => {
-        const formatted = formatAmount(money.amount / 100);
+        const formatted = formatAmount(money.amount / 100, { thousandsDelimiter: ".", decimalDelimiter: "," });
         return formatted.split(separator);
     }, [money, separator]);
 

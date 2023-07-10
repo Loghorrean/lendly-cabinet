@@ -18,9 +18,9 @@ html {
 body {
     line-height: 1;
     color: var(--primary-dark-color);
-    background-color: #f2f2f2;
+    background-color: #eff1ee;
     font-weight: 400;
-    @include m.useInterFont;
+    @include m.useCoFoSansFont;
 }
 
 a {

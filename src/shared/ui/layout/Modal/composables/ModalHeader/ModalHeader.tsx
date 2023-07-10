@@ -3,7 +3,7 @@ import styles from "./ModalHeader.module.scss";
 import { ReactNode } from "react";
 import { Button } from "@/src/shared/ui/buttons";
 import AsLink from "@/src/shared/ui/buttons/decorators/AsLink";
-import CloseIcon from "@/src/shared/ui/svg/common/CloseIcon";
+import CloseIcon from "@/src/shared/ui/svg/actions/CloseIcon";
 
 type Props = {
     heading: ReactNode;
