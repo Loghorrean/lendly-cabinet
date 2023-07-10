@@ -20,7 +20,11 @@ interface Props {
 }
 
 const SvgContainer: FC<PropsWithChildren<Props>> = ({ size = SVG_CONTAINER_SIZE.SIZE_16, children }) => {
-    return <span className={cn(styles.svg_container, size)}>{children}</span>;
+    return (
+        <span className={cn(styles.svg_container, size)} data-svg-container="true">
+            {children}
+        </span>
+    );
 };
 
 export default SvgContainer;

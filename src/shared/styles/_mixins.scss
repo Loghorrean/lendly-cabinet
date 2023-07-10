@@ -138,6 +138,10 @@ $widths: (
     font-family: "Inter", sans-serif !important;
 }
 
+@mixin useCoFoSansFont {
+    font-family: "CoFoSans", sans-serif !important;
+}
+
 @mixin useResizableImage {
     width: 100%;
     height: auto;

@@ -1,11 +1,11 @@
-import { AnchorHTMLAttributes, FC } from "react";
+import { AnchorHTMLAttributes } from "react";
 import styles from "./ExternalLink.module.scss";
 import { useTargetBlank } from "@/src/shared/utils/hooks/useTargetBlank";
 import { cn } from "@/src/shared/utils";
 
-type Props = AnchorHTMLAttributes<HTMLAnchorElement>;
+export type ExternalLinkProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 
-const ExternalLink: FC<Props> = ({ ...props }) => {
+const ExternalLink = ({ ...props }: ExternalLinkProps) => {
     return (
         <a {...props} {...useTargetBlank()} className={cn(styles.external_link, props.className)}>
             {props.children}

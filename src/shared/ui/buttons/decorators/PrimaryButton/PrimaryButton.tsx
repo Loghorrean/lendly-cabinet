@@ -5,8 +5,9 @@ import styles from "./PrimaryButton.module.scss";
 import { cn, ObjectValues, resultIf } from "@/src/shared/utils";
 
 export const PRIMARY_BUTTON_COLOR = {
-    PURPLE: styles.primary_button___purple,
+    GREEN: styles.primary_button___green,
     WHITE: styles.primary_button___white,
+    BLACK: styles.primary_button___black,
 } as const;
 
 export type PrimaryButtonColor = ObjectValues<typeof PRIMARY_BUTTON_COLOR>;
@@ -14,13 +15,13 @@ export type PrimaryButtonColor = ObjectValues<typeof PRIMARY_BUTTON_COLOR>;
 interface Props {
     color?: PrimaryButtonColor;
     wide?: boolean;
-    larger?: boolean;
+    arrow?: boolean;
 }
 
 const PrimaryButton: ClassNameDecorator<PropsWithChildren<Props>> = ({
-    color,
+    color = PRIMARY_BUTTON_COLOR.GREEN,
     wide,
-    larger = false,
+    arrow = false,
     children,
     className,
 }) => {
@@ -29,8 +30,8 @@ const PrimaryButton: ClassNameDecorator<PropsWithChildren<Props>> = ({
             classNames={cn(
                 styles.primary_button,
                 color,
-                resultIf(wide, styles.primary_button___wide),
-                resultIf(larger, styles.primary_button___larger)
+                resultIf(arrow, styles.primary_button___arrow),
+                resultIf(wide, styles.primary_button___wide)
             )}
             oldClassName={className}
         >

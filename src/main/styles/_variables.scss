@@ -1,8 +1,9 @@
 @use "src/shared/styles/variables" as v;
 
 :root {
-    --common-box-shadow: #{v.$common-box-shadow};
-    --letter-spacing: #{v.$letter-spacing};
-    --letter-spacing-lesser: #{v.$letter-spacing-lesser};
-    --letter-spacing-higher: #{v.$letter-spacing-higher};
+    --letter-spacing-1: #{v.$letter-spacing-1};
+    --letter-spacing-2: #{v.$letter-spacing-2};
+    --letter-spacing-3: #{v.$letter-spacing-3};
+    --letter-spacing-4: #{v.$letter-spacing-4};
+    --letter-spacing-5: #{v.$letter-spacing-5};
 }

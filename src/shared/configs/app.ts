@@ -7,6 +7,9 @@ export const appConfig = {
     get cdnBaseUrl() {
         return process.env.NEXT_PUBLIC_CDN_BASE_URL ?? "";
     },
+    get publicBaseUrl() {
+        return process.env.NEXT_PUBLIC_PUBLIC_BASE_URL ?? "";
+    },
     get userTermsUrl() {
         return process.env.NEXT_PUBLIC_USER_TERMS_URL ?? "";
     },
