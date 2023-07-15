@@ -1,0 +1,17 @@
+.common_notification {
+    background-color: var(--white-color);
+    box-shadow: 0 2px 2px 0 #0000000a;
+    border-radius: 1rem;
+    border: 1px solid var(--stroke-on-white-color);
+    &___linear {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+        gap: 1.5rem;
+    }
+    &___absolute {
+        position: relative;
+        padding: 2rem 2.5rem;
+    }
+}

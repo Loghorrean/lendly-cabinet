@@ -1,0 +1,14 @@
+@use "src/shared/styles/typography" as typo;
+
+.register_reminder {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    &__text {
+        @include typo.tertiaryHeading;
+    }
+    &__link {
+        color: var(--primary-green-color);
+        text-decoration: underline;
+    }
+}

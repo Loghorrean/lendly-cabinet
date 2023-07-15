@@ -1,0 +1,14 @@
+@use "src/shared/styles/mixins" as m;
+
+.common_notification_close {
+    @include m.buttonToLink;
+    @include m.circle(2.5rem);
+    border: 1px solid var(--stroke-on-white-color);
+    background-color: var(--white-color);
+    @include m.centerWithFlex;
+    &__absolute {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+}

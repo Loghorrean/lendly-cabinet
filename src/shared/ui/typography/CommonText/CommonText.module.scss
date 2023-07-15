@@ -2,7 +2,7 @@
 @use "src/shared/styles/typography" as typo;
 
 @mixin commonText {
-    @include typo.baseNormal;
+    @include typo.regularBasisText;
 }
 
 .common_text {
