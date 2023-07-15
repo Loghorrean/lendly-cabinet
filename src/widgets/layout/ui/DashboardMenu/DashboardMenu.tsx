@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./DashboardMenu.module.scss";
 import { ProjectLink } from "@/src/shared/ui/links";
 import WalletIcon from "@/src/shared/ui/svg/menu/WalletIcon";
@@ -6,8 +8,10 @@ import LightningIcon from "@/src/shared/ui/svg/menu/LightningIcon";
 import SettingsIcon from "@/src/shared/ui/svg/menu/SettingsIcon";
 import FolderIcon from "@/src/shared/ui/svg/menu/FolderIcon";
 import ChatIcon from "@/src/shared/ui/svg/menu/ChatIcon";
+import { usePathname } from "next/navigation";
 
 const DashboardMenu = () => {
+    const pathName = usePathname();
     return (
         <aside className={styles.dashboard_menu}>
             <ul className={styles.dashboard_menu__list}>
@@ -18,7 +22,11 @@ const DashboardMenu = () => {
                     </ProjectLink>
                 </li>
                 <li className={styles.dashboard_menu__element}>
-                    <ProjectLink href="/market" className={styles.dashboard_menu__link}>
+                    <ProjectLink
+                        href="/market"
+                        explicitActive={pathName.startsWith("/market")}
+                        className={styles.dashboard_menu__link}
+                    >
                         <ChartIcon />
                         Инвестировать
                     </ProjectLink>
