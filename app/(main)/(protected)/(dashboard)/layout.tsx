@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import { PropsWithChildren } from "react";
-import DashboardMenu from "@/src/widgets/layout/DashboardMenu";
+import DashboardMenu from "../../../../src/widgets/layout/ui/DashboardMenu";
 
 export default function DashboardLayout({ children }: PropsWithChildren) {
     return (

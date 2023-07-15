@@ -1,0 +1,9 @@
+.my_investments_statistics {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    grid-column: 1 / -1;
+    &__header {
+        width: calc(max(50%, 20rem));
+    }
+}

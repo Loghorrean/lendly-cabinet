@@ -1,0 +1,5 @@
+@use "src/shared/styles/typography" as typo;
+
+.common_block_title {
+    @include typo.tertiaryHeading;
+}

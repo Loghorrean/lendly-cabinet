@@ -1,0 +1,15 @@
+@use "src/shared/styles/typography" as typo;
+
+.portfolio_dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    &__heading {
+        @include typo.primaryHeading;
+    }
+    &__blocks {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(10px, 1fr));
+        grid-gap: 0.25rem;
+    }
+}
