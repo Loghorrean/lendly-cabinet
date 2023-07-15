@@ -1,0 +1,34 @@
+@use "src/shared/styles/typography" as typo;
+@use "src/shared/styles/mixins" as m;
+
+.common_navigation_link {
+  height: 100%;
+  display: flex;
+  @include m.centerWithFlex;
+  gap: 0.25rem;
+  padding-block: 1.25rem;
+  white-space: nowrap;
+  color: var(--font-secondary-color);
+  position: relative;
+  border-radius: inherit;
+  background-color: var(--white-color);
+  transition: background-color 0.5s ease-in-out;
+  &::after {
+    content: "";
+    position: absolute;
+    @include m.centerLineWithPositioning;
+    bottom: 0;
+    width: 100%;
+    height: 0.25rem;
+    max-width: 0;
+    transition: max-width 0.5s ease-in-out;
+    background-color: var(--primary-green-color);
+  }
+  &[aria-current="page"] {
+    background-color: #E0E0E033;
+    color: var(--font-dark-color);
+    &::after {
+      max-width: 100%;
+    }
+  }
+}

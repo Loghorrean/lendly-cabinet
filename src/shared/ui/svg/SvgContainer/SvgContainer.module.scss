@@ -2,6 +2,9 @@
 
 .svg_container {
     @include m.centerWithFlex;
+    &___10 {
+        @include m.box(0.625rem);
+    }
     &___12 {
         @include m.box(0.75rem);
     }

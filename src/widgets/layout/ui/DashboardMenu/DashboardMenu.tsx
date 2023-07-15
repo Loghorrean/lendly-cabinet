@@ -18,13 +18,13 @@ const DashboardMenu = () => {
                     </ProjectLink>
                 </li>
                 <li className={styles.dashboard_menu__element}>
-                    <ProjectLink href="/invest" className={styles.dashboard_menu__link}>
+                    <ProjectLink href="/market" className={styles.dashboard_menu__link}>
                         <ChartIcon />
                         Инвестировать
                     </ProjectLink>
                 </li>
                 <li className={styles.dashboard_menu__element}>
-                    <ProjectLink href="/my-investments" className={styles.dashboard_menu__link}>
+                    <ProjectLink href="/portfolio" className={styles.dashboard_menu__link}>
                         <LightningIcon />
                         Мои инвестиции
                     </ProjectLink>

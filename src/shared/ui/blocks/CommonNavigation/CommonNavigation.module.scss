@@ -1,0 +1,13 @@
+@use "src/shared/styles/typography" as typo;
+
+.common_navigation {
+  background-color: var(--white-color);
+  padding-top: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: var(--common-box-shadow);
+  &__heading {
+    padding-inline: 1.5rem;
+    @include typo.secondaryHeading;
+    margin-bottom: 2.5rem;
+  }
+}
