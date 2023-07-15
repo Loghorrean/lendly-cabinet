@@ -3,6 +3,7 @@ import styles from "./SvgContainer.module.scss";
 import { cn, ObjectValues } from "@/src/shared/utils";
 
 export const SVG_CONTAINER_SIZE = {
+    SIZE_10: styles.svg_container___10,
     SIZE_12: styles.svg_container___12,
     SIZE_14: styles.svg_container___14,
     SIZE_16: styles.svg_container___16,
