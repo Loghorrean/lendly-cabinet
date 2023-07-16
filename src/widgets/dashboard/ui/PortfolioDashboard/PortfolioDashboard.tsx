@@ -4,7 +4,7 @@ import { HEADING_TYPE } from "@/src/shared/ui/typography/Heading/Heading";
 import AllPortfolioStatistics from "@/src/widgets/statistics/ui/AllPortfolioStatistics";
 import PortfolioLoansStatistics from "@/src/widgets/loans/ui/PortfolioLoansStatistics";
 import PortfolioProjectsStatistics from "@/src/widgets/projects/ui/PortfolioProjectsStatistics";
-import MyInvestmentsStatistics from "@/src/widgets/investments/ui";
+import MyInvestmentsDashboardStatistics from "@/src/widgets/investments/ui/MyinvestmentDashboardStatistics";
 
 const PortfolioDashboard = () => {
     return (
@@ -16,7 +16,7 @@ const PortfolioDashboard = () => {
                 <AllPortfolioStatistics />
                 <PortfolioLoansStatistics />
                 <PortfolioProjectsStatistics />
-                <MyInvestmentsStatistics />
+                <MyInvestmentsDashboardStatistics />
             </div>
         </div>
     );

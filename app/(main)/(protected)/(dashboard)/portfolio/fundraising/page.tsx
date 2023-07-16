@@ -1,3 +1,5 @@
+import MyFundraisingInvestmentsList from "@/src/widgets/investments/ui/MyFundraisingInvestmentsList";
+
 export default function MyFundraisingInvestments() {
-    return <div>My Fundraising Investments</div>;
+    return <MyFundraisingInvestmentsList />;
 }
