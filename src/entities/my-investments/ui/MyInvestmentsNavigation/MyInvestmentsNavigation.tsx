@@ -9,7 +9,7 @@ const MyInvestmentsNavigation = () => {
     const path = usePathname();
     return (
         <CommonNavigation heading="Мои инвестиции">
-            <CommonNavigation.List stretch={false} className={styles.my_investments_navigation__list}>
+            <CommonNavigation.List className={styles.my_investments_navigation__list}>
                 <CommonNavigation.Link
                     href="/portfolio/fundraising"
                     explicitActive={path === "/portfolio"}

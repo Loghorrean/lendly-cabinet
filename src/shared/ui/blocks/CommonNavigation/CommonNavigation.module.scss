@@ -9,5 +9,8 @@
         padding-inline: 1.5rem;
         @include typo.secondaryHeading;
         margin-bottom: 2.5rem;
+        &___single {
+            margin-bottom: 1.5rem;
+        }
     }
 }

@@ -3,8 +3,8 @@
 .my_investments_navigation {
     &__list {
         & li:last-child {
-            flex-grow: 1;
-            & > a {
+            & a {
+                padding-inline: 1.5rem;
                 width: 100%;
             }
         }

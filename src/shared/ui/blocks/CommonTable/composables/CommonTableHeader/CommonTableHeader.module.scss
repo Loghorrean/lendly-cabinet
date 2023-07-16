@@ -24,8 +24,5 @@
             gap: 0.125rem;
             text-transform: uppercase;
         }
-        @supports not (selector(:has(*))) {
-            cursor: pointer;
-        }
     }
 }
