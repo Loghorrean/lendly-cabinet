@@ -7,7 +7,7 @@ const isQual = false;
 const PrimaryMarketBlock = () => {
     return (
         <div className={styles.primary_market_block}>
-            {isQual ? <QualifiedInvestorRequirement /> : <PrimaryMarketMain />}
+            {isQual ? <PrimaryMarketMain /> : <QualifiedInvestorRequirement />}
         </div>
     );
 };

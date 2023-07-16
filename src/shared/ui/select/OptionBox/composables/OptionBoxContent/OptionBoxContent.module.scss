@@ -76,7 +76,7 @@
         padding: calc(0.5rem + 1px) 1.5rem;
         transition: background-color 0.5s ease-in-out;
         border-radius: inherit;
-        @include typo.baseNormal;
+        @include typo.regularBasisText;
         &[data-current="true"] {
             outline: 2px solid var(--primary-purple-color);
             outline-offset: -2px;
