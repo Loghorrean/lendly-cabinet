@@ -1,0 +1,10 @@
+.primary_market_offer {
+  padding: 1.25rem 1.5rem;
+  background-color: var(--white-color);
+  display: grid;
+  grid-template-columns: minmax(21rem, 1fr) 4rem 4rem minmax(auto, 15.5rem) 8.75rem;
+  grid-gap: 1.5rem;
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--stroke-on-white-color);
+  }
+}

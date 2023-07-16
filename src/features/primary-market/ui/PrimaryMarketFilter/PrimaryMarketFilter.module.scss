@@ -1,0 +1,22 @@
+.primary_market_filter {
+  background-color: var(--white-color);
+  border-radius: 0.75rem;
+  box-shadow: var(--common-box-shadow);
+  padding-inline: 1.5rem;
+  padding-block: 0.5rem;
+  transition: padding-block 0.375s ease-in-out, max-height 0.375s ease-in-out;
+  &___active {
+    padding-block: 1.5rem;
+  }
+  &__body {
+
+  }
+  &__inner {
+
+  }
+  &__open {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

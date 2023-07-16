@@ -9,7 +9,7 @@ const Paginator = dynamic(() => import("../Paginator"), {
 
 const DynamicPaginator = () => {
     return (
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader dark />}>
             <Paginator />
         </Suspense>
     );

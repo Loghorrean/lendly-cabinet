@@ -5,6 +5,8 @@ import { PaginationContextType } from "../../context/PaginationContext";
 import { Collection } from "@/src/shared/models/common/Collection";
 import { usePagination } from "@/src/shared/ui/pagination/utils/usePagination";
 import PaginationContextProvider from "../../context/PaginationContext";
+import PaginationFooter from "@/src/shared/ui/pagination/ui/composables/PaginationFooter";
+import PaginationContent from "@/src/shared/ui/pagination/ui/composables/PaginationContent";
 
 export type PaginationConfig = {
     firstPage: number;
@@ -48,5 +50,8 @@ function Pagination({ config, collection, totalCount, loading, children }: Props
 
     return <PaginationContextProvider {...contextValue}>{children}</PaginationContextProvider>;
 }
+
+Pagination.Content = PaginationContent;
+Pagination.Footer = PaginationFooter;
 
 export default Pagination;
