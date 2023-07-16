@@ -64,3 +64,9 @@
     line-height: 1.25rem;
     letter-spacing: v.$letter-spacing-5;
 }
+
+@mixin tagText {
+    font-weight: 500;
+    font-size: 0.625rem;
+    line-height: 0.75rem;
+}
