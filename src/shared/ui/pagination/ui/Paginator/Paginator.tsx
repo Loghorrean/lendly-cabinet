@@ -43,7 +43,7 @@ const Paginator = () => {
                 className={cn(styles.previous_page_link, resultIf(isDisabled, styles.previous_page_link___disabled))}
             >
                 <div className={styles.my_page_link_container}>
-                    <PaginationArrowLeft active={!isDisabled} />
+                    <PaginationArrowLeft clickable={!isDisabled} />
                 </div>
             </ProjectLink>
         );
@@ -80,7 +80,7 @@ const Paginator = () => {
                 className={cn(styles.next_page_link, resultIf(isDisabled, styles.next_page_link___disabled))}
             >
                 <div className={styles.my_page_link_container}>
-                    <PaginationArrowRight active={!isDisabled} />
+                    <PaginationArrowRight clickable={!isDisabled} />
                 </div>
             </ProjectLink>
         );

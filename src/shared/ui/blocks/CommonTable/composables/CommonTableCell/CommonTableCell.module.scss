@@ -2,6 +2,9 @@
 
 .common_table_cell {
     padding-block: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
     & > a {
         color: var(--primary-purple-color);
     }

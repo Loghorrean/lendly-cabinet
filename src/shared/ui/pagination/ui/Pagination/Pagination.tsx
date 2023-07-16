@@ -18,7 +18,7 @@ export type PaginationConfig = {
 
 const defaultConfig: PaginationConfig = {
     firstPage: 1,
-    defaultPerPage: 10,
+    defaultPerPage: 1,
     pageParam: "page",
     perPageParam: "perPage",
     filterParam: "filter",

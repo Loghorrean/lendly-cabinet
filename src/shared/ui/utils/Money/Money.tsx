@@ -3,6 +3,7 @@ import styles from "./Money.module.scss";
 import { Money as MoneyModel } from "@/src/shared/models/common";
 import { cn, formatAmount, ObjectValues } from "@/src/shared/utils";
 import CurrencySymbol from "@/src/shared/ui/utils/CurrencySymbol";
+import AbbreviatedMoneyAmount from "@/src/shared/ui/utils/AbbreviatedMoneyAmount";
 
 export const MONEY_MODE = {
     INCOMING: "INCOMING",
@@ -13,6 +14,7 @@ export type MoneyMode = ObjectValues<typeof MONEY_MODE>;
 
 interface Props extends AllHTMLAttributes<HTMLSpanElement> {
     money: MoneyModel;
+    abbreviated?: boolean;
     separator?: string;
     withPennies?: boolean;
     withCurrency?: boolean;
@@ -21,6 +23,7 @@ interface Props extends AllHTMLAttributes<HTMLSpanElement> {
 
 const Money: FC<Props> = ({
     money,
+    abbreviated = false,
     separator = ",",
     withPennies = false,
     withCurrency = true,
@@ -44,10 +47,14 @@ const Money: FC<Props> = ({
     return (
         <span {...props} className={cn(styles.money, props.className)}>
             {moneyMode && renderMoneyMode(moneyMode)}
-            <>
-                <span className={styles.money__main}>{main}</span>
-                {withPennies && <span>,{pennies}</span>}
-            </>
+            {abbreviated ? (
+                <AbbreviatedMoneyAmount amount={parseInt(main.replaceAll(".", ""))} />
+            ) : (
+                <>
+                    <span className={styles.money__main}>{main}</span>
+                    {withPennies && <span>,{pennies}</span>}
+                </>
+            )}
             {withCurrency && (
                 <span>
                     &nbsp;
