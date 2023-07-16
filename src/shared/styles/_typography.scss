@@ -65,6 +65,13 @@
     letter-spacing: v.$letter-spacing-5;
 }
 
+@mixin quartenaryHeading {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: v.$letter-spacing-1;
+}
+
 @mixin tagText {
     font-weight: 500;
     font-size: 0.625rem;

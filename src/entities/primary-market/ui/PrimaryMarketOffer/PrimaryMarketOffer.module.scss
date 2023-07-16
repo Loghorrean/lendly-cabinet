@@ -1,10 +1,88 @@
+@use "src/shared/styles/mixins" as m;
+@use "src/shared/styles/typography" as typo;
+
 .primary_market_offer {
   padding: 1.25rem 1.5rem;
   background-color: var(--white-color);
   display: grid;
-  grid-template-columns: minmax(21rem, 1fr) 4rem 4rem minmax(auto, 15.5rem) 8.75rem;
+  grid-template-columns: minmax(17.5rem, 1fr) 4rem 4rem minmax(13rem, 1fr) 8.75rem;
   grid-gap: 1.5rem;
   &:not(:last-child) {
     border-bottom: 1px solid var(--stroke-on-white-color);
+  }
+  &__main {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  &__percentage {
+    @include m.box(4rem);
+  }
+  &__percent {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    letter-spacing: var(--letter-spacing-1);
+    text-align: center;
+  }
+  &__percent_text {
+    font-weight: 500;
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    text-transform: uppercase;
+    fill: var(--font-medium-gray-color);
+  }
+  &__types {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    overflow: hidden;
+    margin-bottom: 0.375rem;
+  }
+  &__type {
+    border: 1px solid var(--stroke-on-white-color);
+    text-transform: uppercase;
+    color: var(--font-secondary-color);
+    background-color: var(--gray-background-color-secondary);
+    font-weight: 500;
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    text-align: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+  }
+  &__title {
+    @include typo.quartenaryHeading;
+    margin-bottom: 0.125rem;
+  }
+  &__id {
+    @include typo.tagText;
+    text-transform: uppercase;
+    color: var(--font-medium-gray-color);
+  }
+  &__value {
+    @include typo.primaryTextAccent;
+  }
+  &__progress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  &__progress_values {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  &__rounds {
+    position: absolute;
+    @include m.centerLineWithPositioning;
+    top: 0.125rem;
+    color: var(--font-secondary-color);
+    @include typo.tertiaryText;
+  }
+  &__link {
+    align-self: center;
   }
 }
