@@ -1,7 +1,7 @@
-import styles from "./MyInvestmentsStatistics.module.scss";
+import styles from "./MyInvestmentsDashboardStatistics.module.scss";
 import CommonBlock from "@/src/shared/ui/blocks/CommonBlock";
 
-const MyInvestmentsStatistics = () => {
+const MyInvestmentsDashboardStatistics = () => {
     return (
         <CommonBlock className={styles.my_investments_statistics}>
             <header className={styles.my_investments_statistics__header}>
@@ -11,4 +11,4 @@ const MyInvestmentsStatistics = () => {
     );
 };
 
-export default MyInvestmentsStatistics;
+export default MyInvestmentsDashboardStatistics;

@@ -1,12 +1,12 @@
 .common_input_container {
-    padding: calc(0.5rem - 1px) 0.75rem;
+    padding: 1.25rem 1.5rem;
     background-color: var(--white-color);
-    border-radius: 0.375rem;
+    border-radius: 0.75rem;
     min-width: 0;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    border: 1px solid var(--primary-gray-color-border-lighter);
+    box-shadow: var(--common-box-shadow);
     &___error {
         border-color: var(--color-error-base);
     }

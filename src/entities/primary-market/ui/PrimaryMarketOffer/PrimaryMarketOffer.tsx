@@ -1,6 +1,5 @@
 import CommonTableRow from "@/src/shared/ui/blocks/CommonTable/composables/CommonTableRow";
 import styles from "./PrimaryMarketOffer.module.scss";
-import RoundProgressBar from "@/src/shared/ui/utils/RoundProgressBar";
 import { Money, Tooltip } from "@/src/shared/ui/utils";
 import QuestionBlock from "@/src/shared/ui/utils/QuestionBlock";
 import TooltipContent from "@/src/shared/ui/utils/Tooltip/composables/TooltipContent";
@@ -9,39 +8,12 @@ import ProgressBar from "@/src/shared/ui/utils/ProgressBar";
 import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
 import { ProjectLink } from "@/src/shared/ui/links";
+import CommonInvestmentTitle from "@/src/entities/investment/ui/CommonInvestmentTitle";
 
 const PrimaryMarketOffer = () => {
     return (
         <CommonTableRow className={styles.primary_market_offer}>
-            <div className={styles.primary_market_offer__main}>
-                <RoundProgressBar amount={64}>
-                    <text
-                        className={styles.primary_market_offer__percent}
-                        x="50%"
-                        y="50%"
-                        dy="-0.1em"
-                        textAnchor="middle"
-                    >
-                        64%
-                    </text>
-                    <text
-                        className={styles.primary_market_offer__percent_text}
-                        x="50%"
-                        y="50%"
-                        dy="1.25em"
-                        textAnchor="middle"
-                    >
-                        LTV
-                    </text>
-                </RoundProgressBar>
-                <div>
-                    <div className={styles.primary_market_offer__types}>
-                        <div className={styles.primary_market_offer__type}>Проект</div>
-                    </div>
-                    <p className={styles.primary_market_offer__title}>ООО Эстетик Вижен Плюс</p>
-                    <span className={styles.primary_market_offer__id}>ID 332932-7666</span>
-                </div>
-            </div>
+            <CommonInvestmentTitle percentage={64} type="Проект" title="ООО Эстетик Вижен Плюс" id="332932-7666" />
             <CommonTableCell className={styles.primary_market_offer__value}>
                 <span>18%</span>
                 <Tooltip tooltipContent={<TooltipContent>Ожидаемая доходность</TooltipContent>}>

@@ -1,26 +1,26 @@
 .common_navigation_list {
-  border-radius: 0 0 0.75rem 0.75rem;
-  border-top: 1px solid var(--stroke-on-white-color);
-  width: 100%;
-  background-color: var(--white-color);
-  &__list {
+    border-radius: 0 0 0.75rem 0.75rem;
+    border-top: 1px solid var(--stroke-on-white-color);
     width: 100%;
-    display: flex;
-    align-items: stretch;
-  }
-  &__element {
-    &___stretched {
-      flex: 1;
+    background-color: var(--white-color);
+    &__list {
+        width: 100%;
+        display: flex;
+        align-items: stretch;
     }
-    border-radius: 0;
-    &:first-child {
-      border-radius: 0 0 0 0.75rem;
+    &__element {
+        &___stretched {
+            flex: 1;
+        }
+        border-radius: 0;
+        &:first-child {
+            border-radius: 0 0 0 0.75rem;
+        }
+        &:last-child {
+            border-radius: 0 0 0.75rem 0;
+        }
+        &:not(:last-child) {
+            border-right: 1px solid var(--stroke-on-white-color);
+        }
     }
-    &:last-child {
-      border-radius: 0 0 0.75rem 0;
-    }
-    &:not(:last-child) {
-      border-right: 1px solid var(--stroke-on-white-color);
-    }
-  }
 }

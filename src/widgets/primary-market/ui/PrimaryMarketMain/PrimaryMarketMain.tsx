@@ -34,11 +34,11 @@ const PrimaryMarketMain = () => {
                 <CommonTable>
                     <CommonTable.Header className={styles.primary_market_main__header}>
                         <div>Название предложения</div>
-                        <div onClick={toggleProfitSorting}>
+                        <div onClick={toggleProfitSorting} className={styles.primary_market_main__sorting}>
                             <span>Доход,%</span>
                             <SortingDirectionBlock direction={profitSorting} />
                         </div>
-                        <div onClick={toggleTermSorting}>
+                        <div onClick={toggleTermSorting} className={styles.primary_market_main__sorting}>
                             <span>Срок</span>
                             <SortingDirectionBlock direction={termSorting} />
                         </div>

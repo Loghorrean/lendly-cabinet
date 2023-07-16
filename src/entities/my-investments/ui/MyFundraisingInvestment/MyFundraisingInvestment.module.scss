@@ -1,0 +1,25 @@
+@use "src/shared/styles/typography" as typo;
+@use "src/shared/styles/mixins" as m;
+
+.my_fundraising_investment {
+    padding-block: 1.25rem;
+    cursor: pointer;
+    &__inner {
+        display: grid;
+        grid-template-columns: minmax(15rem, auto) 8rem 5.5rem repeat(2, 5.125rem) 3rem 2.5rem;
+        grid-gap: 1.5rem;
+    }
+    &__value {
+        @include typo.primaryTextAccent;
+    }
+    &__open {
+        margin-block: auto;
+        @include m.circle(2.5rem);
+        border: 1px solid var(--stroke-on-white-color);
+        @include m.centerWithFlex;
+        transition: transform 0.375s ease-in-out;
+        &___active {
+            transform: rotate(180deg);
+        }
+    }
+}

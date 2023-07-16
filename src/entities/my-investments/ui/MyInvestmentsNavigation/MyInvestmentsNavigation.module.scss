@@ -1,35 +1,35 @@
 @use "src/shared/styles/mixins" as m;
 
 .my_investments_navigation {
-  &__list {
-    & li:last-child {
-      flex-grow: 1;
-      & > a {
-        width: 100%;
-      }
+    &__list {
+        & li:last-child {
+            & a {
+                padding-inline: 1.5rem;
+                width: 100%;
+            }
+        }
     }
-  }
-  &__link {
-    padding-inline: 0.75em;
-  }
-  &__count {
-    @include m.centerWithFlex;
-    font-weight: 500;
-    line-height: calc(0.75rem + 1px);
-    font-size: 0.625rem;
-    letter-spacing: -1%;
-    background-color: var(--small-block-background-color);
-    border-radius: 0.25rem;
-    padding: 1.5px 0.25rem;
-    color: var(--font-dark-color);
-    transition: background-color 0.375s ease-in-out, color 0.375s ease-in-out;
-    &___current {
-      color: var(--white-color);
-      background-color: var(--primary-green-color);
+    &__link {
+        padding-inline: 0.75em;
     }
-    &___expired {
-      background-color: #F3BFBF;
-      color: var(--font-dark-color);
+    &__count {
+        @include m.centerWithFlex;
+        font-weight: 500;
+        line-height: calc(0.75rem + 1px);
+        font-size: 0.625rem;
+        letter-spacing: -1%;
+        background-color: var(--small-block-background-color);
+        border-radius: 0.25rem;
+        padding: 1.5px 0.25rem;
+        color: var(--font-dark-color);
+        transition: background-color 0.375s ease-in-out, color 0.375s ease-in-out;
+        &___current {
+            color: var(--white-color);
+            background-color: var(--primary-green-color);
+        }
+        &___expired {
+            background-color: #f3bfbf;
+            color: var(--font-dark-color);
+        }
     }
-  }
 }
