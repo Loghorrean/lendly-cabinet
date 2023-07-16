@@ -7,6 +7,7 @@ import Main from "@/src/shared/ui/layout/Main";
 import { PropsWithChildren } from "react";
 import Footer from "@/src/shared/ui/layout/Footer";
 import UserHeader from "@/src/widgets/layout/ui/UserHeader";
+import ActionMessageContainer from "@/src/shared/action-messages/ui/ActionMessageContainer";
 
 const MainContent = ({ children }: PropsWithChildren) => {
     const { overlayActive } = useOverlay();
@@ -18,6 +19,7 @@ const MainContent = ({ children }: PropsWithChildren) => {
                 <Main>{children}</Main>
                 <Footer />
             </Content>
+            <ActionMessageContainer />
         </>
     );
 };
