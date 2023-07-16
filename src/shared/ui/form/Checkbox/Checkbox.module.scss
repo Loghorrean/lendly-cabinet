@@ -23,7 +23,7 @@
     &__label {
         position: relative;
         margin-bottom: 0;
-        @include typo.baseNormal;
+        @include typo.regularBasisText;
         color: var(--primary-dark-color);
         &::after,
         &::before {

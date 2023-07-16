@@ -1,7 +1,7 @@
 @use "src/shared/styles/typography" as typo;
 
 .option_box__head {
-    @include typo.baseNormal;
+    @include typo.regularBasisText;
     cursor: pointer;
     background-color: var(--white-color);
     padding-inline: 1rem;

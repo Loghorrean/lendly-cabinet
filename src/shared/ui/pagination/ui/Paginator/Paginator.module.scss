@@ -31,6 +31,7 @@
     @include m.centerWithFlex;
     @include typo.primaryTextAccent;
     color: var(--font-dark-color);
+    transition: background-color 0.375s ease-in-out, color 0.375s ease-in-out;
     &___active {
         background-color: var(--primary-green-color);
         cursor: initial;
