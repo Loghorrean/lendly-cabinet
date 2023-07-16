@@ -32,19 +32,31 @@ const DashboardMenu = () => {
                     </ProjectLink>
                 </li>
                 <li className={styles.dashboard_menu__element}>
-                    <ProjectLink href="/portfolio" className={styles.dashboard_menu__link}>
+                    <ProjectLink
+                        href="/portfolio"
+                        explicitActive={pathName.startsWith("/portfolio")}
+                        className={styles.dashboard_menu__link}
+                    >
                         <LightningIcon />
                         Мои инвестиции
                     </ProjectLink>
                 </li>
                 <li className={styles.dashboard_menu__element}>
-                    <ProjectLink href="/analytics" className={styles.dashboard_menu__link}>
+                    <ProjectLink
+                        href="/analytics"
+                        explicitActive={pathName.startsWith("/analytics")}
+                        className={styles.dashboard_menu__link}
+                    >
                         <WalletIcon />
                         Аналитика
                     </ProjectLink>
                 </li>
                 <li className={styles.dashboard_menu__element}>
-                    <ProjectLink href="/documents" className={styles.dashboard_menu__link}>
+                    <ProjectLink
+                        href="/reports"
+                        explicitActive={pathName.startsWith("/reports")}
+                        className={styles.dashboard_menu__link}
+                    >
                         <SettingsIcon />
                         Документы и отчеты
                     </ProjectLink>
