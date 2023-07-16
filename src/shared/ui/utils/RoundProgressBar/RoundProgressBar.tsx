@@ -7,7 +7,7 @@ type Props = {
     amount: number;
 };
 
-const RoundProgressBar = ({ amount, size = 106, strokeWidth = 6, children }: PropsWithChildren<Props>) => {
+const RoundProgressBar = ({ amount, size = 64, strokeWidth = 3, children }: PropsWithChildren<Props>) => {
     const viewBox = `0 0 ${size} ${size}`;
     const radius = (size - strokeWidth) / 2;
     const dashArray = Math.PI * 2 * radius;

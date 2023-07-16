@@ -6,15 +6,18 @@
         fill: none;
     }
     &__background {
-        stroke: var(--primary-gray-color-border);
+        stroke: #E4EAE2;
     }
     &__progress {
-        stroke: var(--primary-purple-color);
+        stroke: var(--primary-green-color);
         stroke-linecap: round;
         stroke-linejoin: round;
     }
     &__text {
-        @include typo.mainHeading;
-        fill: var(--primary-purple-color);
+        font-weight: 500;
+        font-size: 0.875rem;
+        line-height: 1rem;
+        letter-spacing: var(--letter-spacing-1);
+        fill: var(--font-dark-color);
     }
 }

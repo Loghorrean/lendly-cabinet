@@ -10,7 +10,7 @@ const MarketNavigation = () => {
     return (
         <CommonNavigation heading="Доступные предложения">
             <CommonNavigation.List>
-                <CommonNavigation.Link href="/market/primary" explicitActive={path === "/invest"}>
+                <CommonNavigation.Link href="/market/primary" explicitActive={path === "/market"}>
                     Первичный рынок
                     <div className={styles.market_navigation__lock}>
                         <SmallLockIcon />

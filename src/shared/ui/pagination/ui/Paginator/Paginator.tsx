@@ -10,8 +10,6 @@ import { cn, getQueryObject, resultIf } from "@/src/shared/utils";
 import PaginationArrowLeft from "@/src/shared/ui/svg/pagination/PaginationArrowLeft";
 import PaginationArrowRight from "@/src/shared/ui/svg/pagination/PaginationArrowRight";
 import Loader from "@/src/shared/ui/loaders/Loader";
-import { CommonText } from "@/src/shared/ui/typography";
-import { COMMON_TEXT_COLOR } from "@/src/shared/ui/typography/CommonText/CommonText";
 
 type PaginatorQuery = {
     [key: string]: number;
@@ -19,8 +17,8 @@ type PaginatorQuery = {
 
 //TODO: ADD MAX NUMBER OF PAGES
 const Paginator = () => {
-    const pathname = usePathname();
     const context = usePaginationContext();
+    const pathname = usePathname();
 
     const countPages = (): number => {
         return Math.ceil(context.totalCount / context.perPage);
@@ -45,7 +43,7 @@ const Paginator = () => {
                 className={cn(styles.previous_page_link, resultIf(isDisabled, styles.previous_page_link___disabled))}
             >
                 <div className={styles.my_page_link_container}>
-                    <PaginationArrowLeft active={!isDisabled} />
+                    <PaginationArrowLeft clickable={!isDisabled} />
                 </div>
             </ProjectLink>
         );
@@ -53,9 +51,9 @@ const Paginator = () => {
 
     const renderPages = () => {
         const buffer: Array<ReactElement> = [];
-        for (let i = 0; i < countPages(); ++i) {
-            const isActive = context.page === i + 1;
-            const href = generatePageUrl(i + 1);
+        for (let i = 1; i <= countPages(); ++i) {
+            const isActive = context.page === i;
+            const href = generatePageUrl(i);
             buffer.push(
                 <li key={i}>
                     <ProjectLink
@@ -65,12 +63,7 @@ const Paginator = () => {
                             resultIf(isActive, cn(styles.my_page_link___active, styles.my_page_link_container))
                         )}
                     >
-                        <CommonText
-                            bold={isActive}
-                            color={isActive ? COMMON_TEXT_COLOR.PURPLE : COMMON_TEXT_COLOR.DARK}
-                        >
-                            {i + 1}
-                        </CommonText>
+                        {i}
                     </ProjectLink>
                 </li>
             );
@@ -87,7 +80,7 @@ const Paginator = () => {
                 className={cn(styles.next_page_link, resultIf(isDisabled, styles.next_page_link___disabled))}
             >
                 <div className={styles.my_page_link_container}>
-                    <PaginationArrowRight active={!isDisabled} />
+                    <PaginationArrowRight clickable={!isDisabled} />
                 </div>
             </ProjectLink>
         );
