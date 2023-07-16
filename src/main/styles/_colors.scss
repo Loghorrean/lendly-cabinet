@@ -28,4 +28,7 @@
     --red-error-color: #{v.$red-error-color};
     --block-background-color: #{v.$block-background-color};
     --small-block-background-color: #{v.$small-block-background-color};
+    --error-border-color: #{v.$color-error-border};
+    --error-background-color: #{v.$color-error-background};
+    --error-base-color: #{v.$color-error-base};
 }

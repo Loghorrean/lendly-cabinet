@@ -1,8 +1,8 @@
 export const metaConfig = {
     get baseTitle() {
-        return "Investing Football";
+        return "Lendly";
     },
     get baseDescription() {
-        return "Investing in football players";
+        return "Lendly";
     },
 };

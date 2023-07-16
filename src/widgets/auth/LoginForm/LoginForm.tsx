@@ -11,11 +11,14 @@ import PrimaryButtonArrow from "@/src/shared/ui/buttons/decorators/PrimaryButton
 import { PRIMARY_BUTTON_ARROW_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButtonArrow/PrimaryButtonArrow";
 import { SyntheticEvent } from "react";
 import AuthLink from "@/src/widgets/auth/AuthLink";
+import { useActionMessages } from "@/src/shared/action-messages/store";
+import { ACTION_MESSAGE_TYPE } from "@/src/shared/action-messages/model/ActionMessage";
 
 const LoginForm = () => {
+    const { addMessage } = useActionMessages();
     const handleSubmit = (event: SyntheticEvent) => {
         event.preventDefault();
-        console.log("FORM SUBMITTED");
+        addMessage(ACTION_MESSAGE_TYPE.ERROR, "Неверный логин/пароль!");
     };
     return (
         <form className={styles.login_form} onSubmit={handleSubmit}>

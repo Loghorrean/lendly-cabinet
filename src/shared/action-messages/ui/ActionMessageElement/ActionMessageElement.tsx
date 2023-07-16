@@ -4,7 +4,6 @@ import styles from "./ActionMessageElement.module.scss";
 import { FC, ReactElement, useRef } from "react";
 import { useActionMessages } from "@/src/shared/action-messages/store";
 import { CSSTransition } from "react-transition-group";
-import ErrorIcon from "@/src/shared/ui/svg/action-messages/ErrorMessageIcon";
 import {
     ACTION_MESSAGE_TYPE,
     ActionMessage,
@@ -14,13 +13,14 @@ import { CommonText } from "@/src/shared/ui/typography";
 import { Button } from "@/src/shared/ui/buttons";
 import AsLink from "@/src/shared/ui/buttons/decorators/AsLink";
 import CloseIcon from "@/src/shared/ui/svg/actions/CloseIcon";
+import ErrorMessageIcon from "@/src/shared/action-messages/ui/icons/ErrorMessageIcon";
 
 interface Props {
     message: ActionMessage;
 }
 
 const signsMap = {
-    [ACTION_MESSAGE_TYPE.ERROR]: <ErrorIcon />,
+    [ACTION_MESSAGE_TYPE.ERROR]: <ErrorMessageIcon />,
 } as const satisfies Record<ActionMessageType, ReactElement>;
 
 const ActionMessageElement: FC<Props> = ({ message }) => {
