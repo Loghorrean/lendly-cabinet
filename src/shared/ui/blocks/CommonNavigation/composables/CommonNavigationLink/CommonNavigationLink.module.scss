@@ -13,6 +13,7 @@
   border-radius: inherit;
   background-color: var(--white-color);
   transition: background-color 0.5s ease-in-out;
+  overflow: hidden;
   &::after {
     content: "";
     position: absolute;
@@ -27,6 +28,7 @@
   &[aria-current="page"] {
     background-color: #E0E0E033;
     color: var(--font-dark-color);
+    font-weight: 500;
     &::after {
       max-width: 100%;
     }

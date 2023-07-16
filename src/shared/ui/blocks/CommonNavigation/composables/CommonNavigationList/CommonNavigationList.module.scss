@@ -9,7 +9,9 @@
     align-items: stretch;
   }
   &__element {
-    flex: 1;
+    &___stretched {
+      flex: 1;
+    }
     border-radius: 0;
     &:first-child {
       border-radius: 0 0 0 0.75rem;

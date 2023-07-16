@@ -32,7 +32,11 @@ const DashboardMenu = () => {
                     </ProjectLink>
                 </li>
                 <li className={styles.dashboard_menu__element}>
-                    <ProjectLink href="/portfolio" className={styles.dashboard_menu__link}>
+                    <ProjectLink
+                        href="/portfolio"
+                        explicitActive={pathName.startsWith("/portfolio")}
+                        className={styles.dashboard_menu__link}
+                    >
                         <LightningIcon />
                         Мои инвестиции
                     </ProjectLink>
