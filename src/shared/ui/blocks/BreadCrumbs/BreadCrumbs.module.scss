@@ -1,0 +1,28 @@
+@use "src/shared/styles/typography" as typo;
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  &__link {
+    display: block;
+    padding-block: 0.25rem;
+    @include typo.tertiaryText;
+    color: var(--font-secondary-color);
+    transition: color 0.375s ease-in-out;
+    &:hover {
+      color: var(--primary-green-color);
+    }
+    &___last {
+      color: var(--font-dark-color);
+      &:hover {
+        color: var(--font-dark-color);
+      }
+    }
+  }
+  &__separator {
+    @include typo.tertiaryText;
+    color: var(--font-secondary-color);
+  }
+}
