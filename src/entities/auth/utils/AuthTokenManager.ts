@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import { Unauthorized } from "@/src/shared/models/errors";
 import { AuthTokenExpired, LockFactory } from "@/src/shared/utils";
 import { AuthManager } from "@/src/entities/auth/api";
-import { AuthTokenStorage } from "@/src/entities/auth/utils";
+import { AuthTokenStorage } from "@/src/entities/auth/utils/index";
 import { BearerToken } from "@/src/entities/auth/model";
 
 export class AuthTokenManager {

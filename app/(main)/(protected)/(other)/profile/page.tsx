@@ -1,5 +1,5 @@
-import ProfileMain from "@/src/widgets/profile/ProfileMain/ProfileMain";
+import ProfileBlock from "@/src/widgets/profile/ProfileBlock";
 
 export default function Profile() {
-    return <ProfileMain />;
+    return <ProfileBlock />;
 }

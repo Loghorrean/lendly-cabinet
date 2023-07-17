@@ -13,13 +13,10 @@ import { SyntheticEvent, useCallback, useMemo, useState } from "react";
 import AuthLink from "@/src/widgets/auth/AuthLink";
 import { useActionMessages } from "@/src/shared/action-messages/store";
 import { isNotEmpty, ValidationErrors } from "@/src/shared/utils";
-import { createAuthManager } from "@/src/entities/auth/api";
-import { createAuthTokenManager } from "@/src/features/refresh";
-import { useMutation } from "@tanstack/react-query";
-import { BearerToken } from "@/src/entities/auth/model";
 import { ACTION_MESSAGE_TYPE } from "@/src/shared/action-messages/model/ActionMessage";
 import { useLoginMutation } from "@/src/entities/auth/hooks";
 import Loader from "@/src/shared/ui/loaders/Loader";
+import { createAuthTokenManager } from "@/src/entities/auth/utils";
 
 type LoginFormErrors = {
     username?: ValidationErrors;
@@ -56,12 +53,13 @@ const LoginForm = () => {
             { username, password },
             {
                 onSuccess: token => {
-                    const tokenManager = createAuthTokenManager(createAuthManager());
+                    const tokenManager = createAuthTokenManager();
                     tokenManager!.create(token);
                 },
                 onError: () => {
                     addMessage(ACTION_MESSAGE_TYPE.ERROR, "Неверный логин/пароль!");
                 },
+                onSettled: () => setIsInitial(false),
             }
         );
     };

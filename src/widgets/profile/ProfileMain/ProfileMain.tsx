@@ -3,8 +3,10 @@ import styles from "./ProfileMain.module.scss";
 import { Heading } from "@/src/shared/ui/typography";
 import { HEADING_TYPE } from "@/src/shared/ui/typography/Heading/Heading";
 import GoBackButton from "@/src/shared/ui/buttons/GoBackButton";
+import ProfileNavigation from "@/src/entities/profile/ui/ProfileNavigation";
+import { PropsWithChildren } from "react";
 
-const ProfileMain = () => {
+const ProfileMain = ({ children }: PropsWithChildren) => {
     return (
         <div className={styles.profile_main}>
             <BreadCrumbs
@@ -22,6 +24,10 @@ const ProfileMain = () => {
                 </div>
                 <p className={styles.profile_main__id}>ID 89345 905</p>
             </header>
+            <div className={styles.profile_main__content}>
+                <ProfileNavigation />
+                {children}
+            </div>
         </div>
     );
 };
