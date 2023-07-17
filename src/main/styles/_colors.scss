@@ -8,6 +8,7 @@
     --font-logo-color: #{v.$font-logo-color};
     --font-dark-color: #{v.$font-dark-color};
     --dark-background-color: #{v.$dark-background-color};
+    --dark-bg-text-color: #{v.$dark-bg-text-color};
     --dark-background-color-rgb: #{func.hexToRgb(v.$dark-background-color)};
     --dark-background-color-active: #{v.$dark-background-color-active};
     --medium-dark-background-color: #{v.$medium-dark-background-color};

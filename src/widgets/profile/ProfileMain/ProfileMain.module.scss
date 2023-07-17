@@ -1,3 +1,30 @@
+@use "src/shared/styles/typography" as typo;
+@use "src/shared/styles/mixins" as m;
+
 .profile_main {
   margin-top: 1rem;
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__back {
+    @include m.circle(2.5rem);
+    @include m.centerWithFlex;
+    background-color: var(--white-color);
+  }
+  &__heading {
+    color: var(--dark-bg-text-color);
+    @include typo.primaryHeading;
+  }
+  &__id {
+    color: var(--font-secondary-color);
+    @include typo.tagText;
+    text-transform: uppercase;
+  }
 }
