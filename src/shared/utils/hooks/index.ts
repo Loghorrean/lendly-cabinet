@@ -10,6 +10,7 @@ export * from "./useMountAnimation";
 export * from "./useOneTimeAction";
 export * from "./useOneTimeClientNotification";
 export * from "./usePrevious";
+export * from "./useRedirectBack";
 export * from "./useSetComplexObject";
 export * from "./useToggle";
 export * from "./useWindowEvent";
