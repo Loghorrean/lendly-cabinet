@@ -5,9 +5,7 @@
 .primary_button {
     border-radius: 0.625rem;
     padding: 0.75rem 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include m.centerWithFlex;
     gap: 0.5rem;
     border: none;
     cursor: pointer;
@@ -42,6 +40,7 @@
         color: var(--font-dark-color);
         box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.14);
         border: 1px solid var(--stroke-on-white-color);
+        padding-block: 0.875rem;
         &:hover,
         &:focus {
             background-color: var(--light-theme-gray-color);
@@ -56,7 +55,14 @@
         width: 100%;
     }
     &___arrow {
+        justify-content: space-between;
         padding: 0.5rem 0.5rem 0.5rem 1.5rem;
         border-radius: 1.125rem;
+    }
+    &[disabled], &[disabled="true"] {
+        background-color: var(--stroke-on-white-color);
+        color: white;
+        pointer-events: none;
+        cursor: initial;
     }
 }

@@ -1,16 +1,16 @@
-import { PropsWithChildren, useRef } from "react";
+import { InputHTMLAttributes, PropsWithChildren, useRef } from "react";
 import { useEffectOnUpdate } from "@/src/shared/utils";
 import styles from "./PrivateFileUpload.module.scss";
 import { useUploadFileMutation } from "@/src/entities/file/hooks";
 import { UploadedFile } from "@/src/entities/file/model";
 
-type Props = {
+type Props = InputHTMLAttributes<HTMLInputElement> & {
     onLoading: (loading: boolean) => void;
     onError: (text: string) => void;
     onUploaded: (files: Array<UploadedFile>) => void;
 };
 
-const PrivateFileUpload = ({ onLoading, onError, onUploaded, children }: PropsWithChildren<Props>) => {
+const PrivateFileUpload = ({ onLoading, onError, onUploaded, children, ...props }: PropsWithChildren<Props>) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
     const { mutateAsync: uploadFileAsync, isLoading } = useUploadFileMutation();
     const handleUpload = async (event: { target: HTMLInputElement }) => {
@@ -43,7 +43,13 @@ const PrivateFileUpload = ({ onLoading, onError, onUploaded, children }: PropsWi
     };
     return (
         <div className={styles.private_file_upload} onClick={handleClick}>
-            <input type="file" className={styles.private_file_upload__input} ref={inputRef} onChange={handleUpload} />
+            <input
+                {...props}
+                type="file"
+                className={styles.private_file_upload__input}
+                ref={inputRef}
+                onChange={handleUpload}
+            />
             {children}
         </div>
     );

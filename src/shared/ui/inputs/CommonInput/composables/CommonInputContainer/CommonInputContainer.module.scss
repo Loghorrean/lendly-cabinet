@@ -7,7 +7,18 @@
     align-items: center;
     gap: 0.5rem;
     box-shadow: var(--common-box-shadow);
+    &___bordered {
+        padding: 0.875rem 1rem;
+        box-shadow: 0 2px 4px -2px #0000000A;
+        border: 1px solid var(--stroke-on-white-color);
+        &:focus-within {
+            border-color: var(--font-dark-color);
+        }
+        &::placeholder {
+            color: var(--font-secondary-color);
+        }
+    }
     &___error {
-        border-color: var(--color-error-base);
+        border: 1px solid var(--color-error-base);
     }
 }

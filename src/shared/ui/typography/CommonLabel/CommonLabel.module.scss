@@ -1,5 +1,9 @@
 @use "src/shared/styles/typography" as typo;
 
 .common_label {
-    @include typo.secondaryText;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    letter-spacing: var(--letter-spacing-1);
+    font-weight: 400;
+    color: var(--font-dark-color);
 }

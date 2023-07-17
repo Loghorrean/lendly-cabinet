@@ -1,0 +1,33 @@
+@use "src/shared/styles/typography" as typo;
+
+.profile_general {
+  padding: 2rem 2.5rem;
+  background-color: var(--white-color);
+  box-shadow: var(--common-box-shadow);
+  border-radius: 0.75rem;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    width: calc(min(40rem, 100%));
+  }
+  &__heading {
+    @include typo.secondaryHeading;
+    margin-bottom: 1.5rem;
+  }
+  &__personal_form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(10px, 1fr));
+    grid-gap: 1.5rem;
+  }
+  &__full_input {
+    grid-column: 1 / -1;
+  }
+  &__change_password {
+    width: calc(min(100%, 15rem));
+    justify-content: center !important;
+  }
+  &__submit {
+    min-height: 3.5rem;
+  }
+}
