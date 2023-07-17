@@ -10,6 +10,9 @@
     max-width: 100%;
     @include typo.regularBasisText;
     color: var(--primary-dark-color);
+    &:focus {
+        outline: none;
+    }
     &___numeric {
         @include m.hideNumericArrows;
     }

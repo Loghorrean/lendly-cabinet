@@ -5,4 +5,5 @@
   @include m.circle(2.5rem);
   @include m.centerWithFlex;
   background-color: var(--white-color);
+  cursor: pointer;
 }
