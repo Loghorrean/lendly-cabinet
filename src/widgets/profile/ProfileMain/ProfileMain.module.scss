@@ -2,7 +2,10 @@
 @use "src/shared/styles/mixins" as m;
 
 .profile_main {
+  min-height: 100%;
   margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
   &__header {
     display: flex;
     flex-direction: column;
@@ -29,6 +32,7 @@
     text-transform: uppercase;
   }
   &__content {
+    flex-grow: 1;
     display: grid;
     grid-template-columns: 20.5rem 1fr;
     grid-gap: 0.25rem;

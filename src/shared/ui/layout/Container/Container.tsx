@@ -1,8 +1,13 @@
 import styles from "./Container.module.scss";
-import { FC, PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
+import { BlockProps, cn } from "@/src/shared/utils";
 
-const Container: FC<PropsWithChildren> = ({ children }) => {
-    return <div className={styles.container}>{children}</div>;
+const Container = ({ children, ...props }: PropsWithChildren<BlockProps>) => {
+    return (
+        <div {...props} className={cn(styles.container, props.className)}>
+            {children}
+        </div>
+    );
 };
 
 export default Container;

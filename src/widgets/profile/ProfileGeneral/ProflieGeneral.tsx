@@ -11,6 +11,7 @@ import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
 import { Button } from "@/src/shared/ui/buttons";
 import NotarizedDocUpload from "@/src/features/profile/ui/NotarizedDocUpload";
+import ProfileCommonBlock from "@/src/entities/profile/ui/ProfileCommonBlock";
 
 //TODO: ADD DEFAULT PROFILE DATA
 const ProfileGeneral = () => {
@@ -19,8 +20,8 @@ const ProfileGeneral = () => {
     const [middleName, setMiddleName] = useState("");
     const [email, setEmail] = useState("");
     return (
-        <div className={styles.profile_general}>
-            <div className={styles.profile_general__container}>
+        <ProfileCommonBlock>
+            <div className={styles.profile_general}>
                 <div>
                     <Heading headingType={HEADING_TYPE.H2} className={styles.profile_general__heading}>
                         Личные данные
@@ -80,7 +81,7 @@ const ProfileGeneral = () => {
                     </Button>
                 </PrimaryButton>
             </div>
-        </div>
+        </ProfileCommonBlock>
     );
 };
 

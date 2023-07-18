@@ -1,0 +1,19 @@
+@use "src/shared/styles/typography" as typo;
+
+.profile_documents {
+  background-color: var(--white-color);
+  box-shadow: var(--common-box-shadow);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 0.75rem;
+  &__heading {
+    @include typo.secondaryHeading;
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    grid-gap: 1rem;
+  }
+}

@@ -1,0 +1,9 @@
+.profile_common_block {
+  padding: 2rem 2.5rem;
+  background-color: var(--white-color);
+  box-shadow: var(--common-box-shadow);
+  border-radius: 0.75rem;
+  &__container {
+    width: calc(min(40rem, 100%));
+  }
+}
