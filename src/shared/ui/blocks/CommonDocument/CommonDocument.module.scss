@@ -1,0 +1,36 @@
+@use "src/shared/styles/mixins" as m;
+@use "src/shared/styles/typography" as typo;
+
+.common_document {
+  border: 1px solid var(--stroke-on-white-color);
+  background-color: var(--white-color);
+  min-height: 10rem;
+  border-radius: 0.75rem;
+  box-shadow: none;
+  transition: box-shadow 0.375s ease-in-out;
+  &:hover {
+    box-shadow: 0 4px 24px 0 #0000001F;
+    & path {
+      &:nth-child(1) {
+        fill: var(--primary-green-color);
+      }
+      &:nth-child(2) {
+        stroke: var(--primary-green-color);
+      }
+    }
+  }
+  &__link {
+    @include m.box(100%);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__icon {
+    @include m.box(2rem);
+  }
+  &__text {
+    @include typo.regularBasisText;
+    color: var(--font-dark-color);
+  }
+}

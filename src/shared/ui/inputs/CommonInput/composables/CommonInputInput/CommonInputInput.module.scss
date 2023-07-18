@@ -10,6 +10,7 @@
     max-width: 100%;
     @include typo.regularBasisText;
     color: var(--primary-dark-color);
+    cursor: pointer;
     &:focus {
         outline: none;
     }

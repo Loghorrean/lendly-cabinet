@@ -1,0 +1,21 @@
+@use "src/shared/styles/mixins" as m;
+@use "src/shared/styles/typography" as typo;
+
+.input_phone {
+    max-width: 100%;
+    display: flex;
+    align-items: stretch;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--stroke-on-white-color);
+    border-radius: 0.75rem;
+    &__input {
+        min-width: 0;
+        border: none;
+        @include typo.regularBasisText;
+        color: var(--font-dark-color);
+        &::placeholder {
+            @include typo.regularBasisText;
+            color: var(--font-secondary-color);
+        }
+    }
+}

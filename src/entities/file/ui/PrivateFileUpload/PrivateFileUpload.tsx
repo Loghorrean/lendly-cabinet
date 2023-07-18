@@ -6,11 +6,11 @@ import { UploadedFile } from "@/src/entities/file/model";
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
     onLoading: (loading: boolean) => void;
-    onError: (text: string) => void;
+    handleError: (text: string) => void;
     onUploaded: (files: Array<UploadedFile>) => void;
 };
 
-const PrivateFileUpload = ({ onLoading, onError, onUploaded, children, ...props }: PropsWithChildren<Props>) => {
+const PrivateFileUpload = ({ onLoading, handleError, onUploaded, children, ...props }: PropsWithChildren<Props>) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
     const { mutateAsync: uploadFileAsync, isLoading } = useUploadFileMutation();
     const handleUpload = async (event: { target: HTMLInputElement }) => {
@@ -24,7 +24,7 @@ const PrivateFileUpload = ({ onLoading, onError, onUploaded, children, ...props 
                     {
                         onSuccess: result => buffer.push(result),
                         onError: error => {
-                            onError(error as string);
+                            handleError(error as string);
                         },
                     }
                 )

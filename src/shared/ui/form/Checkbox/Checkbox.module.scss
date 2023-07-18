@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     min-height: 1.375rem;
-    padding-left: 1.5rem;
+    padding-left: 2rem;
     print-color-adjust: exact;
     &__input {
         box-sizing: border-box;
@@ -24,19 +24,19 @@
         position: relative;
         margin-bottom: 0;
         @include typo.regularBasisText;
-        color: var(--primary-dark-color);
+        color: var(--font-dark-color);
         &::after,
         &::before {
             content: "";
             position: absolute;
             cursor: pointer;
-            left: -1.5rem;
-            top: 0.125rem;
+            left: -2rem;
             display: block;
-            @include m.box(1rem);
+            @include m.box(1.5rem);
+            @include m.centerColumnWithPositioning;
         }
         &::before {
-            border: 1px solid var(--primary-gray-color-border-lighter);
+            border: 1px solid var(--stroke-on-white-color);
             background-color: var(--white-color);
             pointer-events: none;
             transition: all 0.15s ease-in-out;
@@ -52,19 +52,15 @@
         }
     }
     &__input:is(:hover, :focus) ~ &__label::before {
-        border-color: var(--primary-dark-color);
-    }
-    &__input:checked ~ &__label {
-        color: var(--primary-dark-color);
+        border-color: var(--primary-green-color);
     }
     &__input:checked ~ &__label::before {
-        color: var(--white-color);
-        border-color: var(--primary-purple-color);
-        background-color: var(--primary-purple-color);
+        color: var(--primary-green-color);
+        border-color: var(--primary-green-color);
+        background-color: var(--white-color);
     }
     &__input:checked ~ &__label::after {
-        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3E%3C/svg%3E");
-        left: calc(-1.375rem - 1px);
-        top: 3px;
+        background-image: url("data:image/svg+xml,%0A%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.5078 2.05371L5.9803 8.66309L1.49219 4.48329' stroke='%2305B768' stroke-width='2' stroke-linecap='square' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        left: calc(-1.875rem - 1px);
     }
 }
