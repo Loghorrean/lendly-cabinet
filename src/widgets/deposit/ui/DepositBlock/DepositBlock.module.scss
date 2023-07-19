@@ -1,0 +1,19 @@
+@use "src/shared/styles/typography" as typo;
+
+.deposit_block {
+  margin-top: 1rem;
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  &__heading {
+    @include typo.secondaryHeading;
+  }
+  &__blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
