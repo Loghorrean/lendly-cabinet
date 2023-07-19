@@ -1,0 +1,5 @@
+@use "src/shared/styles/mixins" as m;
+
+.deposit_qr {
+  @include m.box(16.25rem);
+}
