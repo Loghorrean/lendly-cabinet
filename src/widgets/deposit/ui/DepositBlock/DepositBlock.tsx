@@ -21,7 +21,7 @@ const DepositBlock = () => {
                     Пополнение счета
                 </Heading>
             </div>
-            <div className={styles.deposit_block}>
+            <div className={styles.deposit_block__blocks}>
                 <DepositReminder />
                 <DepositMain />
             </div>
