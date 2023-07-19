@@ -3,4 +3,7 @@
     background-color: var(--white-color);
     box-shadow: var(--common-box-shadow);
     padding: 2rem;
+    &___large {
+        padding: 2rem 2.5rem;
+    }
 }
