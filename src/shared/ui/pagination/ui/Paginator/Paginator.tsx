@@ -15,7 +15,6 @@ type PaginatorQuery = {
     [key: string]: number;
 };
 
-//TODO: ADD MAX NUMBER OF PAGES
 const Paginator = () => {
     const context = usePaginationContext();
     const pathname = usePathname();
