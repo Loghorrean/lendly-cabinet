@@ -1,0 +1,44 @@
+@use "src/shared/styles/typography" as typo;
+@use "src/shared/styles/mixins" as m;
+
+.range_select {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--stroke-on-white-color);
+  position: relative;
+  padding: 0.875rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: border-color 0.375s ease-in-out;
+  &:hover {
+    border-color: var(--medium-dark-background-color);
+  }
+  &__value {
+    @include typo.regularBasisText;
+    color: var(--font-secondary-color);
+  }
+  &__range {
+    position: absolute;
+    @include m.centerLineWithPositioning(translateY(50%));
+    bottom: 0;
+    width: calc(min(calc(100% - 1rem), 11.5rem));
+    & > div {
+      &:first-child {
+        background: none;
+        opacity: 0;
+      }
+      &:nth-child(2) {
+        background-color: var(--primary-green-color);
+        height: 0.125rem;
+      }
+      &:nth-child(4), &:nth-child(5) {
+        @include m.circle(0.5rem);
+        margin-top: calc(1px - 0.25rem);
+        opacity: 1;
+        background-color: var(--primary-green-color);
+        border-color: var(--primary-green-color);
+      }
+    }
+  }
+}

@@ -31,6 +31,7 @@
         "jotai": "^2.1.0",
         "loader-utils": "^3.2.0",
         "next": "13.4.4",
+        "rc-slider": "^10.2.1",
         "react": "18.2.0",
         "react-date-range": "^1.4.0",
         "react-datepicker": "^4.16.0",
@@ -39,7 +40,6 @@
         "react-slick": "^0.29.0",
         "react-transition-group": "^4.4.5",
         "sass": "^1.62.1",
-        "sharp": "^0.32.1",
         "slick-carousel": "^1.8.1"
     },
     "devDependencies": {
