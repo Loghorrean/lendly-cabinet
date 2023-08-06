@@ -5,6 +5,7 @@ import AllPortfolioStatistics from "@/src/widgets/statistics/ui/AllPortfolioStat
 import PortfolioLoansStatistics from "@/src/widgets/loans/ui/PortfolioLoansStatistics";
 import PortfolioProjectsStatistics from "@/src/widgets/projects/ui/PortfolioProjectsStatistics";
 import MyInvestmentsDashboardStatistics from "@/src/widgets/investments/ui/MyinvestmentDashboardStatistics";
+import RegisterReminder from "@/src/features/auth/RegisterReminder";
 
 const PortfolioDashboard = () => {
     return (
@@ -13,6 +14,9 @@ const PortfolioDashboard = () => {
                 Портфель
             </Heading>
             <div className={styles.portfolio_dashboard__blocks}>
+                <div className={styles.portfolio_dashboard__register_reminder}>
+                    <RegisterReminder />
+                </div>
                 <AllPortfolioStatistics />
                 <PortfolioLoansStatistics />
                 <PortfolioProjectsStatistics />

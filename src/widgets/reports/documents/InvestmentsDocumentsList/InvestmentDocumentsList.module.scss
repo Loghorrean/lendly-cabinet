@@ -1,0 +1,10 @@
+.investment_documents_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  &__header {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(10px, 1fr));
+    grid-gap: 1.5rem;
+  }
+}

@@ -30,9 +30,7 @@ const MyFundraisingInvestmentsList = () => {
     const [termSorting, toggleTermSorting] = useSortingDirection();
     const [profitSorting, toggleProfitSorting] = useSortingDirection();
     const [search, setSearch] = useState("");
-    useEffectOnUpdate(() => {
-        console.log(search);
-    }, [search]);
+
     return (
         <div className={styles.my_fundraising_investments}>
             <SearchInput

@@ -3,24 +3,24 @@ import styles from "./PrimaryMarketOffer.module.scss";
 import { Money, Tooltip } from "@/src/shared/ui/utils";
 import QuestionBlock from "@/src/shared/ui/utils/QuestionBlock";
 import TooltipContent from "@/src/shared/ui/utils/Tooltip/composables/TooltipContent";
-import CommonTableCell from "@/src/shared/ui/blocks/CommonTable/composables/CommonTableCell";
 import ProgressBar from "@/src/shared/ui/utils/ProgressBar";
 import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
 import { ProjectLink } from "@/src/shared/ui/links";
 import CommonInvestmentTitle from "@/src/entities/investment/ui/CommonInvestmentTitle";
+import CommonTable from "@/src/shared/ui/blocks/CommonTable";
 
 const PrimaryMarketOffer = () => {
     return (
         <CommonTableRow className={styles.primary_market_offer}>
             <CommonInvestmentTitle percentage={64} type="Проект" title="ООО Эстетик Вижен Плюс" id="332932-7666" />
-            <CommonTableCell className={styles.primary_market_offer__value}>
+            <CommonTable.Cell className={styles.primary_market_offer__value}>
                 <span>18%</span>
                 <Tooltip tooltipContent={<TooltipContent>Ожидаемая доходность</TooltipContent>}>
                     <QuestionBlock />
                 </Tooltip>
-            </CommonTableCell>
-            <CommonTableCell className={styles.primary_market_offer__value}>20 мес.</CommonTableCell>
+            </CommonTable.Cell>
+            <CommonTable.Cell className={styles.primary_market_offer__value}>20 мес.</CommonTable.Cell>
             <div className={styles.primary_market_offer__progress}>
                 <div className={styles.primary_market_offer__progress_values}>
                     <div className={styles.primary_market_offer__value}>

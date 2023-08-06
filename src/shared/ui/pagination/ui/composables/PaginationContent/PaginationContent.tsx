@@ -18,7 +18,7 @@ const PaginationContent = ({ children }: PropsWithChildren) => {
     return (
         <>
             {context.count === 0 ? (
-                <div className={styles.pagination_content__no_data}>Nothing found.</div>
+                <div className={styles.pagination_content__no_data}>Ничего не найдено</div>
             ) : (
                 <div className={styles.pagination_content}>{children}</div>
             )}
