@@ -8,6 +8,7 @@
         &,
         &::placeholder {
             @include typo.regularBasisText;
+            color: var(--font-secondary-color);
         }
     }
 }

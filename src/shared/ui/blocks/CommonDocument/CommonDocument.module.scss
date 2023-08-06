@@ -8,8 +8,9 @@
   border-radius: 0.75rem;
   box-shadow: none;
   transition: box-shadow 0.375s ease-in-out;
+  color: var(--font-dark-color);
   &:hover {
-    box-shadow: 0 4px 24px 0 #0000001F;
+    box-shadow: 0 0.25rem 1.5rem 0 #0000001F;
     & path {
       &:nth-child(1) {
         fill: var(--primary-green-color);

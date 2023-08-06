@@ -154,3 +154,8 @@ $widths: (
     background: none;
     cursor: pointer;
 }
+
+@mixin useSectionDivider {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--stroke-on-white-color);
+}

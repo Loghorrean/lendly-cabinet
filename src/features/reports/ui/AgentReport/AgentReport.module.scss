@@ -1,0 +1,22 @@
+@use "src/shared/styles/mixins" as m;
+@use "src/shared/styles/typography" as typo;
+
+.agent_report {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  @include m.useSectionDivider;
+  &__heading {
+    @include typo.quartenaryHeading;
+  }
+  &__inputs {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
