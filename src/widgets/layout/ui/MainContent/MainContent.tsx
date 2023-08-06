@@ -1,7 +1,7 @@
 "use client";
 
 import Overlay from "@/src/shared/ui/layout/overlay/Overlay";
-import { Content } from "@/src/shared/ui/layout";
+import { Content, ModalContainer } from "@/src/shared/ui/layout";
 import { useOverlay } from "@/src/shared/ui/layout/overlay/Overlay/store";
 import Main from "@/src/shared/ui/layout/Main";
 import { PropsWithChildren } from "react";
@@ -20,6 +20,7 @@ const MainContent = ({ children }: PropsWithChildren) => {
                 <Footer />
             </Content>
             <ActionMessageContainer />
+            <ModalContainer />
         </>
     );
 };

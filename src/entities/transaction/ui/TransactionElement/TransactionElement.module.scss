@@ -1,0 +1,81 @@
+@use "src/shared/styles/typography" as typo;
+
+.transaction_element {
+  display: grid;
+  grid-template-columns: 5.375rem 11.125rem 6.5rem 13.5rem minmax(auto, 5.75rem) 1fr;
+  grid-gap: 1.5rem;
+  &__cell {
+    padding-block: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  &__date_time {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  &__time {
+    color: var(--font-medium-gray-color);
+    @include typo.tagText;
+  }
+  &__date {
+    @include typo.primaryTextAccent;
+  }
+  &__company {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    &_top {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+  &__name {
+    @include typo.primaryTextAccent;
+  }
+  &__type {
+    border: 1px solid var(--stroke-on-white-color);
+    background-color: var(--gray-background-color-secondary);
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    font-weight: 500;
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    color: var(--font-secondary-color);
+    border-radius: 0.375rem;
+  }
+  &__id {
+    @include typo.tagText;
+    color: var(--font-secondary-color);
+  }
+  &__amount {
+    @include typo.primaryTextAccent;
+  }
+  &__purpose {
+    @include typo.regularBasisText;
+  }
+  &__status {
+    border: 1px solid var(--stroke-on-white-color);
+    background-color: var(--gray-background-color-secondary);
+    white-space: nowrap;
+    padding: 0.375rem 0.625rem;
+    border-radius: 0.375rem;
+    text-transform: uppercase;
+    @include typo.tagText;
+    font-weight: 500;
+    &___canceled {
+      color: var(--error-base-color);
+    }
+    &___pending {
+      color: var(--warning-base-color);
+    }
+    &___success {
+      color: var(--primary-green-color);
+    }
+  }
+}

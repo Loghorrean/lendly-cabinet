@@ -1,0 +1,10 @@
+.transactions_list {
+  &__header {
+    display: grid;
+    grid-template-columns: 5.375rem 11.125rem 6.5rem 13.5rem minmax(auto, 5.75rem) 1fr;
+    grid-gap: 1.5rem;
+  }
+  &__sorting {
+    cursor: pointer;
+  }
+}

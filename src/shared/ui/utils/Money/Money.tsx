@@ -4,6 +4,8 @@ import { Money as MoneyModel } from "@/src/shared/models/common";
 import { cn, formatAmount, ObjectValues } from "@/src/shared/utils";
 import CurrencySymbol from "@/src/shared/ui/utils/CurrencySymbol";
 import AbbreviatedMoneyAmount from "@/src/shared/ui/utils/AbbreviatedMoneyAmount";
+import IncomeIcon from "@/src/shared/ui/svg/money/IncomeIcon";
+import OutcomeIcon from "@/src/shared/ui/svg/money/OutcomeIcon";
 
 export const MONEY_MODE = {
     INCOMING: "INCOMING",
@@ -37,10 +39,10 @@ const Money: FC<Props> = ({
 
     const renderMoneyMode = useCallback((mode: MoneyMode) => {
         if (mode === MONEY_MODE.INCOMING) {
-            return "+";
+            return <IncomeIcon />;
         }
         if (mode === MONEY_MODE.OUTGOING) {
-            return "-";
+            return <OutcomeIcon />;
         }
         return "";
     }, []);

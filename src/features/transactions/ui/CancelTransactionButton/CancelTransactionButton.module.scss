@@ -1,0 +1,8 @@
+.cancel_transaction_button {
+  padding: 0.75rem 1rem;
+  transition: color 0.375s ease-in-out, background-color 0.375s ease-in-out;
+  &:hover {
+    background-color: var(--primary-green-color) !important;
+    color: var(--white-color) !important;
+  }
+}
