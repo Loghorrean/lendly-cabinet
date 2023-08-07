@@ -33,7 +33,10 @@ const Money: FC<Props> = ({
     ...props
 }) => {
     const [main, pennies] = useMemo(() => {
-        const formatted = formatAmount(money.amount / 100, { thousandsDelimiter: ".", decimalDelimiter: "," });
+        const formatted = formatAmount(money.amount / 100, {
+            thousandsDelimiter: abbreviated ? "." : " ",
+            decimalDelimiter: ",",
+        });
         return formatted.split(separator);
     }, [money, separator]);
 

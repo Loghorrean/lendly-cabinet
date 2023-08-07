@@ -11,14 +11,25 @@ import ProjectImageGallery from "@/src/entities/project/ui/ProjectImageGallery";
 import { Money } from "@/src/shared/ui/utils";
 import ProgressBar from "@/src/shared/ui/utils/ProgressBar";
 import DetailedLoanNavigation from "@/src/features/loan/ui/DetailedLoanNavigation";
-import { useState } from "react";
+import { ReactNode, useRef, useState } from "react";
 import {
     LOAN_NAVIGATION_TAB,
     LoanNavigationTab,
 } from "@/src/features/loan/ui/DetailedLoanNavigation/DetailedLoanNavigation";
+import DetailedLoanAboutBlock from "@/src/widgets/detailed-loan/DetailedLoanAboutBlock";
 
 const DetailedProjectBlock = () => {
     const [tab, setTab] = useState<LoanNavigationTab>(LOAN_NAVIGATION_TAB.ABOUT);
+    const availableTabs = useRef<Record<LoanNavigationTab, ReactNode>>({
+        [LOAN_NAVIGATION_TAB.DETAILS]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.ABOUT]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.OFFERS]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.SECURITY]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.SELLER]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.HISTORY]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.SCHEDULE]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.DELAY_EVENTS]: <DetailedLoanAboutBlock />,
+    });
     return (
         <div className={styles.detailed_project_block}>
             <BreadCrumbs
@@ -58,6 +69,7 @@ const DetailedProjectBlock = () => {
                 <DetailedProjectInfo />
             </DetailedProjectMain>
             <DetailedLoanNavigation tab={tab} setTab={setTab} />
+            {availableTabs.current[tab]}
         </div>
     );
 };

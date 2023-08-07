@@ -18,7 +18,7 @@
       height: 2px;
       background-color: var(--primary-green-color);
       left: var(--navigation-offset-left);
-      width: var(--navigation-tab-width);
+      width: var(--navigation-tab-width, 0);
       transform: translateX(0.5rem);
       transition: width 0.375s ease-in-out, left 0.375s ease-in-out;
     }
