@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./DetailedProjectBlock.module.scss";
 import BreadCrumbs from "@/src/shared/ui/blocks/BreadCrumbs";
 import GoBackButton from "@/src/shared/ui/buttons/GoBackButton";
@@ -8,8 +10,15 @@ import DetailedProjectInfo from "@/src/widgets/detailed-project/ui/DetailedProje
 import ProjectImageGallery from "@/src/entities/project/ui/ProjectImageGallery";
 import { Money } from "@/src/shared/ui/utils";
 import ProgressBar from "@/src/shared/ui/utils/ProgressBar";
+import DetailedLoanNavigation from "@/src/features/loan/ui/DetailedLoanNavigation";
+import { useState } from "react";
+import {
+    LOAN_NAVIGATION_TAB,
+    LoanNavigationTab,
+} from "@/src/features/loan/ui/DetailedLoanNavigation/DetailedLoanNavigation";
 
 const DetailedProjectBlock = () => {
+    const [tab, setTab] = useState<LoanNavigationTab>(LOAN_NAVIGATION_TAB.ABOUT);
     return (
         <div className={styles.detailed_project_block}>
             <BreadCrumbs
@@ -48,6 +57,7 @@ const DetailedProjectBlock = () => {
                 </div>
                 <DetailedProjectInfo />
             </DetailedProjectMain>
+            <DetailedLoanNavigation tab={tab} setTab={setTab} />
         </div>
     );
 };

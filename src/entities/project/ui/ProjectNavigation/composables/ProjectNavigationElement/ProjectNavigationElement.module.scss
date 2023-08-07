@@ -1,0 +1,16 @@
+@use "src/shared/styles/typography" as typo;
+@use "src/shared/styles/mixins" as m;
+
+.project_navigation_element {
+  &__link {
+    @include m.centerWithFlex;
+    color: var(--font-secondary-color);
+    @include typo.primaryTextAccent;
+    padding: calc(1.25rem - 1px) 1rem;
+    transition: color 0.375s ease-in-out;
+    &[aria-selected="true"] {
+      //border-bottom: 2px solid var(--primary-green-color);
+      color: var(--font-dark-color);
+    }
+  }
+}
