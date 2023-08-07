@@ -1,0 +1,22 @@
+@use "src/shared/styles/mixins" as m;
+@use "src/shared/styles/typography" as typo;
+
+.visibility_select {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  &__label {
+    @include typo.primaryTextAccent;
+    color: var(--font-secondary-color);
+  }
+  &__list {
+    display: flex;
+    align-items: stretch;
+    flex-grow: 1;
+  }
+  &__element {
+    @include m.box(1.5rem);
+    @include m.centerWithFlex;
+    @include m.buttonToLink;
+  }
+}

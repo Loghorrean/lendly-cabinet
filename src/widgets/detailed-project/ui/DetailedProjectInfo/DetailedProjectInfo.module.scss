@@ -1,0 +1,37 @@
+@use "src/shared/styles/typography" as typo;
+
+.detailed_project_info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &__element {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    &:nth-child(3) {
+      & > .detailed_project_info__value {
+        max-width: 10rem;
+      }
+    }
+    &:nth-child(4) {
+      & > .detailed_project_info__value {
+        max-width: 14rem;
+      }
+    }
+  }
+  &__label {
+    color: var(--font-secondary-color);
+    @include typo.regularBasisText;
+    width: min-content;
+  }
+  &__value {
+    @include typo.secondaryText;
+    text-align: right;
+  }
+}
