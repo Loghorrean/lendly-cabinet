@@ -1,0 +1,6 @@
+.detailed_project_main {
+  display: grid;
+  grid-template-columns: minmax(10px, 1fr) 27rem;
+  grid-gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
