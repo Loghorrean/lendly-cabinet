@@ -1,0 +1,13 @@
+.show_more_button {
+  width: fit-content;
+  min-width: 14rem;
+  padding: 1rem;
+  border: 1px solid var(--stroke-on-white-color);
+  border-radius: 0.75rem;
+  background-color: var(--white-color);
+  box-shadow: var(--common-box-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}

@@ -23,6 +23,7 @@ const ProjectNavigationElement = ({ active, onSelected, children, ...props }: Pr
     useEffect(() => {
         const debouncedRecalculate = debounce(() => recalculate(active));
         window.addEventListener("resize", debouncedRecalculate);
+        recalculate(active);
         return () => {
             window.removeEventListener("resize", debouncedRecalculate);
         };
@@ -30,7 +31,7 @@ const ProjectNavigationElement = ({ active, onSelected, children, ...props }: Pr
     const handleClick = (event: SyntheticEvent) => {
         event.preventDefault();
         onSelected();
-        recalculate(true);
+        // recalculate(true);
     };
     return (
         <li
