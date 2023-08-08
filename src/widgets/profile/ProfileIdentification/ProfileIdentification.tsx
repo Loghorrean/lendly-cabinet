@@ -159,10 +159,10 @@ const ProfileIdentification = () => {
                         </PrimaryButton>
                     </div>
                     <CommonInputBlock>
-                        <CommonLabel htmlFor="code">Введите ваш номер телефона</CommonLabel>
+                        <CommonLabel htmlFor="code">Введите код</CommonLabel>
                         <CommonInput id="code" value={code} onChange={setCode}>
                             <CommonInput.Container>
-                                <CommonInput.Input placeholder="000 000000" />
+                                <CommonInput.Input placeholder="000 000000" mask="999 999999" />
                             </CommonInput.Container>
                         </CommonInput>
                     </CommonInputBlock>

@@ -18,11 +18,11 @@ import { Button } from "@/src/shared/ui/buttons";
 import Loader from "@/src/shared/ui/loaders/Loader";
 import PrimaryButtonArrow from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButtonArrow";
 import { PRIMARY_BUTTON_ARROW_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButtonArrow/PrimaryButtonArrow";
-import { LENDER_TYPE, LenderType } from "@/src/entities/registration/model";
 import { useRegisterLenderMutation } from "@/src/entities/registration/hooks";
 import { useRouter } from "next/navigation";
 import { useActionMessages } from "@/src/shared/action-messages/store";
 import { ACTION_MESSAGE_TYPE } from "@/src/shared/action-messages/model/ActionMessage";
+import { USER_STATUS, UserStatus } from "@/src/entities/user";
 
 const LenderForm = () => {
     const router = useRouter();
@@ -30,7 +30,7 @@ const LenderForm = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [selectedType, setSelectedType] = useState<LenderType>(LENDER_TYPE.INDIVIDUAL);
+    const [selectedType, setSelectedType] = useState<UserStatus>(USER_STATUS.INDIVIDUAL);
     const [infoAgreed, toggleInfo] = useToggle();
     const [rulesAccepted, toggleRules] = useToggle();
     const registerLender = useRegisterLenderMutation();
@@ -95,20 +95,20 @@ const LenderForm = () => {
                 </div>
                 <div className={styles.lender_form__radio}>
                     <RadioButton
-                        checked={selectedType === LENDER_TYPE.INDIVIDUAL}
-                        onChange={() => setSelectedType(LENDER_TYPE.INDIVIDUAL)}
+                        checked={selectedType === USER_STATUS.INDIVIDUAL}
+                        onChange={() => setSelectedType(USER_STATUS.INDIVIDUAL)}
                     >
                         Физ. лицо
                     </RadioButton>
                     <RadioButton
-                        checked={selectedType === LENDER_TYPE.ENTREPRENEUR}
-                        onChange={() => setSelectedType(LENDER_TYPE.ENTREPRENEUR)}
+                        checked={selectedType === USER_STATUS.ENTREPRENEUR}
+                        onChange={() => setSelectedType(USER_STATUS.ENTREPRENEUR)}
                     >
                         ИП
                     </RadioButton>
                     <RadioButton
-                        checked={selectedType === LENDER_TYPE.LEGAL_ENTITY}
-                        onChange={() => setSelectedType(LENDER_TYPE.LEGAL_ENTITY)}
+                        checked={selectedType === USER_STATUS.LEGAL_ENTITY}
+                        onChange={() => setSelectedType(USER_STATUS.LEGAL_ENTITY)}
                     >
                         Юр. лицо
                     </RadioButton>

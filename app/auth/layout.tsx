@@ -12,7 +12,7 @@ import Overlay from "@/src/shared/ui/layout/overlay/Overlay";
 
 export default function AuthLayout({ children }: PropsWithChildren) {
     return (
-        <body>
+        <>
             <Overlay />
             <Content type={CONTENT_TYPE.NO_FOOTER}>
                 <AuthHeader />
@@ -27,6 +27,6 @@ export default function AuthLayout({ children }: PropsWithChildren) {
             </Content>
             <ActionMessageContainer />
             <ModalContainer />
-        </body>
+        </>
     );
 }

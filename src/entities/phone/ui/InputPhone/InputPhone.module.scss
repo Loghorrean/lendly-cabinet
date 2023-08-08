@@ -9,7 +9,9 @@
     border: 1px solid var(--stroke-on-white-color);
     border-radius: 0.75rem;
     &__input {
+        flex-grow: 1;
         min-width: 0;
+        max-width: 100%;
         border: none;
         @include typo.regularBasisText;
         color: var(--font-dark-color);

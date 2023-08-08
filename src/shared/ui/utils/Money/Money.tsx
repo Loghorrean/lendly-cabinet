@@ -62,7 +62,6 @@ const Money: FC<Props> = ({
             )}
             {withCurrency && (
                 <span>
-                    &nbsp;
                     <CurrencySymbol currencyCode={money.currencyCode} />
                 </span>
             )}
