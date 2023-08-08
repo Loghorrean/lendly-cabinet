@@ -12,6 +12,7 @@ import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/Primary
 import { Button } from "@/src/shared/ui/buttons";
 import NotarizedDocUpload from "@/src/features/profile/ui/NotarizedDocUpload";
 import ProfileCommonBlock from "@/src/entities/profile/ui/ProfileCommonBlock";
+import SendChangePasswordRequestButton from "@/src/features/profile/ui/SendChangePasswordRequestButton";
 
 //TODO: ADD DEFAULT PROFILE DATA
 const ProfileGeneral = () => {
@@ -19,6 +20,7 @@ const ProfileGeneral = () => {
     const [firstName, setFirstName] = useState("");
     const [middleName, setMiddleName] = useState("");
     const [email, setEmail] = useState("");
+    const [passwordRequested, setPasswordRequested] = useState(false);
     return (
         <ProfileCommonBlock>
             <div className={styles.profile_general}>
@@ -65,9 +67,18 @@ const ProfileGeneral = () => {
                     <Heading headingType={HEADING_TYPE.H2} className={styles.profile_general__heading}>
                         Пароль
                     </Heading>
-                    <PrimaryButton color={PRIMARY_BUTTON_COLOR.WHITE}>
-                        <Button className={styles.profile_general__change_password}>Изменить</Button>
-                    </PrimaryButton>
+                    <div className={styles.profile_general__password}>
+                        <SendChangePasswordRequestButton
+                            onRequested={() => setPasswordRequested(false)}
+                            onSent={() => setPasswordRequested(true)}
+                        />
+                        {passwordRequested && (
+                            <p className={styles.profile_general__password_text}>
+                                <span>Ссылка для подтверждения смены пароля отправлена на Ваш емейл.</span>
+                                <span>Пожалуйста, перейдите по ссылке и следуйте дальнейшим инструкциям.</span>
+                            </p>
+                        )}
+                    </div>
                 </div>
                 <div>
                     <Heading headingType={HEADING_TYPE.H2} className={styles.profile_general__heading}>
