@@ -2,10 +2,16 @@
 @use "src/shared/styles/mixins" as m;
 
 .error_element {
-    background-color: var(--error-background-color);
     border-radius: 0.5rem;
-    border: 1px solid var(--error-border-color);
     width: fit-content;
+    &___error {
+        background-color: var(--color-error-background);
+        border: 1px solid var(--color-error-border);
+    }
+    &___success {
+        background-color: var(--success-bg-color);
+        border: 1px solid var(--success-border-color);
+    }
     &__inner {
         padding: 0.5rem 0.75rem;
         display: flex;

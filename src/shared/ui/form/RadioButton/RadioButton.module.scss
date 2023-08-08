@@ -31,32 +31,34 @@
         }
         &::after,
         &::before {
+            @include m.centerColumnWithPositioning;
             content: "";
             position: absolute;
             cursor: pointer;
-            left: -2.5rem;
+            left: -2rem;
             display: block;
             border-radius: 50%;
         }
         &::before {
-            border: 2px solid var(--gray-color);
+            border: 2px solid var(--font-medium-gray-color);
             pointer-events: none;
             transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
             border-radius: 50%;
             @include m.box(1rem);
             background-color: var(--white-color);
-            top: -0.1rem;
         }
         &::after {
             @include m.box(0.625rem);
             background-color: var(--white-color);
-            top: 0.2rem;
-            left: -2.2rem;
+            left: calc(0.5px - 1.75rem);
             transition: background-color 0.15s ease-in-out;
         }
     }
     &__input:hover ~ &__label::before {
         border-color: var(--black-color);
+    }
+    &__input:checked ~ &__label::before {
+        border-color: var(--primary-green-color);
     }
     &__input:checked ~ &__label::after {
         background-color: var(--primary-green-color);

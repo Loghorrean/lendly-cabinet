@@ -12,16 +12,25 @@ import {
 import { CommonText } from "@/src/shared/ui/typography";
 import { Button } from "@/src/shared/ui/buttons";
 import AsLink from "@/src/shared/ui/buttons/decorators/AsLink";
+import { cn } from "@/src/shared/utils";
+import SuccessMessageIcon from "@/src/shared/ui/svg/action-messages/SuccessMessageIcon";
+import ErrorMessageIcon from "@/src/shared/ui/svg/action-messages/ErrorMessageIcon";
 import CloseIcon from "@/src/shared/ui/svg/actions/CloseIcon";
-import ErrorMessageIcon from "@/src/shared/action-messages/ui/icons/ErrorMessageIcon";
 
 interface Props {
     message: ActionMessage;
 }
 
 const signsMap = {
-    [ACTION_MESSAGE_TYPE.ERROR]: <ErrorMessageIcon />,
-} as const satisfies Record<ActionMessageType, ReactElement>;
+    [ACTION_MESSAGE_TYPE.ERROR]: {
+        icon: <ErrorMessageIcon />,
+        className: styles.error_element___error,
+    },
+    [ACTION_MESSAGE_TYPE.SUCCESS]: {
+        icon: <SuccessMessageIcon />,
+        className: styles.error_element___success,
+    },
+} as const satisfies Record<ActionMessageType, { icon: ReactElement; className: string }>;
 
 const ActionMessageElement: FC<Props> = ({ message }) => {
     const { getMessages, removeMessage } = useActionMessages();
@@ -42,9 +51,9 @@ const ActionMessageElement: FC<Props> = ({ message }) => {
             mountOnEnter
             unmountOnExit
         >
-            <li className={styles.error_element} ref={nodeRef}>
+            <li className={cn(styles.error_element, signsMap[message.type].className)} ref={nodeRef}>
                 <div className={styles.error_element__inner}>
-                    {signsMap[message.type]}
+                    {signsMap[message.type].icon}
                     <CommonText>{message.description}</CommonText>
                     <AsLink>
                         <Button onClick={() => removeMessage(message.id)} className={styles.error_element__button}>
