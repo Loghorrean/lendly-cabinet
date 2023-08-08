@@ -35,22 +35,22 @@ const DetailedLoanPledge = () => {
                     </li>
                     <li>
                         <a
-                            href="#guarantee"
-                            className={styles.detailed_loan_pledge__tab}
-                            aria-current={tab === LOAN_PLEDGE_TAB.GUARANTEE}
-                            onClick={() => setTab(LOAN_PLEDGE_TAB.GUARANTEE)}
-                        >
-                            Поручительство
-                        </a>
-                    </li>
-                    <li>
-                        <a
                             href="#other"
                             className={styles.detailed_loan_pledge__tab}
                             aria-current={tab === LOAN_PLEDGE_TAB.OTHER}
                             onClick={() => setTab(LOAN_PLEDGE_TAB.OTHER)}
                         >
                             Иное обеспечение
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="#guarantee"
+                            className={styles.detailed_loan_pledge__tab}
+                            aria-current={tab === LOAN_PLEDGE_TAB.GUARANTEE}
+                            onClick={() => setTab(LOAN_PLEDGE_TAB.GUARANTEE)}
+                        >
+                            Поручительство
                         </a>
                     </li>
                 </ul>
