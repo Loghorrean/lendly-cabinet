@@ -40,8 +40,8 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    position: relative;
     &:not(:last-child) {
-      position: relative;
       &::after {
         content: "";
         position: absolute;
