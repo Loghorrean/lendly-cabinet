@@ -1,0 +1,56 @@
+@use "src/shared/styles/typography" as typo;
+@use "src/shared/styles/mixins" as m;
+
+.loan_pledge_dropdown {
+  padding: 1.5rem;
+  border: 1px solid var(--stroke-on-white-color);
+  background-color: var(--light-theme-gray-color);
+  border-radius: 0.75rem;
+  &__main_header {
+    cursor: pointer;
+  }
+  &__heading {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.125rem;
+    letter-spacing: -4%;
+    margin-bottom: 0.5rem;
+  }
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  &__text {
+    max-width: 38.375rem;
+    @include typo.regularBasisText;
+  }
+  &__button {
+    @include m.circle(2.5rem);
+    @include m.centerWithFlex;
+    border: 1px solid var(--stroke-on-white-color);
+    background-color: var(--white-color);
+    transition: transform 0.375s ease-in-out;
+    transform: rotate(-90deg);
+    &___active {
+      transform: rotate(90deg);
+    }
+  }
+  &__body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.375s ease-in-out;
+  }
+  &__content {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__hide {
+    border-radius: 0.75rem;
+    font-weight: 500;
+  }
+}
