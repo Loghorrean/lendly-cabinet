@@ -12,11 +12,12 @@ import { PRIMARY_BUTTON_ARROW_COLOR } from "@/src/shared/ui/buttons/decorators/P
 import { SyntheticEvent, useCallback, useMemo, useState } from "react";
 import AuthLink from "@/src/widgets/auth/AuthLink";
 import { useActionMessages } from "@/src/shared/action-messages/store";
-import { isNotEmpty, ValidationErrors } from "@/src/shared/utils";
+import { isNotEmpty, useEffectOnUpdate, ValidationErrors } from "@/src/shared/utils";
 import { ACTION_MESSAGE_TYPE } from "@/src/shared/action-messages/model/ActionMessage";
 import { useLoginMutation } from "@/src/entities/auth/hooks";
 import Loader from "@/src/shared/ui/loaders/Loader";
 import { createAuthTokenManager } from "@/src/entities/auth/utils";
+import { useRouter } from "next/navigation";
 
 type LoginFormErrors = {
     username?: ValidationErrors;
@@ -24,6 +25,7 @@ type LoginFormErrors = {
 };
 
 const LoginForm = () => {
+    const router = useRouter();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isInitial, setIsInitial] = useState(true);
@@ -55,14 +57,16 @@ const LoginForm = () => {
                 onSuccess: token => {
                     const tokenManager = createAuthTokenManager();
                     tokenManager!.create(token);
+                    router.push("/dashboard");
                 },
-                onError: () => {
-                    addMessage(ACTION_MESSAGE_TYPE.ERROR, "Неверный логин/пароль!");
-                },
-                onSettled: () => setIsInitial(false),
             }
         );
+        setIsInitial(false);
     };
+
+    useEffectOnUpdate(() => {
+        addMessage(ACTION_MESSAGE_TYPE.ERROR, "Неверный логин/пароль!");
+    }, [loginMutation.isError]);
 
     return (
         <form className={styles.login_form} onSubmit={handleSubmit}>
