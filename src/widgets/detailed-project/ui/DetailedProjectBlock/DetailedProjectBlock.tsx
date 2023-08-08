@@ -17,6 +17,7 @@ import {
     LoanNavigationTab,
 } from "@/src/features/loan/ui/DetailedLoanNavigation/DetailedLoanNavigation";
 import DetailedLoanAboutBlock from "@/src/widgets/detailed-loan/DetailedLoanAboutBlock";
+import DetailedLoanPledge from "@/src/widgets/detailed-loan/DetailedLoanPledge";
 
 const DetailedProjectBlock = () => {
     const [tab, setTab] = useState<LoanNavigationTab>(LOAN_NAVIGATION_TAB.ABOUT);
@@ -24,7 +25,7 @@ const DetailedProjectBlock = () => {
         [LOAN_NAVIGATION_TAB.DETAILS]: <DetailedLoanAboutBlock />,
         [LOAN_NAVIGATION_TAB.ABOUT]: <DetailedLoanAboutBlock />,
         [LOAN_NAVIGATION_TAB.OFFERS]: <DetailedLoanAboutBlock />,
-        [LOAN_NAVIGATION_TAB.SECURITY]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.SECURITY]: <DetailedLoanPledge />,
         [LOAN_NAVIGATION_TAB.SELLER]: <DetailedLoanAboutBlock />,
         [LOAN_NAVIGATION_TAB.HISTORY]: <DetailedLoanAboutBlock />,
         [LOAN_NAVIGATION_TAB.SCHEDULE]: <DetailedLoanAboutBlock />,
