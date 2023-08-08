@@ -1,0 +1,18 @@
+@use "src/shared/styles/mixins" as m;
+
+.profile_menu {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  &__user {
+    @include m.box(2.5rem);
+    border-radius: 0.625rem;
+    @include m.centerWithFlex;
+    background-color: var(--block-background-color);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    letter-spacing: -4%;
+  }
+}
