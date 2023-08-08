@@ -19,11 +19,12 @@ import {
 import DetailedLoanAboutBlock from "@/src/widgets/detailed-loan/DetailedLoanAboutBlock";
 import DetailedLoanPledge from "@/src/widgets/detailed-loan/DetailedLoanPledge";
 import DetailedLoanSeller from "@/src/widgets/detailed-loan/DetailedLoanSeller";
+import DetailedLoanDetails from "@/src/widgets/detailed-loan/DetailedLoanDetails";
 
 const DetailedProjectBlock = () => {
     const [tab, setTab] = useState<LoanNavigationTab>(LOAN_NAVIGATION_TAB.ABOUT);
     const availableTabs = useRef<Record<LoanNavigationTab, ReactNode>>({
-        [LOAN_NAVIGATION_TAB.DETAILS]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.DETAILS]: <DetailedLoanDetails />,
         [LOAN_NAVIGATION_TAB.ABOUT]: <DetailedLoanAboutBlock />,
         [LOAN_NAVIGATION_TAB.OFFERS]: <DetailedLoanAboutBlock />,
         [LOAN_NAVIGATION_TAB.SECURITY]: <DetailedLoanPledge />,
