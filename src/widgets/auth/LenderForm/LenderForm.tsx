@@ -51,11 +51,13 @@ const LenderForm = () => {
             }
         );
     };
+
     useEffectOnUpdate(() => {
         if (registerLender.isError) {
             addMessage(ACTION_MESSAGE_TYPE.ERROR, "Не удалось зарегистрировать пользователя");
         }
     }, [registerLender.isError]);
+
     return (
         <CommonAuthBlock className={styles.lender_form_block}>
             <form onSubmit={handleSubmit} className={styles.lender_form}>
