@@ -52,7 +52,7 @@ const LoginForm = () => {
     const handleSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
         loginMutation.mutate(
-            { username, password },
+            { username: username.trim(), password: password.trim() },
             {
                 onSuccess: token => {
                     const tokenManager = createAuthTokenManager();
@@ -65,7 +65,9 @@ const LoginForm = () => {
     };
 
     useEffectOnUpdate(() => {
-        addMessage(ACTION_MESSAGE_TYPE.ERROR, "Неверный логин/пароль!");
+        if (loginMutation.isError) {
+            addMessage(ACTION_MESSAGE_TYPE.ERROR, "Неверный логин/пароль!");
+        }
     }, [loginMutation.isError]);
 
     return (

@@ -5,11 +5,11 @@
     border-radius: 0.5rem;
     width: fit-content;
     &___error {
-        background-color: var(--color-error-background);
-        border: 1px solid var(--color-error-border);
+        background-color: var(--error-background-color);
+        border: 1px solid var(--error-border-color);
     }
     &___success {
-        background-color: var(--success-bg-color);
+        background-color: var(--success-background-color);
         border: 1px solid var(--success-border-color);
     }
     &__inner {
