@@ -2,7 +2,7 @@
 
 import { SyntheticEvent, useState } from "react";
 import styles from "./LenderForm.module.scss";
-import { cn, ObjectValues, resultIf, sleep, useToggle } from "@/src/shared/utils";
+import { cn, resultIf, useEffectOnUpdate, useToggle } from "@/src/shared/utils";
 import CommonAuthBlock from "@/src/widgets/auth/CommonAuthBlock";
 import { Heading } from "@/src/shared/ui/typography";
 import { HEADING_TYPE } from "@/src/shared/ui/typography/Heading/Heading";
@@ -18,26 +18,44 @@ import { Button } from "@/src/shared/ui/buttons";
 import Loader from "@/src/shared/ui/loaders/Loader";
 import PrimaryButtonArrow from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButtonArrow";
 import { PRIMARY_BUTTON_ARROW_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButtonArrow/PrimaryButtonArrow";
-
-const REGISTRATION_TYPE = {
-    INDIVIDUAL: "INDIVIDUAL",
-    ENTREPRENEUR: "ENTREPRENEUR",
-    LEGAL: "LEGAL",
-} as const;
-
-type RegistrationType = ObjectValues<typeof REGISTRATION_TYPE>;
+import { LENDER_TYPE, LenderType } from "@/src/entities/registration/model";
+import { useRegisterLenderMutation } from "@/src/entities/registration/hooks";
+import { useRouter } from "next/navigation";
+import { useActionMessages } from "@/src/shared/action-messages/store";
+import { ACTION_MESSAGE_TYPE } from "@/src/shared/action-messages/model/ActionMessage";
 
 const LenderForm = () => {
-    const [selectedType, setSelectedType] = useState<RegistrationType>(REGISTRATION_TYPE.INDIVIDUAL);
-    const [loading, setLoading] = useState(false);
+    const router = useRouter();
+    const { addMessage } = useActionMessages();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [selectedType, setSelectedType] = useState<LenderType>(LENDER_TYPE.INDIVIDUAL);
     const [infoAgreed, toggleInfo] = useToggle();
     const [rulesAccepted, toggleRules] = useToggle();
+    const registerLender = useRegisterLenderMutation();
     const handleSubmit = async (event: SyntheticEvent) => {
         event.preventDefault();
-        setLoading(true);
-        await sleep(2000);
-        setLoading(false);
+        await registerLender.mutateAsync(
+            {
+                name,
+                email,
+                password,
+                type: selectedType,
+            },
+            {
+                onSuccess: () => {
+                    addMessage(ACTION_MESSAGE_TYPE.SUCCESS, "Вы успешно зарегистрировались");
+                    router.push("/auth/login");
+                },
+            }
+        );
     };
+    useEffectOnUpdate(() => {
+        if (registerLender.isError) {
+            addMessage(ACTION_MESSAGE_TYPE.ERROR, "Не удалось зарегистрировать пользователя");
+        }
+    }, [registerLender.isError]);
     return (
         <CommonAuthBlock className={styles.lender_form_block}>
             <form onSubmit={handleSubmit} className={styles.lender_form}>
@@ -50,7 +68,7 @@ const LenderForm = () => {
                 <div className={styles.lender_form__inputs}>
                     <div className={styles.lender_form__group}>
                         <CommonLabel htmlFor="name">Имя</CommonLabel>
-                        <CommonInput id="name">
+                        <CommonInput id="name" value={name} onChange={setName}>
                             <CommonInput.Container className={styles.lender_form__input_container}>
                                 <CommonInput.Input placeholder="Иванов Иван Иванович" />
                             </CommonInput.Container>
@@ -58,7 +76,7 @@ const LenderForm = () => {
                     </div>
                     <div className={styles.lender_form__group}>
                         <CommonLabel htmlFor="email">E-mail</CommonLabel>
-                        <CommonInput id="email">
+                        <CommonInput id="email" value={email} onChange={setEmail}>
                             <CommonInput.Container className={styles.lender_form__input_container}>
                                 <CommonInput.Input placeholder="ivan@example.com" />
                             </CommonInput.Container>
@@ -66,7 +84,7 @@ const LenderForm = () => {
                     </div>
                     <div className={styles.lender_form__group}>
                         <CommonLabel htmlFor="password">Пароль</CommonLabel>
-                        <PasswordInput id="password">
+                        <PasswordInput id="password" value={password} onChange={setPassword}>
                             <PasswordInput.Container className={styles.lender_form__input_container}>
                                 <PasswordInput.Input placeholder="Пароль" />
                             </PasswordInput.Container>
@@ -75,20 +93,20 @@ const LenderForm = () => {
                 </div>
                 <div className={styles.lender_form__radio}>
                     <RadioButton
-                        checked={selectedType === REGISTRATION_TYPE.INDIVIDUAL}
-                        onChange={() => setSelectedType(REGISTRATION_TYPE.INDIVIDUAL)}
+                        checked={selectedType === LENDER_TYPE.INDIVIDUAL}
+                        onChange={() => setSelectedType(LENDER_TYPE.INDIVIDUAL)}
                     >
                         Физ. лицо
                     </RadioButton>
                     <RadioButton
-                        checked={selectedType === REGISTRATION_TYPE.ENTREPRENEUR}
-                        onChange={() => setSelectedType(REGISTRATION_TYPE.ENTREPRENEUR)}
+                        checked={selectedType === LENDER_TYPE.ENTREPRENEUR}
+                        onChange={() => setSelectedType(LENDER_TYPE.ENTREPRENEUR)}
                     >
                         ИП
                     </RadioButton>
                     <RadioButton
-                        checked={selectedType === REGISTRATION_TYPE.LEGAL}
-                        onChange={() => setSelectedType(REGISTRATION_TYPE.LEGAL)}
+                        checked={selectedType === LENDER_TYPE.LEGAL_ENTITY}
+                        onChange={() => setSelectedType(LENDER_TYPE.LEGAL_ENTITY)}
                     >
                         Юр. лицо
                     </RadioButton>
@@ -112,10 +130,10 @@ const LenderForm = () => {
                         type="submit"
                         className={cn(
                             styles.lender_form__submit,
-                            resultIf(loading, styles.lender_form__submit___loading)
+                            resultIf(registerLender.isLoading, styles.lender_form__submit___loading)
                         )}
                     >
-                        {loading ? (
+                        {registerLender.isLoading ? (
                             <Loader />
                         ) : (
                             <>
