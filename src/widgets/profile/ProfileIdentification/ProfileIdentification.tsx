@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Phone } from "@/src/entities/phone/models";
-import { createDefaultPhone } from "@/src/entities/phone/models/createDefaultPhone";
 import styles from "./ProfileIdentification.module.scss";
 import ProfileCommonBlock from "@/src/entities/profile/ui/ProfileCommonBlock";
 import { Heading } from "@/src/shared/ui/typography";
@@ -14,12 +12,15 @@ import DateInput from "@/src/shared/ui/inputs/DateInput";
 import CommonFileUpload from "@/src/entities/file/ui/CommonFileUpload";
 import { useActionMessages } from "@/src/shared/action-messages/store";
 import { ACTION_MESSAGE_TYPE } from "@/src/shared/action-messages/model/ActionMessage";
-import InputPhone from "@/src/entities/phone/ui/InputPhone";
 import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
 import { Button } from "@/src/shared/ui/buttons";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
+import IdentificationPhone from "@/src/features/identification/ui/IdentificationPhone";
+import { createDefaultPhone, PhoneResult } from "@/src/entities/phone/models";
+import { useCurrentProfile } from "@/src/entities/profile/hooks";
 
 const ProfileIdentification = () => {
+    const profile = useCurrentProfile();
     const { addMessage } = useActionMessages();
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -31,8 +32,10 @@ const ProfileIdentification = () => {
     const [departmentCode, setDepartmentCode] = useState("");
     const [issuedBy, setIssuedBy] = useState("");
     const [inn, setInn] = useState("");
-    const [phone, setPhone] = useState<Phone>(createDefaultPhone());
-    const [code, setCode] = useState("");
+    const [phoneResult, setPhoneResult] = useState<PhoneResult>({
+        phone: profile.phone ?? createDefaultPhone(),
+        phoneVerified: profile.phoneVerified,
+    });
     return (
         <ProfileCommonBlock>
             <form className={styles.profile_identification_form}>
@@ -145,28 +148,7 @@ const ProfileIdentification = () => {
                         />
                     </div>
                 </div>
-                <div className={styles.profile_identification_form__block}>
-                    <Heading headingType={HEADING_TYPE.H2} className={styles.profile_identification_form__heading}>
-                        Подтверждение номера телефона
-                    </Heading>
-                    <div className={styles.profile_identification_form__phone}>
-                        <CommonInputBlock className={styles.profile_identification_form__phone_block}>
-                            <CommonLabel htmlFor="phone">Введите ваш номер телефона</CommonLabel>
-                            <InputPhone phone={phone} setPhone={setPhone} />
-                        </CommonInputBlock>
-                        <PrimaryButton color={PRIMARY_BUTTON_COLOR.GREEN}>
-                            <Button className={styles.profile_identification_form__phone_submit}>Получить код</Button>
-                        </PrimaryButton>
-                    </div>
-                    <CommonInputBlock>
-                        <CommonLabel htmlFor="code">Введите код</CommonLabel>
-                        <CommonInput id="code" value={code} onChange={setCode}>
-                            <CommonInput.Container>
-                                <CommonInput.Input placeholder="000 000000" mask="999 999999" />
-                            </CommonInput.Container>
-                        </CommonInput>
-                    </CommonInputBlock>
-                </div>
+                <IdentificationPhone phoneResult={phoneResult} setPhoneResult={setPhoneResult} />
                 <PrimaryButton color={PRIMARY_BUTTON_COLOR.GREEN}>
                     <Button type="submit" disabled className={styles.profile_identification_form__submit}>
                         Подать заявку
