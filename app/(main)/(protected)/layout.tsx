@@ -10,7 +10,10 @@ export default function ProtectedLayout({ children }: PropsWithChildren) {
     const { data, isLoading, isError } = useGetProfileQuery({ staleTime: Infinity, retry: false });
     const router = useRouter();
     useEffectOnUpdate(() => {
-        router.push("/auth/login");
+        if (isError) {
+            console.log("TOKEN INVALID, SENDING TO LOGIN");
+            router.push("/auth/login");
+        }
     }, [isError]);
     return <>{isLoading || isError || isValueEmpty(data) ? <PageLoader /> : children}</>;
 }
