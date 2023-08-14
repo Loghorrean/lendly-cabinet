@@ -16,11 +16,8 @@ import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
 import { Button } from "@/src/shared/ui/buttons";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
 import IdentificationPhone from "@/src/features/identification/ui/IdentificationPhone";
-import { createDefaultPhone, PhoneResult } from "@/src/entities/phone/models";
-import { useCurrentProfile } from "@/src/entities/profile/hooks";
 
 const ProfileIdentification = () => {
-    const profile = useCurrentProfile();
     const { addMessage } = useActionMessages();
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
@@ -32,10 +29,6 @@ const ProfileIdentification = () => {
     const [departmentCode, setDepartmentCode] = useState("");
     const [issuedBy, setIssuedBy] = useState("");
     const [inn, setInn] = useState("");
-    const [phoneResult, setPhoneResult] = useState<PhoneResult>({
-        phone: profile.phone ?? createDefaultPhone(),
-        phoneVerified: profile.phoneVerified,
-    });
     return (
         <ProfileCommonBlock>
             <form className={styles.profile_identification_form}>
@@ -148,7 +141,7 @@ const ProfileIdentification = () => {
                         />
                     </div>
                 </div>
-                <IdentificationPhone phoneResult={phoneResult} setPhoneResult={setPhoneResult} />
+                <IdentificationPhone />
                 <PrimaryButton color={PRIMARY_BUTTON_COLOR.GREEN}>
                     <Button type="submit" disabled className={styles.profile_identification_form__submit}>
                         Подать заявку

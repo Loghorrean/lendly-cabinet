@@ -11,7 +11,8 @@
         padding: 0.875rem 1rem;
         box-shadow: 0 2px 4px -2px #0000000A;
         border: 1px solid var(--stroke-on-white-color);
-        &:focus-within {
+        transition: border-color 0.375s ease-in-out;
+        &:focus-within, &:hover {
             border-color: var(--font-dark-color);
         }
         &::placeholder {

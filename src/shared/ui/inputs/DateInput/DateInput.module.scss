@@ -9,11 +9,24 @@
   @include typo.regularBasisText;
   color: var(--primary-dark-color);
   cursor: pointer;
+  &:focus {
+    outline: none;
+  }
   &_container {
-    padding: 0.875rem 1.5rem;
+    padding: 0.875rem 1rem;
     border: 1px solid var(--stroke-on-white-color);
     background-color: var(--white-color);
     border-radius: 0.75rem;
     width: 100%;
+    transition: border-color 0.375s ease-in-out;
+    &:focus-within, &:hover {
+      border-color: var(--font-dark-color);
+    }
+    & > div {
+      display: flex;
+      & > div {
+        display: flex;
+      }
+    }
   }
 }

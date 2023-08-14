@@ -1,7 +1,7 @@
 @use "src/shared/styles/typography" as typo;
 @use "src/shared/styles/mixins" as m;
 
-.profile_navigation {
+.profile_aside {
   padding: 1rem;
   background-color: var(--white-color);
   border-radius: 0.75rem;
@@ -10,6 +10,11 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
+  position: relative;
+  &__navigation {
+    position: sticky;
+    top: 5rem;
+  }
   &__list {
     display: flex;
     flex-direction: column;

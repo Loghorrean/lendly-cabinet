@@ -1,7 +1,6 @@
 "use client";
 
 import styles from "./ProfileNotifications.module.scss";
-import ProfileCommonBlock from "@/src/entities/profile/ui/ProfileCommonBlock";
 import { Heading } from "@/src/shared/ui/typography";
 import { HEADING_TYPE } from "@/src/shared/ui/typography/Heading/Heading";
 import { Checkbox } from "@/src/shared/ui/form";
@@ -14,7 +13,7 @@ const ProfileNotifications = () => {
     const [systemToggled, toggleSystem] = useToggle();
     const [newsToggled, toggleNews] = useToggle();
     return (
-        <ProfileCommonBlock>
+        <div className={styles.profile_notifications} id="profile-notifications">
             <Heading headingType={HEADING_TYPE.H2} className={styles.profile_notifications__heading}>
                 Настройки уведомлений
             </Heading>
@@ -30,12 +29,7 @@ const ProfileNotifications = () => {
                     </Checkbox>
                 </li>
             </ul>
-            <PrimaryButton color={PRIMARY_BUTTON_COLOR.GREEN} wide>
-                <Button disabled className={styles.profile_notifications__submit}>
-                    Сохранить изменения
-                </Button>
-            </PrimaryButton>
-        </ProfileCommonBlock>
+        </div>
     );
 };
 
