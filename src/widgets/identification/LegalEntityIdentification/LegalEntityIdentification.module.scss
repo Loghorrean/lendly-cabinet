@@ -1,0 +1,8 @@
+.legal_entity_identification {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  &__submit {
+    min-height: 3.5rem;
+  }
+}

@@ -1,0 +1,35 @@
+@use "src/shared/styles/typography" as typo;
+
+.identification_completed_notification {
+  background-color: var(--white-color);
+  border-radius: 1rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2rem;
+  max-width: 28.125rem;
+  &__image {
+    align-self: center;
+  }
+  &__texts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  &__heading {
+    @include typo.tertiaryHeading;
+  }
+  &__text {
+    @include typo.primaryText;
+    color: var(--font-secondary-color);
+  }
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+}

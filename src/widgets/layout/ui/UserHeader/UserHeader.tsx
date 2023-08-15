@@ -29,7 +29,10 @@ const UserHeader = () => {
                             </PrimaryButton>
                         </div>
                         <div className={styles.user_header__actions}>
-                            <ProjectLink href="/notifications" className={styles.user_header__notifications}>
+                            <ProjectLink
+                                href="/profile#profile-notifications"
+                                className={styles.user_header__notifications}
+                            >
                                 <NotificationsIcon />
                             </ProjectLink>
                             <ProfileMenu />

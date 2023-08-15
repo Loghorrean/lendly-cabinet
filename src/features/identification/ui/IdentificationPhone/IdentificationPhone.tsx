@@ -9,28 +9,21 @@ import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/Primary
 import { Button } from "@/src/shared/ui/buttons";
 import CommonInput from "@/src/shared/ui/inputs/CommonInput";
 import { useState } from "react";
-import { Phone, PhoneResult } from "@/src/entities/phone/models";
+import { createDefaultPhone, Phone } from "@/src/entities/phone/models";
 import { useAddPhoneMutation } from "@/src/entities/profile/hooks/useAddPhoneMutation";
 import { useVerifyPhoneMutation } from "@/src/entities/profile/hooks/useVerifyPhoneMutation";
 import { useCurrentProfile } from "@/src/entities/profile/hooks";
 import { useQueryClient } from "@tanstack/react-query";
 import Loader from "@/src/shared/ui/loaders/Loader";
 
-type Props = {
-    phoneResult: PhoneResult;
-    setPhoneResult: (phone: PhoneResult) => void;
-};
-
-const IdentificationPhone = ({ phoneResult, setPhoneResult }: Props) => {
+const IdentificationPhone = () => {
     const client = useQueryClient();
     const profile = useCurrentProfile();
+    const [bufferedPhone, setBufferedPhone] = useState<Phone>(profile.phone ?? createDefaultPhone());
     const [code, setCode] = useState("");
     const [codeSentToPhone, setCodeSentToPhone] = useState(false);
     const setPhone = (phone: Phone) => {
-        setPhoneResult({
-            phone,
-            phoneVerified: false,
-        });
+        setBufferedPhone(phone);
         setCodeSentToPhone(false);
     };
     const addPhoneAndSendSmsCode = useAddPhoneMutation();
@@ -39,38 +32,33 @@ const IdentificationPhone = ({ phoneResult, setPhoneResult }: Props) => {
     const handleSendPhone = async () => {
         await addPhoneAndSendSmsCode.mutateAsync(
             {
-                phone: phoneResult.phone,
+                phone: bufferedPhone,
             },
             {
                 onSuccess: data => {
-                    setPhoneResult(data);
                     setCodeSentToPhone(true);
                     client.setQueryData(["profile"], {
                         ...profile,
-                        phone: phoneResult.phone,
-                        phoneVerified: phoneResult.phoneVerified,
+                        phone: data.phone,
+                        phoneVerified: data.phoneVerified,
                     });
                 },
             }
         );
     };
-    //TODO: ADD CACHE PROFILE SETTING
+    //TODO: RESOLVE ISSUE WITH BACKEND THAT PHONE VERIFIED PROPERTY DOES NOT CHANGE
     const handleVerifyPhone = async () => {
         await verifyPhone.mutateAsync(
             {
-                phone: phoneResult.phone,
+                phone: bufferedPhone,
                 verificationCode: code,
             },
             {
-                onSuccess: () => {
-                    setPhoneResult({
-                        phone: phoneResult.phone,
-                        phoneVerified: true,
-                    });
+                onSuccess: data => {
                     client.setQueryData(["profile"], {
                         ...profile,
-                        phone: phoneResult.phone,
-                        phoneVerified: true,
+                        phone: data.phone,
+                        phoneVerified: data.phoneVerified,
                     });
                 },
             }
@@ -84,7 +72,7 @@ const IdentificationPhone = ({ phoneResult, setPhoneResult }: Props) => {
             <div className={styles.identification_phone__phone}>
                 <CommonInputBlock className={styles.identification_phone__phone_block}>
                     <CommonLabel htmlFor="phone">Введите ваш номер телефона</CommonLabel>
-                    <InputPhone phone={phoneResult.phone} setPhone={setPhone} />
+                    <InputPhone phone={bufferedPhone} setPhone={setPhone} />
                 </CommonInputBlock>
                 <PrimaryButton color={PRIMARY_BUTTON_COLOR.GREEN}>
                     <Button

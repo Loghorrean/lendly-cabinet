@@ -15,6 +15,7 @@ const NotarizedDocUpload = () => {
             onUploaded={() => {
                 return "";
             }}
+            placeholder="Добавьте нотариальную доверенность"
         />
     );
 };

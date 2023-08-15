@@ -13,6 +13,7 @@ import { Button } from "@/src/shared/ui/buttons";
 import NotarizedDocUpload from "@/src/features/profile/ui/NotarizedDocUpload";
 import ProfileCommonBlock from "@/src/entities/profile/ui/ProfileCommonBlock";
 import SendChangePasswordRequestButton from "@/src/features/profile/ui/SendChangePasswordRequestButton";
+import ProfileNotifications from "@/src/widgets/profile/ProfileNotifications";
 
 //TODO: ADD DEFAULT PROFILE DATA
 const ProfileGeneral = () => {
@@ -86,6 +87,7 @@ const ProfileGeneral = () => {
                     </Heading>
                     <NotarizedDocUpload />
                 </div>
+                <ProfileNotifications />
                 <PrimaryButton color={PRIMARY_BUTTON_COLOR.GREEN} wide>
                     <Button disabled className={styles.profile_general__submit}>
                         Сохранить изменения

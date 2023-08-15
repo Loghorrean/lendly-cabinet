@@ -7,7 +7,11 @@ import { isValueEmpty, useEffectOnUpdate } from "@/src/shared/utils";
 import PageLoader from "@/src/shared/ui/loaders/PageLoader";
 
 export default function ProtectedLayout({ children }: PropsWithChildren) {
-    const { data, isLoading, isError } = useGetProfileQuery({ staleTime: Infinity, retry: false });
+    const { data, isLoading, isError } = useGetProfileQuery({
+        staleTime: Infinity,
+        retry: false,
+        refetchOnWindowFocus: false,
+    });
     const router = useRouter();
     useEffectOnUpdate(() => {
         if (isError) {
