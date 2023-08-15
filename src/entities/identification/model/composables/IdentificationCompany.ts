@@ -3,6 +3,6 @@ export interface IdentificationCompany {
     readonly siteUrl?: string;
     readonly inn: string;
     readonly kpp: string;
-    readonly ognip: string;
+    readonly ogrnip: string;
     readonly address: string;
 }
