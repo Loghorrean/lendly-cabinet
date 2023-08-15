@@ -18,18 +18,23 @@ import CommonInputBlock from "@/src/shared/ui/inputs/CommonInputBlock";
 import IdentificationOverlay from "@/src/features/identification/ui/IdentificationOverlay";
 import Loader from "@/src/shared/ui/loaders/Loader";
 import IdentificationCompletedNotification from "@/src/features/identification/ui/IdentificationCompletedNotification";
+import { IdentificationAgreements as IdentificationAgreementsModel } from "@/src/entities/identification/model/composables";
+import IdentificationAgreements from "@/src/features/identification/ui/IdentificationAgreements";
 
 //TODO: ADD INITIAL IDENTIFICATION MODEL
 const IndividualIdentification = () => {
     const { addMessage, addMessagesBulk } = useActionMessages();
     const [overlayOpened, setOverlayOpened] = useState(false);
     const profile = useCurrentProfile();
-    console.log(profile);
     const createIndividualIdentification = useCreateIndividualIdentification();
     const [person, setPerson] = useState(createDefaultPerson());
     const [passport, setPassport] = useState(createDefaultPassport());
     const [inn, setInn] = useState("");
     const [registrationAddress, setRegistrationAddress] = useState("");
+    const [agreements, setAgreements] = useState<IdentificationAgreementsModel>({
+        personalDataPolicy: false,
+        userContractTerms: false,
+    });
     const setFirstPage = (fileUrl: string) => {
         setPassport(prev => {
             return {
@@ -53,6 +58,9 @@ const IndividualIdentification = () => {
         if (isValueEmpty(profile.phone)) {
             errors.push("Телефон не указан!");
         }
+        if (!agreements.userContractTerms || !agreements.personalDataPolicy) {
+            errors.push("Неверно указаны соглашения!");
+        }
         return errors;
     };
 
@@ -60,6 +68,7 @@ const IndividualIdentification = () => {
         event.preventDefault();
         const errors = validateForm();
         if (errors.length !== 0) {
+            console.log(errors);
             addMessagesBulk(ACTION_MESSAGE_TYPE.ERROR, errors);
             return;
         }
@@ -102,6 +111,7 @@ const IndividualIdentification = () => {
                 setSecondPage={setSecondPage}
             />
             <IdentificationPhone />
+            <IdentificationAgreements agreements={agreements} setAgreements={setAgreements} />
             <PrimaryButton color={PRIMARY_BUTTON_COLOR.GREEN}>
                 <Button type="submit" className={styles.individual_identification__submit}>
                     Подать заявку

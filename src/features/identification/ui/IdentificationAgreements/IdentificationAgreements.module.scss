@@ -1,0 +1,15 @@
+@use "src/shared/styles/typography" as typo;
+
+.identification_agreements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  &__heading {
+    @include typo.secondaryHeading;
+  }
+  &__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(10px, 1fr));
+    grid-gap: 1.5rem;
+  }
+}
