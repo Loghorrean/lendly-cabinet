@@ -1,0 +1,12 @@
+@use "src/shared/styles/mixins" as m;
+
+.identification_overlay {
+  position: fixed;
+  z-index: 60;
+  width: 100vw;
+  height: calc(100vh - 4rem);
+  left: 0;
+  top: 4rem;
+  @include m.centerWithFlex;
+  background-color: #EFF1EE;
+}

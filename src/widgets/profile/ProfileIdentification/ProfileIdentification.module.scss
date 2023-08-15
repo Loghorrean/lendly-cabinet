@@ -25,11 +25,6 @@
   &__full_input {
     grid-column: 1 / -1;
   }
-  &__passport {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(10px, 1fr));
-    grid-gap: 1.5rem;
-  }
   &__files {
     display: grid;
     grid-template-columns: repeat(2, minmax(10px, 1fr));
