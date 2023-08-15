@@ -15,6 +15,7 @@ const DateInput = ({ selected, onChange }: ReactDatePickerProps) => {
                 selected={selected}
                 className={styles.date_input}
                 placeholderText="ДД.ММ.ГГ"
+                shouldCloseOnSelect
             />
         </div>
     );

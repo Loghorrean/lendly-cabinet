@@ -1,0 +1,18 @@
+@use "src/shared/styles/typography" as typo;
+
+.identification_company {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  &__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(10px, 1fr));
+    grid-gap: 1.5rem;
+  }
+  &__heading {
+    @include typo.secondaryHeading;
+  }
+  &__full_input {
+    grid-column: 1 / -1;
+  }
+}
