@@ -15,8 +15,8 @@ const RegisterReminder = () => {
                 <UnlockIcon />
                 <span className={styles.register_reminder__text}>
                     Необходимо{" "}
-                    <ProjectLink href="/auth/register" className={styles.register_reminder__link}>
-                        пройти регистрацию
+                    <ProjectLink href="/profile/identification" className={styles.register_reminder__link}>
+                        пройти идентификацию
                     </ProjectLink>
                     , чтобы получить доступ к инвестированию
                 </span>
