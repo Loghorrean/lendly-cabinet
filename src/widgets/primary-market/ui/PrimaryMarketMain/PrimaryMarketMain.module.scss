@@ -16,4 +16,9 @@
         align-items: center;
         justify-content: space-between;
     }
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(10px, 1fr));
+        grid-gap: 1rem;
+    }
 }

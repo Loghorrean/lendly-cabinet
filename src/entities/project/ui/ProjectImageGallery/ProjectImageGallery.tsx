@@ -3,7 +3,7 @@
 import styles from "./ProjectImageGallery.module.scss";
 import Slider from "react-slick";
 import firstProjectImage from "@/public/images/project/mock-project-pic-1.png";
-import secondProjectImage from "@/public/images/project/pic.png";
+import secondProjectImage from "@/public/images/project/no-image.png";
 import { ProjectImage } from "@/src/shared/ui/images";
 import { Button } from "@/src/shared/ui/buttons";
 import { cn } from "@/src/shared/utils";

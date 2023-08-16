@@ -10,25 +10,23 @@ import PaginationContent from "@/src/shared/ui/pagination/ui/composables/Paginat
 import { paginationConfig } from "@/src/shared/configs";
 
 export type PaginationConfig = {
-    firstPage: number;
-    defaultPerPage: number;
-    pageParam: string;
-    perPageParam: string;
-    filterParam: string;
+    firstPage?: number;
+    defaultPerPage?: number;
+    pageParam?: string;
+    perPageParam?: string;
 };
 
-const defaultConfig: PaginationConfig = {
+const defaultConfig: Required<PaginationConfig> = {
     firstPage: paginationConfig.defaultFirstPage,
     defaultPerPage: paginationConfig.defaultPerPage,
     pageParam: "page",
     perPageParam: "perPage",
-    filterParam: "filter",
 };
 
 interface Props {
     loading: boolean;
     totalCount: number;
-    config?: PaginationConfig;
+    config?: Partial<PaginationConfig>;
     collection?: DataCollection<unknown>;
 }
 
@@ -36,11 +34,13 @@ function Pagination({ config, collection, totalCount, loading, children }: Props
     const compiledConfig = useMemo(() => {
         return { ...defaultConfig, ...config };
     }, [config]);
-
-    const variables = usePagination();
+    const variables = usePagination({
+        firstPage: compiledConfig.firstPage,
+        defaultPerPage: compiledConfig.defaultPerPage,
+    });
 
     const contextValue: PaginationContextType = {
-        pageParam: compiledConfig.pageParam,
+        pageParam: compiledConfig.pageParam ?? defaultConfig.pageParam,
         perPageParam: compiledConfig.perPageParam,
         loading,
         totalCount,
