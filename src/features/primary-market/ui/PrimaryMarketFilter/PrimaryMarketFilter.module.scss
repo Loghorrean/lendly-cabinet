@@ -1,20 +1,40 @@
+@use "src/shared/styles/typography" as typo;
+
 .primary_market_filter {
     background-color: var(--white-color);
     border-radius: 0.75rem;
     box-shadow: var(--common-box-shadow);
     padding-inline: 1.5rem;
-    padding-block: 0.5rem;
-    transition: padding-block 0.375s ease-in-out, max-height 0.375s ease-in-out;
-    &___active {
-        padding-block: 1.5rem;
-    }
     &__body {
+        overflow: hidden;
+        transition: max-height 0.375s ease-in-out;
     }
     &__inner {
+        padding-block: 1.5rem 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(10px, 1fr));
+        grid-gap: 1rem 1.5rem;
     }
-    &__open {
+    &__block {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    &__label {
+        color: var(--font-secondary-color);
+    }
+    &__footer {
+        padding-block: 1rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+    &__open {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        @include typo.primaryTextAccent;
     }
 }

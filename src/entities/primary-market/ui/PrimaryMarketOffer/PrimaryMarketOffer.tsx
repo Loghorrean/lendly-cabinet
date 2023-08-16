@@ -9,8 +9,8 @@ import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/Primary
 import { ProjectLink } from "@/src/shared/ui/links";
 import CommonInvestmentTitle from "@/src/entities/investment/ui/CommonInvestmentTitle";
 import CommonTable from "@/src/shared/ui/blocks/CommonTable";
-import { FundraisingProject } from "@/src/entities/primary-market/model";
 import { hexIdToDec } from "@/src/shared/utils";
+import { FundraisingProject } from "@/src/entities/project/model/FundraisingProject";
 
 type Props = {
     project: FundraisingProject;
@@ -32,7 +32,7 @@ const PrimaryMarketOffer = ({ project }: Props) => {
                 id={project.paymentCode ?? hexIdToDec(project.uuid)}
             />
             <CommonTable.Cell className={styles.primary_market_offer__value}>
-                <span>18%</span>
+                <span>{project.interestRate ?? 0}%</span>
                 <Tooltip tooltipContent={<TooltipContent>Ожидаемая доходность</TooltipContent>}>
                     <QuestionBlock />
                 </Tooltip>

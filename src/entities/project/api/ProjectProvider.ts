@@ -1,13 +1,14 @@
 import { ApiClientInterface } from "@/src/shared/api-client";
-import { FundraisingProject, PrimaryMarketListFilter } from "@/src/entities/primary-market/model";
 import { DataCollection } from "@/src/shared/models/common";
 import buildQuery from "@/src/shared/utils/functions/router/buildQuery";
+import { FundraisingProjectsFilter } from "@/src/entities/project/model/filter";
+import { FundraisingProject } from "@/src/entities/project/model/FundraisingProject";
 
-export class PrimaryMarketProjectProvider {
+export class ProjectProvider {
     constructor(private readonly apiClient: ApiClientInterface) {}
 
-    public async getList(
-        filter: PrimaryMarketListFilter,
+    public async getFundraisingList(
+        filter: FundraisingProjectsFilter,
         page: number,
         perPage: number
     ): Promise<DataCollection<FundraisingProject>> {

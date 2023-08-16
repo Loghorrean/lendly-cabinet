@@ -10,15 +10,18 @@ import PaginationContent from "../../../../shared/ui/pagination/ui/composables/P
 import PrimaryMarketOffer from "@/src/entities/primary-market/ui/PrimaryMarketOffer";
 import DynamicPaginator from "@/src/shared/ui/pagination/ui/DynamicPaginator";
 import LoadMoreButton from "@/src/shared/ui/buttons/LoadMoreButton";
-import { useGetFundraisingProjectsList } from "@/src/entities/primary-market/hooks";
 import { usePagination } from "@/src/shared/ui/pagination/utils/usePagination";
 import { useMemo, useState } from "react";
-import { PrimaryMarketListFilter } from "@/src/entities/primary-market/model";
-import { isNotEmpty } from "@/src/shared/utils";
+import { isNotEmpty, usePaginationFilter } from "@/src/shared/utils";
+import { useGetFundraisingProjectsList } from "@/src/entities/project/hooks";
+import { FundraisingProjectsFilter } from "@/src/entities/project/model/filter";
+import { ENTITY_VISIBILITY, EntityVisibility } from "@/src/entities/visibility/model";
 
 const PrimaryMarketMain = () => {
     const { page, perPage } = usePagination();
-    const [filter, setFilter] = useState<PrimaryMarketListFilter>({});
+    const [filter, setFilter] = usePaginationFilter<FundraisingProjectsFilter>();
+    console.log(filter);
+    const [visibility, setVisibility] = useState<EntityVisibility>(ENTITY_VISIBILITY.ROWS);
     const projectsList = useGetFundraisingProjectsList({ filter, page, perPage });
     const [profitSorting, toggleProfitSorting] = useSortingDirection();
     const [termSorting, toggleTermSorting] = useSortingDirection();
@@ -31,7 +34,12 @@ const PrimaryMarketMain = () => {
     }, [projectsList.data]);
     return (
         <div className={styles.primary_market_main}>
-            <PrimaryMarketFilter />
+            <PrimaryMarketFilter
+                filter={filter}
+                setFilter={setFilter}
+                visibility={visibility}
+                setVisibility={setVisibility}
+            />
             <Pagination
                 loading={projectsList.isLoading}
                 totalCount={projectsList.data?.totalCount ?? 0}

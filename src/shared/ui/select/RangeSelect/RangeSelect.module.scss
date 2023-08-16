@@ -22,7 +22,7 @@
     position: absolute;
     @include m.centerLineWithPositioning(translateY(50%));
     bottom: 0;
-    width: calc(min(calc(100% - 1rem), 11.5rem));
+    width: calc(100% - 1.5rem);
     & > div {
       &:first-child {
         background: none;
