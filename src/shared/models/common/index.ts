@@ -1,4 +1,4 @@
-export * from "./Collection";
+export * from "./DataCollection";
 export * from "./Email";
 export * from "./File";
 export * from "./Money";

@@ -4,7 +4,7 @@ import styles from "./PrimaryMarketMain.module.scss";
 import PrimaryMarketFilter from "@/src/features/primary-market/ui/PrimaryMarketFilter";
 import { useSortingDirection } from "@/src/shared/models/enums";
 import Pagination from "@/src/shared/ui/pagination/ui/Pagination";
-import { Collection } from "@/src/shared/models/common/Collection";
+import { DataCollection } from "@/src/shared/models/common/DataCollection";
 import CommonTable from "@/src/shared/ui/blocks/CommonTable";
 import SortingDirectionBlock from "@/src/shared/ui/utils/SortingDirectionBlock";
 import PaginationContent from "../../../../shared/ui/pagination/ui/composables/PaginationContent";
@@ -12,7 +12,7 @@ import PrimaryMarketOffer from "@/src/entities/primary-market/ui/PrimaryMarketOf
 import DynamicPaginator from "@/src/shared/ui/pagination/ui/DynamicPaginator";
 import LoadMoreButton from "@/src/shared/ui/buttons/LoadMoreButton";
 
-const mockCollection: Collection<{ id: number }> = {
+const mockCollection: DataCollection<{ id: number }> = {
     items: [
         {
             id: 1,

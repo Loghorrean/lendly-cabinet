@@ -7,9 +7,10 @@
   min-height: 10rem;
   border-radius: 0.75rem;
   box-shadow: none;
-  transition: box-shadow 0.375s ease-in-out;
+  transition: box-shadow 0.375s ease-in-out, border-color 0.375s ease-in-out;
   color: var(--font-dark-color);
   &:hover {
+    border-color: white;
     box-shadow: 0 0.25rem 1.5rem 0 #0000001F;
     & path {
       &:nth-child(1) {

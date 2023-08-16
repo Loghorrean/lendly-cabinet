@@ -2,7 +2,7 @@
 
 import React, { PropsWithChildren, useMemo } from "react";
 import { PaginationContextType } from "../../context/PaginationContext";
-import { Collection } from "@/src/shared/models/common/Collection";
+import { DataCollection } from "@/src/shared/models/common/DataCollection";
 import { usePagination } from "@/src/shared/ui/pagination/utils/usePagination";
 import PaginationContextProvider from "../../context/PaginationContext";
 import PaginationFooter from "@/src/shared/ui/pagination/ui/composables/PaginationFooter";
@@ -28,7 +28,7 @@ interface Props {
     loading: boolean;
     totalCount: number;
     config?: PaginationConfig;
-    collection?: Collection<unknown>;
+    collection?: DataCollection<unknown>;
 }
 
 function Pagination({ config, collection, totalCount, loading, children }: PropsWithChildren<Props>) {

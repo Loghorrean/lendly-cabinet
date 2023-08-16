@@ -5,7 +5,7 @@ import SearchInput from "@/src/shared/ui/inputs/SearchInput";
 import { useState } from "react";
 import { useEffectOnUpdate } from "@/src/shared/utils";
 import Pagination from "@/src/shared/ui/pagination/ui/Pagination";
-import { Collection } from "@/src/shared/models/common";
+import { DataCollection } from "@/src/shared/models/common";
 import CommonTable from "@/src/shared/ui/blocks/CommonTable";
 import SortingDirectionBlock from "@/src/shared/ui/utils/SortingDirectionBlock";
 import { useSortingDirection } from "@/src/shared/models/enums";
@@ -14,7 +14,7 @@ import MyFundraisingInvestment from "@/src/entities/my-investments/ui/MyFundrais
 import LoadMoreButton from "@/src/shared/ui/buttons/LoadMoreButton";
 import DynamicPaginator from "@/src/shared/ui/pagination/ui/DynamicPaginator";
 
-const mockCollection: Collection<{ id: number }> = {
+const mockCollection: DataCollection<{ id: number }> = {
     items: [
         {
             id: 1,
