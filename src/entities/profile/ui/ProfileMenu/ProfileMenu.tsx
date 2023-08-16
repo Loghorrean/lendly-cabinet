@@ -6,7 +6,10 @@ const ProfileMenu = () => {
     const profile = useCurrentProfile();
     const initials = () => {
         const nameWords = profile.name.split(" ");
-        return nameWords.map(word => word[0].toUpperCase()).join("");
+        return nameWords
+            .map(word => word[0].toUpperCase())
+            .join("")
+            .slice(0, -1);
     };
     return (
         <div className={styles.profile_menu}>
