@@ -2,7 +2,7 @@ import styles from "./PrimaryMarketBlock.module.scss";
 import QualifiedInvestorRequirement from "@/src/widgets/primary-market/ui/QualifiedInvestorRequirement";
 import PrimaryMarketMain from "../PrimaryMarketMain";
 
-const isQual = false;
+const isQual = true;
 
 const PrimaryMarketBlock = () => {
     return (

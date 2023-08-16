@@ -9,32 +9,51 @@ import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/Primary
 import { ProjectLink } from "@/src/shared/ui/links";
 import CommonInvestmentTitle from "@/src/entities/investment/ui/CommonInvestmentTitle";
 import CommonTable from "@/src/shared/ui/blocks/CommonTable";
+import { FundraisingProject } from "@/src/entities/primary-market/model";
+import { hexIdToDec } from "@/src/shared/utils";
 
-const PrimaryMarketOffer = () => {
+type Props = {
+    project: FundraisingProject;
+};
+
+const PrimaryMarketOffer = ({ project }: Props) => {
+    const type = () => {
+        return "Проект";
+    };
+    const investedPercent = () => {
+        return parseFloat((((project.investedSum?.amount ?? 0) / project.targetSum.amount) * 100).toFixed(2));
+    };
     return (
         <CommonTableRow className={styles.primary_market_offer}>
-            <CommonInvestmentTitle percentage={64} type="Проект" title="ООО Эстетик Вижен Плюс" id="332932-7666" />
+            <CommonInvestmentTitle
+                percentage={investedPercent()}
+                type={type()}
+                title={project.name}
+                id={project.paymentCode ?? hexIdToDec(project.uuid)}
+            />
             <CommonTable.Cell className={styles.primary_market_offer__value}>
                 <span>18%</span>
                 <Tooltip tooltipContent={<TooltipContent>Ожидаемая доходность</TooltipContent>}>
                     <QuestionBlock />
                 </Tooltip>
             </CommonTable.Cell>
-            <CommonTable.Cell className={styles.primary_market_offer__value}>20 мес.</CommonTable.Cell>
+            <CommonTable.Cell className={styles.primary_market_offer__value}>
+                {project.initialTerm ?? 0} мес.
+            </CommonTable.Cell>
             <div className={styles.primary_market_offer__progress}>
                 <div className={styles.primary_market_offer__progress_values}>
                     <div className={styles.primary_market_offer__value}>
-                        <Money money={{ amount: 1400000000, currencyCode: "RUB" }} abbreviated />
+                        <Money money={project.investedSum ?? { amount: 0, currencyCode: "RUB" }} abbreviated />
                     </div>
                     <div className={styles.primary_market_offer__rounds}>Раунд 1 / 10</div>
                     <div className={styles.primary_market_offer__value}>
-                        <Money money={{ amount: 1800000000, currencyCode: "RUB" }} abbreviated />
+                        <Money money={project.targetSum} abbreviated />
                     </div>
                 </div>
-                <ProgressBar amount={64} />
+                <ProgressBar amount={investedPercent()} />
             </div>
             <PrimaryButton color={PRIMARY_BUTTON_COLOR.WHITE}>
-                <ProjectLink className={styles.primary_market_offer__link} href={`/project/123`}>
+                <ProjectLink className={styles.primary_market_offer__link} href={`/project/${project.uuid}`}>
                     Инвестировать
                 </ProjectLink>
             </PrimaryButton>

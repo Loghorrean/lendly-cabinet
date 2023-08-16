@@ -2,11 +2,12 @@
 
 import React, { PropsWithChildren, useMemo } from "react";
 import { PaginationContextType } from "../../context/PaginationContext";
-import { Collection } from "@/src/shared/models/common/Collection";
+import { DataCollection } from "@/src/shared/models/common/DataCollection";
 import { usePagination } from "@/src/shared/ui/pagination/utils/usePagination";
 import PaginationContextProvider from "../../context/PaginationContext";
 import PaginationFooter from "@/src/shared/ui/pagination/ui/composables/PaginationFooter";
 import PaginationContent from "@/src/shared/ui/pagination/ui/composables/PaginationContent";
+import { paginationConfig } from "@/src/shared/configs";
 
 export type PaginationConfig = {
     firstPage: number;
@@ -17,8 +18,8 @@ export type PaginationConfig = {
 };
 
 const defaultConfig: PaginationConfig = {
-    firstPage: 1,
-    defaultPerPage: 1,
+    firstPage: paginationConfig.defaultFirstPage,
+    defaultPerPage: paginationConfig.defaultPerPage,
     pageParam: "page",
     perPageParam: "perPage",
     filterParam: "filter",
@@ -28,7 +29,7 @@ interface Props {
     loading: boolean;
     totalCount: number;
     config?: PaginationConfig;
-    collection?: Collection<unknown>;
+    collection?: DataCollection<unknown>;
 }
 
 function Pagination({ config, collection, totalCount, loading, children }: PropsWithChildren<Props>) {
@@ -44,7 +45,7 @@ function Pagination({ config, collection, totalCount, loading, children }: Props
         loading,
         totalCount,
         count: collection?.items.length || 0,
-        page: variables.page / variables.perPage + 1,
+        page: variables.page,
         perPage: variables.perPage,
     };
 

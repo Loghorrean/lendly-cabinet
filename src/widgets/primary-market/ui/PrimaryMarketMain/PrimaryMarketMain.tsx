@@ -4,33 +4,39 @@ import styles from "./PrimaryMarketMain.module.scss";
 import PrimaryMarketFilter from "@/src/features/primary-market/ui/PrimaryMarketFilter";
 import { useSortingDirection } from "@/src/shared/models/enums";
 import Pagination from "@/src/shared/ui/pagination/ui/Pagination";
-import { Collection } from "@/src/shared/models/common/Collection";
 import CommonTable from "@/src/shared/ui/blocks/CommonTable";
 import SortingDirectionBlock from "@/src/shared/ui/utils/SortingDirectionBlock";
 import PaginationContent from "../../../../shared/ui/pagination/ui/composables/PaginationContent";
 import PrimaryMarketOffer from "@/src/entities/primary-market/ui/PrimaryMarketOffer";
 import DynamicPaginator from "@/src/shared/ui/pagination/ui/DynamicPaginator";
 import LoadMoreButton from "@/src/shared/ui/buttons/LoadMoreButton";
-
-const mockCollection: Collection<{ id: number }> = {
-    items: [
-        {
-            id: 1,
-        },
-        {
-            id: 2,
-        },
-    ],
-    totalCount: 3,
-};
+import { useGetFundraisingProjectsList } from "@/src/entities/primary-market/hooks";
+import { usePagination } from "@/src/shared/ui/pagination/utils/usePagination";
+import { useMemo, useState } from "react";
+import { PrimaryMarketListFilter } from "@/src/entities/primary-market/model";
+import { isNotEmpty } from "@/src/shared/utils";
 
 const PrimaryMarketMain = () => {
+    const { page, perPage } = usePagination();
+    const [filter, setFilter] = useState<PrimaryMarketListFilter>({});
+    const projectsList = useGetFundraisingProjectsList({ filter, page, perPage });
     const [profitSorting, toggleProfitSorting] = useSortingDirection();
     const [termSorting, toggleTermSorting] = useSortingDirection();
+    const renderProjects = useMemo(() => {
+        if (isNotEmpty(projectsList.data)) {
+            return projectsList.data.items.map(item => {
+                return <PrimaryMarketOffer project={item} key={item.uuid} />;
+            });
+        }
+    }, [projectsList.data]);
     return (
         <div className={styles.primary_market_main}>
             <PrimaryMarketFilter />
-            <Pagination loading={false} totalCount={mockCollection.totalCount} collection={mockCollection}>
+            <Pagination
+                loading={projectsList.isLoading}
+                totalCount={projectsList.data?.totalCount ?? 0}
+                collection={projectsList.data}
+            >
                 <CommonTable>
                     <CommonTable.Header className={styles.primary_market_main__header}>
                         <div>Название предложения</div>
@@ -48,10 +54,7 @@ const PrimaryMarketMain = () => {
                         </div>
                     </CommonTable.Header>
                     <PaginationContent>
-                        <ul>
-                            <PrimaryMarketOffer />
-                            <PrimaryMarketOffer />
-                        </ul>
+                        <ul>{renderProjects}</ul>
                     </PaginationContent>
                 </CommonTable>
                 <Pagination.Footer>

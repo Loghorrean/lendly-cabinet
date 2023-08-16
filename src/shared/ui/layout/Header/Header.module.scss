@@ -20,6 +20,10 @@
         align-items: center;
         gap: 2rem;
     }
+    &__main_link {
+        display: flex;
+        align-items: center;
+    }
     &__list {
         display: flex;
         align-items: stretch;

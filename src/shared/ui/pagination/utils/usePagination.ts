@@ -11,7 +11,7 @@ export const usePagination = () => {
         : paginationConfig.defaultPerPage;
     const page = isNotEmpty(params.get("page")) ? parseInt(params.get("page")!) : paginationConfig.defaultFirstPage;
     return {
-        page: (page - 1) * perPage,
+        page,
         perPage,
     };
 };
