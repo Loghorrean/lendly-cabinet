@@ -14,9 +14,13 @@ import NotarizedDocUpload from "@/src/features/profile/ui/NotarizedDocUpload";
 import ProfileCommonBlock from "@/src/entities/profile/ui/ProfileCommonBlock";
 import SendChangePasswordRequestButton from "@/src/features/profile/ui/SendChangePasswordRequestButton";
 import ProfileNotifications from "@/src/widgets/profile/ProfileNotifications";
+import { useGetNotificationSettings } from "@/src/entities/notification/hooks";
+import Loader from "@/src/shared/ui/loaders/Loader";
+import { isValueEmpty } from "@/src/shared/utils";
 
 //TODO: ADD DEFAULT PROFILE DATA
 const ProfileGeneral = () => {
+    const getNotifications = useGetNotificationSettings();
     const [lastName, setLastName] = useState("");
     const [firstName, setFirstName] = useState("");
     const [middleName, setMiddleName] = useState("");
@@ -87,7 +91,11 @@ const ProfileGeneral = () => {
                     </Heading>
                     <NotarizedDocUpload />
                 </div>
-                <ProfileNotifications />
+                {getNotifications.isLoading || isValueEmpty(getNotifications.data) ? (
+                    <Loader />
+                ) : (
+                    <ProfileNotifications initialNotifications={getNotifications.data} />
+                )}
                 <PrimaryButton color={PRIMARY_BUTTON_COLOR.GREEN} wide>
                     <Button disabled className={styles.profile_general__submit}>
                         Сохранить изменения
