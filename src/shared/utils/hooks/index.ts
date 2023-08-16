@@ -9,6 +9,7 @@ export * from "./useLatest";
 export * from "./useMountAnimation";
 export * from "./useOneTimeAction";
 export * from "./useOneTimeClientNotification";
+export * from "./usePaginationFilter";
 export * from "./usePrevious";
 export * from "./useRedirectBack";
 export * from "./useSetComplexObject";

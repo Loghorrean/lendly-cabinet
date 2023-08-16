@@ -1,12 +1,13 @@
 "use client";
 
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { FundraisingProject, PrimaryMarketListFilter } from "@/src/entities/primary-market/model";
 import { DataCollection } from "@/src/shared/models/common";
-import { createPrimaryProjectProvider } from "@/src/entities/primary-market/api";
+import { FundraisingProjectsFilter } from "@/src/entities/project/model/filter";
+import { FundraisingProject } from "@/src/entities/project/model/FundraisingProject";
+import { createProjectProvider } from "@/src/entities/project/api";
 
 type FundraisingProjectsListInput = {
-    filter: PrimaryMarketListFilter;
+    filter: FundraisingProjectsFilter;
     page: number;
     perPage: number;
 };
@@ -20,8 +21,8 @@ export const useGetFundraisingProjectsList = (
         ...options,
         queryKey: options?.queryKey ?? ["fundraising-projects-list", JSON.stringify({ filter, page, perPage })],
         queryFn: async () => {
-            const provider = await createPrimaryProjectProvider();
-            return provider.getList(filter, page, perPage);
+            const provider = await createProjectProvider();
+            return provider.getFundraisingList(filter, page, perPage);
         },
     });
 };

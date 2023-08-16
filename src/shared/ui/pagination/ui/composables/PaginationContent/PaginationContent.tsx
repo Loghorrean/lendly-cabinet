@@ -10,7 +10,7 @@ const PaginationContent = ({ children }: PropsWithChildren) => {
     if (context.loading) {
         return (
             <div className={styles.pagination_content__loading}>
-                <Loader />
+                <Loader dark />
             </div>
         );
     }
