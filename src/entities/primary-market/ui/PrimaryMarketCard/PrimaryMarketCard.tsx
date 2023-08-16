@@ -12,6 +12,7 @@ import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
 import { ProjectLink } from "@/src/shared/ui/links";
 import { cn } from "@/src/shared/utils";
+import RoundProgressBar from "@/src/shared/ui/utils/RoundProgressBar";
 
 type Props = {
     project: FundraisingProject;
@@ -27,6 +28,28 @@ const PrimaryMarketCard = ({ project }: Props) => {
     return (
         <li className={styles.primary_market_card}>
             <div className={styles.primary_market_card__image_container}>
+                <div className={styles.primary_market_card__ltv}>
+                    <RoundProgressBar amount={investedPercent()}>
+                        <text
+                            className={styles.primary_market_card__percent}
+                            x="50%"
+                            y="50%"
+                            dy="-0.1em"
+                            textAnchor="middle"
+                        >
+                            {investedPercent()}%
+                        </text>
+                        <text
+                            className={styles.primary_market_card__percent_text}
+                            x="50%"
+                            y="50%"
+                            dy="1.25em"
+                            textAnchor="middle"
+                        >
+                            LTV
+                        </text>
+                    </RoundProgressBar>
+                </div>
                 <ProjectImage src={noImagePicture} alt="No image found" fill />
             </div>
             <div className={styles.primary_market_card__content}>

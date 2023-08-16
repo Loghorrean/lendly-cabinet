@@ -13,6 +13,27 @@
     width: 100%;
     min-height: 13.125rem;
   }
+  &__ltv {
+    background-color: var(--white-color);
+    @include m.circle(4rem);
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+  &__percent {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    letter-spacing: var(--letter-spacing-1);
+    text-align: center;
+  }
+  &__percent_text {
+    font-weight: 500;
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    text-transform: uppercase;
+    fill: var(--font-medium-gray-color);
+  }
   &__content {
     padding: 1.5rem;
     display: flex;
