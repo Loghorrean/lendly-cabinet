@@ -11,7 +11,7 @@ const Header = ({ children }: PropsWithChildren) => {
             <Container>
                 <div className={styles.header__container}>
                     <nav className={styles.header__navigation}>
-                        <ProjectLink href="/">
+                        <ProjectLink href="/" className={styles.header__main_link}>
                             <LogoImage />
                         </ProjectLink>
                         <ul className={styles.header__list}>

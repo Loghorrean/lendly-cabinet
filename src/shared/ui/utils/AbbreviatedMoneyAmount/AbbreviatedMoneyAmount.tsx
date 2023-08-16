@@ -6,16 +6,16 @@ type Props = {
 
 const AbbreviatedMoneyAmount = ({ amount }: Props) => {
     if (amount >= 1000 && amount <= 999999) {
-        return <>{`${amount / 1000} тыс.`}</>;
+        return <>{`${(amount / 1000).toFixed(2)} тыс.`}</>;
     }
     if (amount >= 1000000 && amount <= 999999999) {
-        return <>{`${amount / 1000000} млн.`}</>;
+        return <>{`${(amount / 1000000).toFixed(2)} млн.`}</>;
     }
     if (amount >= 1000000000 && amount <= 999999999999) {
-        return <>{`${amount / 1000000} млрд.`}</>;
+        return <>{`${(amount / 1000000).toFixed(2)} млрд.`}</>;
     }
     console.warn(`Given amount ${amount} could not be rendered in abbreaviated format`);
-    return <></>;
+    return <>{`${amount}`}</>;
 };
 
 export default AbbreviatedMoneyAmount;
