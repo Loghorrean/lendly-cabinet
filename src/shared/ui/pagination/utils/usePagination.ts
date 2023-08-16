@@ -2,16 +2,22 @@
 
 import { paginationConfig } from "@/src/shared/configs";
 import { useSearchParams } from "next/navigation";
-import { isNotEmpty } from "@/src/shared/utils";
+import { isNotEmpty, RequiredWith } from "@/src/shared/utils";
+import { PaginationConfig } from "@/src/shared/ui/pagination/ui/Pagination/Pagination";
 
-export const usePagination = () => {
+type Props = RequiredWith<PaginationConfig, "defaultPerPage" | "firstPage">;
+
+export const usePagination = (props?: Props): { page: number; perPage: number } => {
+    console.log(props);
     const params = useSearchParams();
-    const perPage = isNotEmpty(params.get("perPage"))
+    const validatedPerPage = isNotEmpty(params.get("perPage"))
         ? parseInt(params.get("perPage")!)
-        : paginationConfig.defaultPerPage;
-    const page = isNotEmpty(params.get("page")) ? parseInt(params.get("page")!) : paginationConfig.defaultFirstPage;
+        : props?.defaultPerPage ?? paginationConfig.defaultPerPage;
+    const page = isNotEmpty(params.get("page"))
+        ? parseInt(params.get("page")!)
+        : props?.firstPage ?? paginationConfig.defaultFirstPage;
     return {
         page,
-        perPage,
+        perPage: validatedPerPage,
     };
 };
