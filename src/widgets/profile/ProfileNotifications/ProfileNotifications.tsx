@@ -11,12 +11,14 @@ import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
 import { Button } from "@/src/shared/ui/buttons";
 import Loader from "@/src/shared/ui/loaders/Loader";
+import { useQueryClient } from "@tanstack/react-query";
 
 type Props = {
     initialNotifications: NotificationSettings;
 };
 
 const ProfileNotifications = ({ initialNotifications }: Props) => {
+    const client = useQueryClient();
     const { data } = useGetNotificationSettings();
     const updateNotifications = useUpdateNotificationSettings();
     const [systemToggled, toggleSystem] = useToggle(initialNotifications.mailSettings.systemNotifications);
@@ -28,12 +30,26 @@ const ProfileNotifications = ({ initialNotifications }: Props) => {
     };
     //TODO: ADD CACHE UPDATE
     const handleClick = async () => {
-        await updateNotifications.mutateAsync({
-            mailSettings: {
-                systemNotifications: systemToggled,
-                newsletters: newsToggled,
+        await updateNotifications.mutateAsync(
+            {
+                mailSettings: {
+                    systemNotifications: systemToggled,
+                    newsletters: newsToggled,
+                },
             },
-        });
+            {
+                onSuccess: () => {
+                    const data = client.getQueryData(["notification-settings"]) as unknown as NotificationSettings;
+                    client.setQueryData(["notification-settings"], {
+                        ...data,
+                        mailSettings: {
+                            systemNotifications: systemToggled,
+                            newsletters: newsToggled,
+                        },
+                    });
+                },
+            }
+        );
     };
     return (
         <div className={styles.profile_notifications} id="profile-notifications">
