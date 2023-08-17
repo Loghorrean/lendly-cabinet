@@ -1,0 +1,24 @@
+@use "src/shared/styles/mixins" as m;
+@use "src/shared/styles/typography" as typo;
+
+.round_chart_entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  padding-block: 0.375rem;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    @include m.circle(0.75rem);
+    @include m.centerColumnWithPositioning;
+    left: 0.25rem;
+  }
+  &__label {
+    @include typo.regularBasisText;
+  }
+  &__amount {
+    @include typo.primaryTextAccent;
+  }
+}
