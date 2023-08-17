@@ -38,7 +38,7 @@ const DetailedProjectBlock = () => {
             <BreadCrumbs
                 links={[
                     { href: "/dashboard", text: "Активы" },
-                    { href: "/dashboard/market", text: "Рынок" },
+                    { href: "/market", text: "Рынок" },
                     { href: `/project/0efceec6-66b7-4cfd-baca-2238dba595c7`, text: "ООО “ЛендлиИнвестПромБанк”" },
                 ]}
             />

@@ -4,12 +4,21 @@ import RoundProgressBar from "@/src/shared/ui/utils/RoundProgressBar";
 //TODO: REFACTOR AFTER BACKEND INTEGRATION
 type Props = {
     percentage: number;
-    type: string;
+    types: Array<string>;
     title: string;
     id: string;
 };
 
-const CommonInvestmentTitle = ({ percentage, title, type, id }: Props) => {
+const CommonInvestmentTitle = ({ percentage, title, types, id }: Props) => {
+    const renderTypes = () => {
+        return types.map(type => {
+            return (
+                <div key={type} className={styles.common_investment_title__type}>
+                    {type}
+                </div>
+            );
+        });
+    };
     return (
         <div className={styles.common_investment_title}>
             <RoundProgressBar amount={percentage}>
@@ -33,9 +42,7 @@ const CommonInvestmentTitle = ({ percentage, title, type, id }: Props) => {
                 </text>
             </RoundProgressBar>
             <div>
-                <div className={styles.common_investment_title__types}>
-                    <div className={styles.common_investment_title__type}>{type}</div>
-                </div>
+                <div className={styles.common_investment_title__types}>{renderTypes()}</div>
                 <p className={styles.common_investment_title__title}>{title}</p>
                 <span className={styles.common_investment_title__id}>ID {id}</span>
             </div>

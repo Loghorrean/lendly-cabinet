@@ -6,6 +6,6 @@ export class OfferManager {
     constructor(private readonly apiClient: ApiClientInterface) {}
 
     public async getOffersList(page: number, perPage: number, filter: OfferListFilter) {
-        return this.apiClient.get(`/?${buildQuery({ page, perPage, filter })}`);
+        return this.apiClient.get(`/selling?${buildQuery({ page, perPage, filter, buyBack: true })}`);
     }
 }
