@@ -1,8 +1,6 @@
 "use client";
 
-import { createProfileManager } from "@/src/entities/profile/api/createProfileManager";
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
-import { UserProfile } from "@/src/entities/profile/model";
 import { createLegalDocumentProvider } from "@/src/entities/legal-document/api";
 import { LegalDocumentType } from "@/src/entities/legal-document/model/LegalDocumentType";
 import { DataCollection } from "@/src/shared/models/common";
