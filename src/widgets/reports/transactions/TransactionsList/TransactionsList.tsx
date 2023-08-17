@@ -9,11 +9,35 @@ import LoadMoreButton from "@/src/shared/ui/buttons/LoadMoreButton";
 import DynamicPaginator from "@/src/shared/ui/pagination/ui/DynamicPaginator";
 import Pagination from "@/src/shared/ui/pagination/ui/Pagination";
 import CancelTransactionButton from "@/src/features/transactions/ui/CancelTransactionButton";
+import { useGetTransactionsList } from "@/src/entities/transaction/hooks";
+import { usePagination } from "@/src/shared/ui/pagination/utils/usePagination";
+import { isNotEmpty, usePaginationFilter } from "@/src/shared/utils";
+import { TransactionListFilter } from "@/src/entities/transaction/model/filter";
+import { useMemo } from "react";
+import PaginationContent from "@/src/shared/ui/pagination/ui/composables/PaginationContent";
 
 const TransactionsList = () => {
+    const { page, perPage } = usePagination();
+    const [filter, setFilter] = usePaginationFilter<TransactionListFilter>();
+    const getTransactions = useGetTransactionsList({ page, perPage, filter });
     const [sumSorting, toggleSumSorting] = useSortingDirection();
+    const renderTransactions = useMemo(() => {
+        if (isNotEmpty(getTransactions.data)) {
+            return getTransactions.data.items.map(item => {
+                return (
+                    <TransactionElement key={item.uuid}>
+                        <CancelTransactionButton />
+                    </TransactionElement>
+                );
+            });
+        }
+    }, [getTransactions.data]);
     return (
-        <Pagination loading={false} totalCount={25}>
+        <Pagination
+            loading={getTransactions.isLoading}
+            totalCount={getTransactions.data?.totalCount ?? 0}
+            collection={getTransactions.data}
+        >
             <CommonTable className={styles.transactions_list}>
                 <CommonTable.Header className={styles.transactions_list__header}>
                     <div>Дата, время</div>
@@ -26,11 +50,9 @@ const TransactionsList = () => {
                     <div>Статус</div>
                     <div></div>
                 </CommonTable.Header>
-                <ul>
-                    <TransactionElement>
-                        <CancelTransactionButton />
-                    </TransactionElement>
-                </ul>
+                <PaginationContent>
+                    <ul>{renderTransactions}</ul>
+                </PaginationContent>
             </CommonTable>
             <Pagination.Footer>
                 <LoadMoreButton loading={false} />

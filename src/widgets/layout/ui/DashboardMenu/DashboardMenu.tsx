@@ -28,7 +28,7 @@ const DashboardMenu = () => {
                         className={styles.dashboard_menu__link}
                     >
                         <ChartIcon />
-                        Инвестировать
+                        Рынок
                     </ProjectLink>
                 </li>
                 <li className={styles.dashboard_menu__element}>

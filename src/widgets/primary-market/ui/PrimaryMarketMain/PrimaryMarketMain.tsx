@@ -26,7 +26,6 @@ const paginationConfig: RequiredWith<PaginationConfig, "defaultPerPage" | "first
 
 const PrimaryMarketMain = () => {
     const { page, perPage } = usePagination(paginationConfig);
-    console.log(perPage);
     const [filter, setFilter] = usePaginationFilter<FundraisingProjectsFilter>();
     const [visibility, setVisibility] = useState<EntityVisibility>(ENTITY_VISIBILITY.ROWS);
     const projectsList = useGetFundraisingProjectsList({ filter, page, perPage });
@@ -79,7 +78,9 @@ const PrimaryMarketMain = () => {
                         </PaginationContent>
                     </CommonTable>
                 ) : (
-                    <ul className={styles.primary_market_main__cards}>{renderProjects}</ul>
+                    <PaginationContent>
+                        <ul className={styles.primary_market_main__cards}>{renderProjects}</ul>
+                    </PaginationContent>
                 )}
                 <Pagination.Footer>
                     <LoadMoreButton loading={false} />
