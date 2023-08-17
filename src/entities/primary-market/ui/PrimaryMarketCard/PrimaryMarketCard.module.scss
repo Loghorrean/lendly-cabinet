@@ -17,6 +17,7 @@
     background-color: var(--white-color);
     @include m.circle(4rem);
     position: absolute;
+    z-index: 5;
     top: 1.5rem;
     left: 1.5rem;
   }

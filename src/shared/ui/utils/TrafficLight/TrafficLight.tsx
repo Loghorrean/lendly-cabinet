@@ -11,14 +11,15 @@ export type TrafficIndicatorColor = ObjectValues<typeof TRAFFIC_INDICATOR_COLOR>
 
 type Props = {
     color: TrafficIndicatorColor;
+    bordered?: boolean;
 };
 
-const TrafficLight = ({ color }: Props) => {
-    return (
-        <div className={styles.traffic_light}>
-            <div className={cn(styles.traffic_light__indicator, color)}></div>
-        </div>
-    );
+const TrafficLight = ({ color, bordered = true }: Props) => {
+    const indicator = <div className={cn(styles.traffic_light__indicator, color)}></div>;
+    if (!bordered) {
+        return indicator;
+    }
+    return <div className={styles.traffic_light}>{indicator}</div>;
 };
 
 export default TrafficLight;
