@@ -1,24 +1,24 @@
-import { isNotEmpty, useDropdown, useToggle } from "@/src/shared/utils";
-import styles from "./PrimaryMarketFilter.module.scss";
-import { FundraisingProjectsFilter } from "@/src/entities/project/model/filter";
+import styles from "./OffersListFilter.module.scss";
 import { Dispatch, SetStateAction, useState } from "react";
 import { EntityVisibility } from "@/src/entities/visibility/model";
-import VisibilitySelect from "@/src/entities/visibility/ui/VisibilitySelect";
+import { OfferListFilter } from "@/src/entities/offer/model";
+import { isNotEmpty, useDropdown, useToggle } from "@/src/shared/utils";
 import { DropdownArrowButton } from "@/src/shared/ui/utils";
+import VisibilitySelect from "@/src/entities/visibility/ui/VisibilitySelect";
 import CommonLabel from "@/src/shared/ui/typography/CommonLabel";
 import RangeSelect from "@/src/shared/ui/select/RangeSelect";
 import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
-import { Button } from "@/src/shared/ui/buttons";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
+import { Button } from "@/src/shared/ui/buttons";
 
 type Props = {
-    filter: FundraisingProjectsFilter;
-    setFilter: Dispatch<SetStateAction<FundraisingProjectsFilter>>;
+    filter: OfferListFilter;
+    setFilter: Dispatch<SetStateAction<OfferListFilter>>;
     visibility: EntityVisibility;
     setVisibility: (visibility: EntityVisibility) => void;
 };
 
-const PrimaryMarketFilter = ({ filter, setFilter, visibility, setVisibility }: Props) => {
+const OffersListFilter = ({ filter, setFilter, visibility, setVisibility }: Props) => {
     const [active, toggle] = useToggle();
     const [ref, height] = useDropdown(active);
     const [profit, setProfit] = useState<Array<number>>(
@@ -48,20 +48,20 @@ const PrimaryMarketFilter = ({ filter, setFilter, visibility, setVisibility }: P
         });
     };
     return (
-        <div className={styles.primary_market_filter}>
-            <div style={{ maxHeight: height }} className={styles.primary_market_filter__body}>
+        <div className={styles.offers_list_filter}>
+            <div style={{ maxHeight: height }} className={styles.offers_list_filter__body}>
                 <div ref={ref}>
-                    <div className={styles.primary_market_filter__inner}>
-                        <div className={styles.primary_market_filter__block}>
-                            <CommonLabel className={styles.primary_market_filter__label}>Доходность, %</CommonLabel>
+                    <div className={styles.offers_list_filter__inner}>
+                        <div className={styles.offers_list_filter__block}>
+                            <CommonLabel className={styles.offers_list_filter__label}>Доходность, %</CommonLabel>
                             <RangeSelect value={profit} onChange={value => setProfit(value as number[])} />
                         </div>
-                        <div className={styles.primary_market_filter__block}>
-                            <CommonLabel className={styles.primary_market_filter__label}>Срок, мес.</CommonLabel>
+                        <div className={styles.offers_list_filter__block}>
+                            <CommonLabel className={styles.offers_list_filter__label}>Срок, мес.</CommonLabel>
                             <RangeSelect value={term} onChange={value => setTerm(value as number[])} />
                         </div>
-                        <div className={styles.primary_market_filter__block}>
-                            <CommonLabel className={styles.primary_market_filter__label}>LTV, %</CommonLabel>
+                        <div className={styles.offers_list_filter__block}>
+                            <CommonLabel className={styles.offers_list_filter__label}>LTV, %</CommonLabel>
                             <RangeSelect value={ltv} onChange={value => setLtv(value as number[])} />
                         </div>
                         <PrimaryButton color={PRIMARY_BUTTON_COLOR.GREEN} wide>
@@ -70,8 +70,8 @@ const PrimaryMarketFilter = ({ filter, setFilter, visibility, setVisibility }: P
                     </div>
                 </div>
             </div>
-            <footer className={styles.primary_market_filter__footer}>
-                <div className={styles.primary_market_filter__open} onClick={toggle}>
+            <footer className={styles.offers_list_filter__footer}>
+                <div className={styles.offers_list_filter__open} onClick={toggle}>
                     {active ? "Свернуть фильтры" : "Показать фильтры"}
                     <DropdownArrowButton active={active} />
                 </div>
@@ -81,4 +81,4 @@ const PrimaryMarketFilter = ({ filter, setFilter, visibility, setVisibility }: P
     );
 };
 
-export default PrimaryMarketFilter;
+export default OffersListFilter;

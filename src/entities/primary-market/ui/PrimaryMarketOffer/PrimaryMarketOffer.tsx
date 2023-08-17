@@ -27,7 +27,7 @@ const PrimaryMarketOffer = ({ project }: Props) => {
         <CommonTableRow className={styles.primary_market_offer}>
             <CommonInvestmentTitle
                 percentage={investedPercent()}
-                type={type()}
+                types={[type()]}
                 title={project.name}
                 id={project.paymentCode ?? hexIdToDec(project.uuid)}
             />

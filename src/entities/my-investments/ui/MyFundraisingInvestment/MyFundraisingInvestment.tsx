@@ -16,7 +16,7 @@ const MyFundraisingInvestment = () => {
             <div className={styles.my_fundraising_investment__inner}>
                 <CommonInvestmentTitle
                     percentage={64}
-                    type="Проект"
+                    types={["Проект"]}
                     title="ИП “Константинопольский”"
                     id="332932-7666"
                 />

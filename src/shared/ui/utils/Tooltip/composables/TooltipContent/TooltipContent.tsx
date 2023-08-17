@@ -20,7 +20,7 @@ const TooltipContent = ({ children }: PropsWithChildren) => {
             >
                 <path
                     d="M0 0H8H16L9.41421 6.58579C8.63316 7.36684 7.36684 7.36684 6.58579 6.58579L0 0Z"
-                    fill="#050505"
+                    fill="#1E202F"
                     fillOpacity="0.88"
                 />
             </svg>
