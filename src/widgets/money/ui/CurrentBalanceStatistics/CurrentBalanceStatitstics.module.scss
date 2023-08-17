@@ -1,5 +1,68 @@
+@use "src/shared/styles/mixins" as m;
+@use "src/shared/styles/typography" as typo;
+
 .current_balance_statistics {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    align-items: center;
+    &__header {
+        width: 100%;
+    }
+    &__chart {
+        @include m.box(16.25rem);
+    }
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    &__list {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+    }
+    &__element {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 1.5rem;
+        padding-block: 0.375rem;
+        position: relative;
+        @include typo.regularBasisText;
+        &::before {
+            content: "";
+            position: absolute;
+            @include m.circle(0.75rem);
+            @include m.centerColumnWithPositioning;
+            left: 0.25rem;
+        }
+        &___balance {
+            &::before {
+                background-color: var(--chart-green-color);
+            }
+        }
+        &___reserved {
+            &::before {
+                background-color: var(--chart-gray-color);
+            }
+        }
+    }
+    &__element {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__money {
+        @include typo.primaryTextAccent;
+    }
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        & > a {
+            flex-grow: 1;
+        }
+    }
 }

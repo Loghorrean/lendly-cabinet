@@ -5,6 +5,9 @@ import { useGetProfileQuery } from "@/src/entities/profile/hooks";
 import { useRouter } from "next/navigation";
 import { isValueEmpty, useEffectOnUpdate } from "@/src/shared/utils";
 import PageLoader from "@/src/shared/ui/loaders/PageLoader";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function ProtectedLayout({ children }: PropsWithChildren) {
     const { data, isLoading, isError } = useGetProfileQuery({

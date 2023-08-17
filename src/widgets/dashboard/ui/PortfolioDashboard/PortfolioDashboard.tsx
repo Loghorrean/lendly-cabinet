@@ -13,7 +13,6 @@ import { isNotEmpty } from "@/src/shared/utils";
 
 const PortfolioDashboard = () => {
     const profile = useCurrentProfile();
-    console.log(profile);
     return (
         <div className={styles.portfolio_dashboard}>
             <Heading headingType={HEADING_TYPE.H1} className={styles.portfolio_dashboard__heading}>
