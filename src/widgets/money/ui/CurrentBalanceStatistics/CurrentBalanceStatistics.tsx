@@ -10,6 +10,7 @@ import { cn } from "@/src/shared/utils";
 import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
 import { ProjectLink } from "@/src/shared/ui/links";
+import RoundChartEntry from "@/src/shared/ui/charts/RoundChart/composables/RoundChartEntry";
 
 const CurrentBalanceStatistics = () => {
     const { reservedFunds, balance } = useCurrentProfile();
@@ -44,24 +45,12 @@ const CurrentBalanceStatistics = () => {
             </div>
             <footer className={styles.current_balance_statistics__footer}>
                 <ul className={styles.current_balance_statistics__list}>
-                    <li
-                        className={cn(
-                            styles.current_balance_statistics__element,
-                            styles.current_balance_statistics__element___balance
-                        )}
-                    >
-                        <span>Всего доступно</span>
-                        <Money money={balance} className={styles.current_balance_statistics__money} />
-                    </li>
-                    <li
-                        className={cn(
-                            styles.current_balance_statistics__element,
-                            styles.current_balance_statistics__element___reserved
-                        )}
-                    >
-                        <span>На удержании</span>
-                        <Money money={reservedFunds} className={styles.current_balance_statistics__money} />
-                    </li>
+                    <RoundChartEntry label="Всего доступно" className={styles.current_balance_statistics__balance_row}>
+                        <Money money={balance} />
+                    </RoundChartEntry>
+                    <RoundChartEntry label="На удержании" className={styles.current_balance_statistics__reserved_row}>
+                        <Money money={reservedFunds} />
+                    </RoundChartEntry>
                 </ul>
                 <div className={styles.current_balance_statistics__actions}>
                     <PrimaryButton color={PRIMARY_BUTTON_COLOR.WHITE}>
