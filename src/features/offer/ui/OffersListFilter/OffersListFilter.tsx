@@ -32,7 +32,7 @@ const OffersListFilter = ({ filter, setFilter, visibility, setVisibility }: Prop
             : [0, 100]
     );
     const [ltv, setLtv] = useState<Array<number>>(
-        isNotEmpty(filter.ltvFrom) || isNotEmpty(filter.ltvTo) ? [filter.ltvFrom ?? 0, filter.ltvTo ?? 100] : [0, 100]
+        isNotEmpty(filter.ltvFrom) || isNotEmpty(filter.ltvTo) ? [filter.ltvFrom ?? 0, filter.ltvTo ?? 50] : [0, 50]
     );
     const handleClick = () => {
         setFilter(prev => {

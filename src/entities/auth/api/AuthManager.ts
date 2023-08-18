@@ -13,6 +13,13 @@ export class AuthManager {
         return BearerTokenConverter.apiToClient(data);
     }
 
+    async autologin(token: string): Promise<BearerToken> {
+        const data = await this.apiClient.post("/autologin", {
+            token,
+        });
+        return BearerTokenConverter.apiToClient(data);
+    }
+
     async refresh(token: string): Promise<BearerToken> {
         const data = await this.apiClient.post("/refresh", { token });
         return BearerTokenConverter.apiToClient(data);
