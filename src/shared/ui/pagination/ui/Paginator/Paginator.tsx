@@ -39,6 +39,7 @@ const Paginator = () => {
         return (
             <ProjectLink
                 href={previousPageUrl}
+                scroll={false}
                 className={cn(styles.previous_page_link, resultIf(isDisabled, styles.previous_page_link___disabled))}
             >
                 <div className={styles.my_page_link_container}>
@@ -54,6 +55,7 @@ const Paginator = () => {
         return (
             <ProjectLink
                 href={previousPageUrl}
+                scroll={false}
                 className={cn(styles.next_page_link, resultIf(isDisabled, styles.next_page_link___disabled))}
             >
                 <div className={styles.my_page_link_container}>
@@ -74,6 +76,7 @@ const Paginator = () => {
                     <li key={i}>
                         <ProjectLink
                             href={href}
+                            scroll={false}
                             className={cn(
                                 styles.my_page_link,
                                 resultIf(isActive, cn(styles.my_page_link___active, styles.my_page_link_container))
@@ -103,6 +106,7 @@ const Paginator = () => {
             <li>
                 <ProjectLink
                     href={generatePageUrl(1)}
+                    scroll={false}
                     className={cn(
                         styles.my_page_link,
                         resultIf(currentPage === 1, cn(styles.my_page_link___active, styles.my_page_link_container))
@@ -120,6 +124,7 @@ const Paginator = () => {
                 <li key={i}>
                     <ProjectLink
                         href={generatePageUrl(interval[i])}
+                        scroll={false}
                         className={cn(
                             styles.my_page_link,
                             resultIf(
@@ -140,6 +145,7 @@ const Paginator = () => {
             <li>
                 <ProjectLink
                     href={generatePageUrl(pagesCount)}
+                    scroll={false}
                     className={cn(
                         styles.my_page_link,
                         resultIf(
