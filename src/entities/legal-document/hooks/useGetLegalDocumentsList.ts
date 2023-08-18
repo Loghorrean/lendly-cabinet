@@ -2,7 +2,7 @@
 
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
 import { createLegalDocumentProvider } from "@/src/entities/legal-document/api";
-import { LegalDocumentType } from "@/src/entities/legal-document/model/LegalDocumentType";
+import { LegalDocumentType } from "@/src/entities/legal-document/model/enum/LegalDocumentType";
 import { DataCollection } from "@/src/shared/models/common";
 import { LegalDocument } from "@/src/entities/legal-document/model";
 

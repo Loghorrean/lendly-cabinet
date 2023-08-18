@@ -1,5 +1,5 @@
 import { ApiClientInterface } from "@/src/shared/api-client";
-import { LegalDocumentType } from "@/src/entities/legal-document/model/LegalDocumentType";
+import { LegalDocumentType } from "@/src/entities/legal-document/model/enum/LegalDocumentType";
 import { DataCollection } from "@/src/shared/models/common";
 import { LegalDocument } from "@/src/entities/legal-document/model";
 import buildQuery from "@/src/shared/utils/functions/router/buildQuery";

@@ -7,21 +7,7 @@ import { usePagination } from "@/src/shared/ui/pagination/utils/usePagination";
 import PaginationContextProvider from "../../context/PaginationContext";
 import PaginationFooter from "@/src/shared/ui/pagination/ui/composables/PaginationFooter";
 import PaginationContent from "@/src/shared/ui/pagination/ui/composables/PaginationContent";
-import { paginationConfig } from "@/src/shared/configs";
-
-export type PaginationConfig = {
-    firstPage?: number;
-    defaultPerPage?: number;
-    pageParam?: string;
-    perPageParam?: string;
-};
-
-const defaultConfig: Required<PaginationConfig> = {
-    firstPage: paginationConfig.defaultFirstPage,
-    defaultPerPage: paginationConfig.defaultPerPage,
-    pageParam: "page",
-    perPageParam: "perPage",
-};
+import { defaultPaginationConfig, PaginationConfig } from "@/src/shared/ui/pagination/utils";
 
 interface Props {
     loading: boolean;
@@ -32,7 +18,7 @@ interface Props {
 
 function Pagination({ config, collection, totalCount, loading, children }: PropsWithChildren<Props>) {
     const compiledConfig = useMemo(() => {
-        return { ...defaultConfig, ...config };
+        return { ...defaultPaginationConfig, ...config };
     }, [config]);
     const variables = usePagination({
         firstPage: compiledConfig.firstPage,
@@ -40,7 +26,7 @@ function Pagination({ config, collection, totalCount, loading, children }: Props
     });
 
     const contextValue: PaginationContextType = {
-        pageParam: compiledConfig.pageParam ?? defaultConfig.pageParam,
+        pageParam: compiledConfig.pageParam,
         perPageParam: compiledConfig.perPageParam,
         loading,
         totalCount,
