@@ -17,7 +17,7 @@ import { useGetFundraisingProjectsList } from "@/src/entities/project/hooks";
 import { FundraisingProjectsFilter } from "@/src/entities/project/model/filter";
 import { ENTITY_VISIBILITY, EntityVisibility } from "@/src/entities/visibility/model";
 import PrimaryMarketCard from "@/src/entities/primary-market/ui/PrimaryMarketCard";
-import { PaginationConfig } from "@/src/shared/ui/pagination/ui/Pagination/Pagination";
+import { PaginationConfig } from "@/src/shared/ui/pagination/utils";
 
 const paginationConfig: RequiredWith<PaginationConfig, "defaultPerPage" | "firstPage"> = {
     defaultPerPage: 6,

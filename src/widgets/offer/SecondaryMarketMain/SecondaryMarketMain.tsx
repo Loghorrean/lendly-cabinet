@@ -2,7 +2,7 @@
 
 import styles from "./SecondaryMarketMain.module.scss";
 import { isNotEmpty, RequiredWith, usePaginationFilter } from "@/src/shared/utils";
-import Pagination, { PaginationConfig } from "@/src/shared/ui/pagination/ui/Pagination/Pagination";
+import Pagination from "@/src/shared/ui/pagination/ui/Pagination";
 import { usePagination } from "@/src/shared/ui/pagination/utils/usePagination";
 import { OfferListFilter } from "@/src/entities/offer/model";
 import { useMemo, useState } from "react";
@@ -15,6 +15,7 @@ import SortingDirectionBlock from "@/src/shared/ui/utils/SortingDirectionBlock";
 import SecondaryMarketOffer from "@/src/entities/offer/ui/SecondaryMarketOffer";
 import SecondaryMarketCard from "@/src/entities/offer/ui/SecondaryMarketCard";
 import PaginationContent from "@/src/shared/ui/pagination/ui/composables/PaginationContent";
+import { PaginationConfig } from "@/src/shared/ui/pagination/utils";
 
 const paginationConfig: RequiredWith<PaginationConfig, "defaultPerPage" | "firstPage"> = {
     defaultPerPage: 6,
