@@ -22,5 +22,5 @@ export default function ProtectedLayout({ children }: PropsWithChildren) {
             router.push("/auth/login");
         }
     }, [isError]);
-    return <>{isLoading || isError || isValueEmpty(data) ? <PageLoader /> : children}</>;
+    return <>{isLoading || isError || isValueEmpty(data) ? <PageLoader fixed /> : children}</>;
 }

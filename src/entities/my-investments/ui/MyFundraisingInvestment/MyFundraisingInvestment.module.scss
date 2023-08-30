@@ -22,4 +22,24 @@
             transform: rotate(180deg);
         }
     }
+    &__body {
+        transition: max-height 0.375s ease-in-out;
+        overflow: hidden;
+    }
+    &__content {
+        background-color: var(--light-theme-gray-color);
+        border-radius: 0.5rem;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    &__progress {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    &__action {
+        min-width: 9.375rem !important;
+    }
 }

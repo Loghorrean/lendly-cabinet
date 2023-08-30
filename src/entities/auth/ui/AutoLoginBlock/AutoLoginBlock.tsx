@@ -25,7 +25,7 @@ const AutoLoginBlock = ({ token }: Props) => {
             }
         );
     }, []);
-    return <PageLoader />;
+    return <PageLoader fixed />;
 };
 
 export default AutoLoginBlock;

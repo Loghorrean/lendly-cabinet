@@ -1,5 +1,5 @@
-import DetailedProjectBlock from "@/src/widgets/detailed-project/ui/DetailedProjectBlock";
+import DetailedProjectInjector from "@/src/widgets/detailed-project/DetailedProjectInjector";
 
-export default function ProjectPage() {
-    return <DetailedProjectBlock />;
+export default async function ProjectPage({ params }: { params: { uuid: string } }) {
+    return <DetailedProjectInjector uuid={params.uuid} />;
 }

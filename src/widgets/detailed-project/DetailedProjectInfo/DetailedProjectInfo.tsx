@@ -1,8 +1,13 @@
 import CommonBlock from "@/src/shared/ui/blocks/CommonBlock";
 import styles from "./DetailedProjectInfo.module.scss";
 import { PropsWithChildren } from "react";
+import { ProjectLoan } from "@/src/entities/project/model/composables";
 
-const DetailedProjectInfo = ({ children }: PropsWithChildren) => {
+type Props = {
+    loan: ProjectLoan;
+};
+
+const DetailedProjectInfo = ({ loan, children }: PropsWithChildren<Props>) => {
     return (
         <CommonBlock as="aside" className={styles.detailed_project_info}>
             <ul className={styles.detailed_project_info__list}>

@@ -1,9 +1,14 @@
 import React from "react";
 import styles from "./PageLoader.module.scss";
+import { cn, resultIf } from "@/src/shared/utils";
 
-const PageLoader = () => {
+type Props = {
+    fixed?: boolean;
+};
+
+const PageLoader = ({ fixed }: Props) => {
     return (
-        <div className={styles.page_loader}>
+        <div className={cn(styles.page_loader, resultIf(fixed, styles.page_loader___fixed))}>
             <div></div>
             <div></div>
             <div></div>

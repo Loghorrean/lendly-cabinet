@@ -1,5 +1,5 @@
 import styles from "./MyFundraisingInvestment.module.scss";
-import { cn, resultIf, useDropdown, useToggle } from "@/src/shared/utils";
+import { cn, isValueEmpty, resultIf, useDropdown, useToggle } from "@/src/shared/utils";
 import CommonTable from "@/src/shared/ui/blocks/CommonTable";
 import CommonInvestmentTitle from "@/src/entities/investment/ui/CommonInvestmentTitle";
 import { Money, Tooltip } from "@/src/shared/ui/utils";
@@ -7,10 +7,25 @@ import TooltipContent from "@/src/shared/ui/utils/Tooltip/composables/TooltipCon
 import QuestionBlock from "@/src/shared/ui/utils/QuestionBlock";
 import dayjs from "dayjs";
 import DropdownArrowBig from "@/src/shared/ui/svg/arrows/DropdownArrowBig";
+import { FundraisingProjectInvestment } from "@/src/entities/my-investments/model";
+import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
+import { Button } from "@/src/shared/ui/buttons";
+import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
+import ProgressBar from "@/src/shared/ui/utils/ProgressBar";
 
-const MyFundraisingInvestment = () => {
+type Props = {
+    investment: FundraisingProjectInvestment;
+};
+
+const MyFundraisingInvestment = ({ investment }: Props) => {
     const [active, toggle] = useToggle();
     const [ref, height] = useDropdown(active);
+    const filledPercent = () => {
+        if (isValueEmpty(investment.project.investedSum)) {
+            return 0;
+        }
+        return Math.floor(investment.investedSum.amount / investment.project.targetSum.amount);
+    };
     return (
         <CommonTable.Row className={styles.my_fundraising_investment} onClick={toggle}>
             <div className={styles.my_fundraising_investment__inner}>
@@ -49,6 +64,18 @@ const MyFundraisingInvestment = () => {
                     )}
                 >
                     <DropdownArrowBig />
+                </div>
+            </div>
+            <div className={styles.my_fundraising_investment__body} style={{ maxHeight: height }}>
+                <div ref={ref}>
+                    <div className={styles.my_fundraising_investment__content}>
+                        <div className={styles.my_fundraising_investment__progress}>
+                            <ProgressBar amount={filledPercent()} />
+                        </div>
+                        <PrimaryButton color={PRIMARY_BUTTON_COLOR.WHITE}>
+                            <Button className={styles.my_fundraising_investment__action}>Подробнее</Button>
+                        </PrimaryButton>
+                    </div>
                 </div>
             </div>
         </CommonTable.Row>
