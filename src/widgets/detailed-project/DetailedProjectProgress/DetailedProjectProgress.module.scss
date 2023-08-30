@@ -1,0 +1,33 @@
+@use "src/shared/styles/typography" as typo;
+
+.detailed_project_progress {
+  background-color: var(--white-color);
+  border-radius: 0 0 0.75rem 0.75rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  &_values {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &_block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    &:first-child {
+      align-items: flex-start;
+    }
+    &:last-child {
+      align-items: flex-end;
+    }
+  }
+  &_label {
+    color: var(--font-secondary-color);
+    @include typo.tertiaryText;
+  }
+  &_value {
+    @include typo.primaryTextAccent;
+  }
+}

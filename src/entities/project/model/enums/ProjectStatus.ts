@@ -1,0 +1,17 @@
+import { ObjectValues } from "@/src/shared/utils";
+
+export const PROJECT_STATUS = {
+    REVIEW: "REVIEW",
+    REVIEW_APPROVED: "REVIEW_APPROVED",
+    REVIEW_REJECTED: "REVIEW_REJECTED",
+    FINAL_REVIEW: "FINAL_REVIEW",
+    FINAL_REVIEW_APPROVED: "FINAL_REVIEW_APPROVED",
+    FINAL_REVIEW_REJECTED: "FINAL_REVIEW_REJECTED",
+    FUND_RAISING: "FUND_RAISING",
+    FINISHED: "FINISHED",
+    LOAN_PAYMENT: "LOAN_PAYMENT",
+    PAID: "PAID",
+    REFUNDED: "REFUNDED",
+} as const;
+
+export type ProjectStatus = ObjectValues<typeof PROJECT_STATUS>;
