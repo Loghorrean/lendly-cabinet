@@ -1,5 +1,45 @@
+@use "src/shared/styles/mixins" as m;
+
 .portfolio_projects_statistics {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
+    align-items: center;
+    &__header {
+        width: 100%;
+    }
+    &__chart {
+        @include m.box(16.25rem);
+    }
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+    &__list {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+    }
+    &__fixed {
+        &::before {
+            background-color: var(--dark-background-color);
+        }
+    }
+    &__fixed_delay {
+        &::before {
+            background-color: var(--primary-green-color-active);
+        }
+    }
+    &__variable {
+        &::before {
+            background-color: #A3E4AE;
+        }
+    }
+    &__variable_delay {
+        &::before {
+            background-color: var(--stroke-on-white-color);
+        }
+    }
 }

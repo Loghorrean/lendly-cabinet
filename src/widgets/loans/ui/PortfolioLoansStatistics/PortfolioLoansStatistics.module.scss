@@ -1,2 +1,45 @@
+@use "src/shared/styles/mixins" as m;
+
 .portfolio_loans_statistics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  &__header {
+    width: 100%;
+  }
+  &__chart {
+    @include m.box(16.25rem);
+  }
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  &__list {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+  }
+  &__buyback {
+    &::before {
+      background-color: var(--dark-background-color);
+    }
+  }
+  &__buyback_delay {
+    &::before {
+      background-color: var(--primary-green-color-active);
+    }
+  }
+  &__no_buyback {
+    &::before {
+      background-color: #A3E4AE;
+    }
+  }
+  &__no_buyback_delay {
+    &::before {
+      background-color: var(--stroke-on-white-color);
+    }
+  }
 }
