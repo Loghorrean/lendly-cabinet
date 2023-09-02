@@ -6,7 +6,6 @@ import { useCurrentProfile } from "@/src/entities/profile/hooks";
 import RoundChart from "@/src/shared/ui/charts/RoundChart";
 import { Money } from "@/src/shared/ui/utils";
 import { useMemo } from "react";
-import { cn } from "@/src/shared/utils";
 import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
 import { ProjectLink } from "@/src/shared/ui/links";
