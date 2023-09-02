@@ -10,6 +10,7 @@ import RangeSelect from "@/src/shared/ui/select/RangeSelect";
 import PrimaryButton from "@/src/shared/ui/buttons/decorators/PrimaryButton";
 import { PRIMARY_BUTTON_COLOR } from "@/src/shared/ui/buttons/decorators/PrimaryButton/PrimaryButton";
 import { Button } from "@/src/shared/ui/buttons";
+import CommonInputBlock from "@/src/shared/ui/blocks/CommonInputBlock";
 
 type Props = {
     filter: OfferListFilter;
@@ -52,18 +53,18 @@ const OffersListFilter = ({ filter, setFilter, visibility, setVisibility }: Prop
             <div style={{ maxHeight: height }} className={styles.offers_list_filter__body}>
                 <div ref={ref}>
                     <div className={styles.offers_list_filter__inner}>
-                        <div className={styles.offers_list_filter__block}>
+                        <CommonInputBlock>
                             <CommonLabel className={styles.offers_list_filter__label}>Доходность, %</CommonLabel>
                             <RangeSelect value={profit} onChange={value => setProfit(value as number[])} />
-                        </div>
-                        <div className={styles.offers_list_filter__block}>
+                        </CommonInputBlock>
+                        <CommonInputBlock>
                             <CommonLabel className={styles.offers_list_filter__label}>Срок, мес.</CommonLabel>
                             <RangeSelect value={term} onChange={value => setTerm(value as number[])} />
-                        </div>
-                        <div className={styles.offers_list_filter__block}>
+                        </CommonInputBlock>
+                        <CommonInputBlock>
                             <CommonLabel className={styles.offers_list_filter__label}>LTV, %</CommonLabel>
                             <RangeSelect value={ltv} onChange={value => setLtv(value as number[])} />
-                        </div>
+                        </CommonInputBlock>
                         <PrimaryButton color={PRIMARY_BUTTON_COLOR.GREEN} wide>
                             <Button onClick={handleClick}>Отфильтровать</Button>
                         </PrimaryButton>

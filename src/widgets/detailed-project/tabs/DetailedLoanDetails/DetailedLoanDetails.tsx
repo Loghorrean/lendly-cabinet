@@ -5,8 +5,14 @@ import { HEADING_TYPE } from "@/src/shared/ui/typography/Heading/Heading";
 import { Money, Tooltip } from "@/src/shared/ui/utils";
 import QuestionBlock from "@/src/shared/ui/utils/QuestionBlock";
 import TooltipContent from "@/src/shared/ui/utils/Tooltip/composables/TooltipContent";
+import { ProjectLoan } from "@/src/entities/project/model/composables";
+import { formatDate } from "@/src/shared/utils";
 
-const DetailedLoanDetails = () => {
+type Props = {
+    loan: ProjectLoan;
+};
+
+const DetailedLoanDetails = ({ loan }: Props) => {
     return (
         <CommonBlock large className={styles.detailed_loan_details}>
             <Heading headingType={HEADING_TYPE.H2} className={styles.detailed_loan_details__heading}>
@@ -18,28 +24,29 @@ const DetailedLoanDetails = () => {
                         <div className={styles.detailed_loan_details__element_label}>
                             Изначальный срок погашения займа
                         </div>
-                        <div>4 мес.</div>
+                        <div>{loan.initialTerm} мес.</div>
                     </li>
                     <li className={styles.detailed_loan_details__element}>
                         <div className={styles.detailed_loan_details__element_label}>
                             Оставшийся срок погашения займа
                         </div>
-                        <div>20 дн.</div>
+                        <div>ДОБАВИТЬ</div>
                     </li>
                     <li className={styles.detailed_loan_details__element}>
                         <div className={styles.detailed_loan_details__element_label}>Срок действия оферты</div>
-                        <div>01.07.2023</div>
+                        <div>{formatDate(new Date(loan.maturityDate))}</div>
                     </li>
                     <li className={styles.detailed_loan_details__element}>
                         <div className={styles.detailed_loan_details__element_label}>Размер займа:</div>
                         <div>
-                            <Money money={{ amount: 10000000000, currencyCode: "RUB" }} />
+                            <Money money={loan.loanSum} />
                         </div>
                     </li>
                     <li className={styles.detailed_loan_details__element}>
                         <div className={styles.detailed_loan_details__element_label}>Размер предложения:</div>
                         <div>
-                            <Money money={{ amount: 8000000000, currencyCode: "RUB" }} />
+                            Добавить
+                            {/*<Money money={loa} />*/}
                         </div>
                     </li>
                 </ul>
@@ -51,26 +58,27 @@ const DetailedLoanDetails = () => {
                                 <QuestionBlock />
                             </Tooltip>
                         </div>
-                        <div>10%</div>
+                        <div>{loan.interestRate}%</div>
                     </li>
                     <li className={styles.detailed_loan_details__element}>
                         <div className={styles.detailed_loan_details__element_label}>Продаваемая ставка</div>
-                        <div>12%</div>
+                        <div>Добавить</div>
                     </li>
                     <li className={styles.detailed_loan_details__element}>
                         <div className={styles.detailed_loan_details__element_label}>
                             Комиссия за управление залогом
                         </div>
-                        <div>1%</div>
+                        <div>Добавить</div>
                     </li>
                     <li className={styles.detailed_loan_details__element}>
                         <div className={styles.detailed_loan_details__element_label}>Итоговая ставка для инвестора</div>
-                        <div>9%</div>
+                        <div>Добавить</div>
                     </li>
                     <li className={styles.detailed_loan_details__element}>
                         <div className={styles.detailed_loan_details__element_label}>Стоимость залога</div>
                         <div>
-                            <Money money={{ amount: 1000000, currencyCode: "RUB" }} />
+                            Добавить
+                            {/*<Money money={{ amount: 1000000, currencyCode: "RUB" }} />*/}
                         </div>
                     </li>
                 </ul>
