@@ -4,7 +4,6 @@ import styles from "./MyFundraisingInvestmentsList.module.scss";
 import SearchInput from "@/src/shared/ui/inputs/SearchInput";
 import { useMemo, useState } from "react";
 import Pagination from "@/src/shared/ui/pagination/ui/Pagination";
-import { DataCollection } from "@/src/shared/models/common";
 import CommonTable from "@/src/shared/ui/blocks/CommonTable";
 import SortingDirectionBlock from "@/src/shared/ui/utils/SortingDirectionBlock";
 import { useSortingDirection } from "@/src/shared/models/enums";

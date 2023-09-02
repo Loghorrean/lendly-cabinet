@@ -25,6 +25,9 @@ const PrimaryMarketCard = ({ project }: Props) => {
     const investedPercent = () => {
         return parseFloat((((project.investedSum?.amount ?? 0) / project.targetSum.amount) * 100).toFixed(2));
     };
+    const picture = () => {
+        return noImagePicture;
+    };
     return (
         <li className={styles.primary_market_card}>
             <div className={styles.primary_market_card__image_container}>
@@ -50,7 +53,7 @@ const PrimaryMarketCard = ({ project }: Props) => {
                         </text>
                     </RoundProgressBar>
                 </div>
-                <ProjectImage src={noImagePicture} alt="No image found" fill />
+                <ProjectImage src={picture()} alt="No image found" fill />
             </div>
             <div className={styles.primary_market_card__content}>
                 <header className={styles.primary_market_card__header}>
@@ -79,7 +82,7 @@ const PrimaryMarketCard = ({ project }: Props) => {
                         <div className={styles.primary_market_card__parameter}>
                             <p className={styles.primary_market_card__label}>Срок</p>
                             <div className={styles.primary_market_card__value}>
-                                <span>{project.initialTerm}мес.</span>
+                                <span>{project.initialTerm} мес.</span>
                                 <Tooltip tooltipContent={<TooltipContent>Время до окончания проекта</TooltipContent>}>
                                     <QuestionBlock />
                                 </Tooltip>

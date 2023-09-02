@@ -3,12 +3,15 @@ import { ObjectValues } from "@/src/shared/utils";
 
 export const LOAN_NAVIGATION_TAB = {
     DETAILS: "DETAILS",
-    ABOUT: "ABOUT",
+    LOAN_ABOUT: "LOAN_ABOUT",
+    PROJECT_ABOUT: "PROJECT_ABOUT",
     OFFERS: "OFFERS",
     SECURITY: "SECURITY",
     SELLER: "SELLER",
+    PROJECT_MANAGER: "PROJECT_MANAGER",
     HISTORY: "HISTORY",
     SCHEDULE: "SCHEDULE",
+    PROJECT_REPORT: "PROJECT_REPORT",
     DELAY_EVENTS: "DELAY_EVENTS",
 } as const;
 
@@ -29,10 +32,16 @@ const DetailedLoanNavigation = ({ tab, setTab }: Props) => {
                 Детали сделки
             </ProjectNavigation.Element>
             <ProjectNavigation.Element
-                active={tab === LOAN_NAVIGATION_TAB.ABOUT}
-                onSelected={() => setTab(LOAN_NAVIGATION_TAB.ABOUT)}
+                active={tab === LOAN_NAVIGATION_TAB.LOAN_ABOUT}
+                onSelected={() => setTab(LOAN_NAVIGATION_TAB.LOAN_ABOUT)}
             >
                 О займе
+            </ProjectNavigation.Element>
+            <ProjectNavigation.Element
+                active={tab === LOAN_NAVIGATION_TAB.PROJECT_ABOUT}
+                onSelected={() => setTab(LOAN_NAVIGATION_TAB.PROJECT_ABOUT)}
+            >
+                О проекте
             </ProjectNavigation.Element>
             <ProjectNavigation.Element
                 active={tab === LOAN_NAVIGATION_TAB.OFFERS}
@@ -53,6 +62,12 @@ const DetailedLoanNavigation = ({ tab, setTab }: Props) => {
                 Продавец
             </ProjectNavigation.Element>
             <ProjectNavigation.Element
+                active={tab === LOAN_NAVIGATION_TAB.PROJECT_MANAGER}
+                onSelected={() => setTab(LOAN_NAVIGATION_TAB.PROJECT_MANAGER)}
+            >
+                Управляющий проектом
+            </ProjectNavigation.Element>
+            <ProjectNavigation.Element
                 active={tab === LOAN_NAVIGATION_TAB.HISTORY}
                 onSelected={() => setTab(LOAN_NAVIGATION_TAB.HISTORY)}
             >
@@ -63,6 +78,12 @@ const DetailedLoanNavigation = ({ tab, setTab }: Props) => {
                 onSelected={() => setTab(LOAN_NAVIGATION_TAB.SCHEDULE)}
             >
                 График выплат
+            </ProjectNavigation.Element>
+            <ProjectNavigation.Element
+                active={tab === LOAN_NAVIGATION_TAB.PROJECT_REPORT}
+                onSelected={() => setTab(LOAN_NAVIGATION_TAB.PROJECT_REPORT)}
+            >
+                Отчеты по проекту
             </ProjectNavigation.Element>
             <ProjectNavigation.Element
                 active={tab === LOAN_NAVIGATION_TAB.DELAY_EVENTS}

@@ -1,9 +1,41 @@
+@use "src/shared/styles/typography" as typo;
+
 .my_investments_statistics {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     grid-column: 1 / -1;
-    &__header {
+    &__heading {
         width: calc(max(50%, 20rem));
+    }
+    &__table, &__list {
+        display: flex;
+        flex-direction: column;
+    }
+    &__header, &__row {
+        display: grid;
+        grid-template-columns: 25.5rem 20.625rem 1fr;
+        grid-gap: 1.5rem;
+        align-items: center;
+        border-bottom: 1px solid #EFF1EE;
+    }
+    &__label {
+        @include typo.tagText;
+        color: var(--font-medium-gray-color);
+        text-transform: uppercase;
+    }
+    &__header {
+        min-height: 2.5rem;
+    }
+    &__row {
+        padding-block: 1rem;
+    }
+    &__cell {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-block: 0.25rem;
+        @include typo.regularBasisText;
+        color: var(--font-dark-color);
     }
 }

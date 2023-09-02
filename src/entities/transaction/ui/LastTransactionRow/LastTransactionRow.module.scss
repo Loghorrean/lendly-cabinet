@@ -1,0 +1,23 @@
+@use "src/shared/styles/typography" as typo;
+
+.last_transaction_row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  &__type {
+    flex-grow: 1;
+    @include typo.tertiaryText;
+    color: var(--font-medium-gray-color);
+  }
+  &__name {
+    @include typo.regularBasisText;
+  }
+  &__money {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  &__amount {
+    @include typo.primaryText;
+  }
+}

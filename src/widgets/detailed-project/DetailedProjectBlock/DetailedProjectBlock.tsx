@@ -27,15 +27,18 @@ type Props = {
 };
 
 const DetailedProjectBlock = ({ project }: Props) => {
-    const [tab, setTab] = useState<LoanNavigationTab>(LOAN_NAVIGATION_TAB.ABOUT);
+    const [tab, setTab] = useState<LoanNavigationTab>(LOAN_NAVIGATION_TAB.LOAN_ABOUT);
     const availableTabs = useRef<Record<LoanNavigationTab, ReactNode>>({
-        [LOAN_NAVIGATION_TAB.DETAILS]: <DetailedLoanDetails />,
-        [LOAN_NAVIGATION_TAB.ABOUT]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.DETAILS]: <DetailedLoanDetails loan={project.loan} />,
+        [LOAN_NAVIGATION_TAB.LOAN_ABOUT]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.PROJECT_ABOUT]: <DetailedLoanAboutBlock />,
         [LOAN_NAVIGATION_TAB.OFFERS]: <DetailedLoanAboutBlock />,
         [LOAN_NAVIGATION_TAB.SECURITY]: <DetailedLoanPledge />,
         [LOAN_NAVIGATION_TAB.SELLER]: <DetailedLoanSeller />,
+        [LOAN_NAVIGATION_TAB.PROJECT_MANAGER]: <DetailedLoanSeller />,
         [LOAN_NAVIGATION_TAB.HISTORY]: <DetailedLoanAboutBlock />,
         [LOAN_NAVIGATION_TAB.SCHEDULE]: <DetailedLoanAboutBlock />,
+        [LOAN_NAVIGATION_TAB.PROJECT_REPORT]: <DetailedLoanAboutBlock />,
         [LOAN_NAVIGATION_TAB.DELAY_EVENTS]: <DetailedLoanAboutBlock />,
     });
     return (

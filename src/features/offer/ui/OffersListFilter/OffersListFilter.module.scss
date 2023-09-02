@@ -15,12 +15,6 @@
     grid-template-columns: repeat(3, minmax(10px, 1fr));
     grid-gap: 1.5rem 1rem;
   }
-  &__block {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
   &__label {
     color: var(--font-secondary-color);
   }
