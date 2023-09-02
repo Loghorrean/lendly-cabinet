@@ -1,7 +1,7 @@
 @use "src/shared/styles/mixins" as m;
 @use "src/shared/styles/typography" as typo;
 
-.round_chart_entry {
+.chart_entry {
   display: flex;
   align-items: center;
   justify-content: space-between;
